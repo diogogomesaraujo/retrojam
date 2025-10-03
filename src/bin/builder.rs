@@ -1,33 +1,12 @@
 use raylib::prelude::*;
-use serde::{Deserialize, Serialize};
-use std::fs;
+use std::collections::HashMap;
 
-const GRID_WIDTH: usize = 100;
-const GRID_HEIGHT: usize = 52;
-const SCREEN_WIDTH: i32 = 800;
-const SCREEN_HEIGHT: i32 = 416;
-const BLOCK_SIZE: i32 = SCREEN_WIDTH / GRID_WIDTH as i32;
-const DEL_SIZE: i32 = 3;
+use retrojam::{
+    BLOCK_SIZE, BlockType, DEL_SIZE, GRID_HEIGHT, GRID_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH,
+    load_map, recompute_stone_borders, save_map,
+};
 
-#[derive(Serialize, Deserialize, Clone, Copy, PartialEq)]
-enum BlockType {
-    Blank,
-    Stone,
-}
-
-#[derive(Serialize, Deserialize, Clone, Copy)]
-struct Block {
-    x: usize,
-    y: usize,
-    block_type: BlockType,
-}
-
-#[derive(Serialize, Deserialize)]
-struct MapData {
-    width: usize,
-    height: usize,
-    blocks: Vec<Block>,
-}
+type WorldMap = HashMap<(usize, usize), BlockType>;
 
 fn main() {
     let (mut rl, thread) = raylib::init()
@@ -37,22 +16,8 @@ fn main() {
 
     rl.set_target_fps(60);
 
-    // Internal representation
-    let mut grid: Vec<Vec<Option<BlockType>>> = vec![vec![None; GRID_WIDTH]; GRID_HEIGHT];
-
-    // Load existing map if available
-    if let Ok(content) = fs::read_to_string("map.json") {
-        if let Ok(map_data) = serde_json::from_str::<MapData>(&content) {
-            if map_data.height == GRID_HEIGHT && map_data.width == GRID_WIDTH {
-                for block in map_data.blocks {
-                    if block.x < GRID_WIDTH && block.y < GRID_HEIGHT {
-                        grid[block.y][block.x] = Some(block.block_type);
-                    }
-                }
-                println!("Loaded existing map from map.json");
-            }
-        }
-    }
+    // Load existing map using your lib function
+    let mut map = load_map();
 
     while !rl.window_should_close() {
         if rl.is_mouse_button_pressed(MouseButton::MOUSE_BUTTON_LEFT) {
@@ -61,11 +26,13 @@ fn main() {
             let grid_y = (mouse_pos.y as i32 / BLOCK_SIZE) as usize;
 
             if grid_x < GRID_WIDTH && grid_y < GRID_HEIGHT {
-                if let Some(BlockType::Blank) = grid[grid_y][grid_x] {
-                    // Deactivate single blank
-                    grid[grid_y][grid_x] = None;
+                let pos = (grid_x, grid_y);
+
+                // Check if clicking on existing blank - toggle it off
+                if map.get(&pos) == Some(&BlockType::Blank) {
+                    map.remove(&pos);
                 } else {
-                    // Activate brush area with blanks (remove stone if present)
+                    // Paint brush area with blanks
                     let half = DEL_SIZE / 2;
                     for dy in -half..=half {
                         for dx in -half..=half {
@@ -76,39 +43,35 @@ fn main() {
                                 && nx < GRID_WIDTH as i32
                                 && ny < GRID_HEIGHT as i32
                             {
-                                grid[ny as usize][nx as usize] = Some(BlockType::Blank);
+                                map.insert((nx as usize, ny as usize), BlockType::Blank);
                             }
                         }
                     }
                 }
             }
 
-            // recompute stone borders
-            recompute_stone_borders(&mut grid);
+            // Recompute stone borders using your lib function
+            recompute_stone_borders(&mut map);
         }
 
         // Draw
         let mut d = rl.begin_drawing(&thread);
         d.clear_background(Color::DARKGRAY);
 
+        // Draw grid
         for y in 0..GRID_HEIGHT {
             for x in 0..GRID_WIDTH {
                 let pos_x = (x as i32) * BLOCK_SIZE;
                 let pos_y = (y as i32) * BLOCK_SIZE;
 
-                match grid[y][x] {
-                    Some(BlockType::Blank) => {
-                        d.draw_rectangle(pos_x, pos_y, BLOCK_SIZE, BLOCK_SIZE, Color::WHITE);
-                    }
-                    Some(BlockType::Stone) => {
-                        d.draw_rectangle(pos_x, pos_y, BLOCK_SIZE, BLOCK_SIZE, Color::BROWN);
-                    }
-                    None => {
-                        d.draw_rectangle(pos_x, pos_y, BLOCK_SIZE, BLOCK_SIZE, Color::BLACK);
-                    }
-                }
+                let color = match map.get(&(x, y)) {
+                    Some(BlockType::Blank) => Color::WHITE,
+                    Some(BlockType::Stone) => Color::BROWN,
+                    None => Color::BLACK,
+                };
 
-                d.draw_rectangle_lines(pos_x, pos_y, BLOCK_SIZE, BLOCK_SIZE, Color::BLACK);
+                d.draw_rectangle(pos_x, pos_y, BLOCK_SIZE, BLOCK_SIZE, color);
+                d.draw_rectangle_lines(pos_x, pos_y, BLOCK_SIZE, BLOCK_SIZE, Color::DARKGRAY);
             }
         }
 
@@ -124,60 +87,6 @@ fn main() {
         );
     }
 
-    // Save only active blocks
-    let mut blocks = Vec::new();
-    for y in 0..GRID_HEIGHT {
-        for x in 0..GRID_WIDTH {
-            if let Some(block_type) = grid[y][x] {
-                blocks.push(Block { x, y, block_type });
-            }
-        }
-    }
-
-    let map_data = MapData {
-        width: GRID_WIDTH,
-        height: GRID_HEIGHT,
-        blocks,
-    };
-
-    match serde_json::to_string_pretty(&map_data) {
-        Ok(json) => {
-            if let Err(e) = fs::write("map.json", json) {
-                eprintln!("Failed to save map: {}", e);
-            } else {
-                println!("Map saved to map.json");
-            }
-        }
-        Err(e) => eprintln!("Failed to serialize map: {}", e),
-    }
-}
-
-/// recompute stone borders around all blanks
-fn recompute_stone_borders(grid: &mut Vec<Vec<Option<BlockType>>>) {
-    for y in 0..GRID_HEIGHT {
-        for x in 0..GRID_WIDTH {
-            if grid[y][x] == Some(BlockType::Stone) {
-                grid[y][x] = None;
-            }
-        }
-    }
-
-    // add new stone borders
-    let dirs = [(0, 1), (0, -1), (1, 0), (-1, 0)];
-    for y in 0..GRID_HEIGHT {
-        for x in 0..GRID_WIDTH {
-            if grid[y][x] == Some(BlockType::Blank) {
-                for (dx, dy) in dirs {
-                    let nx = x as i32 + dx;
-                    let ny = y as i32 + dy;
-                    if nx >= 0 && ny >= 0 && nx < GRID_WIDTH as i32 && ny < GRID_HEIGHT as i32 {
-                        let (nx, ny) = (nx as usize, ny as usize);
-                        if grid[ny][nx].is_none() {
-                            grid[ny][nx] = Some(BlockType::Stone);
-                        }
-                    }
-                }
-            }
-        }
-    }
+    // Save using your lib function
+    save_map(&map);
 }
