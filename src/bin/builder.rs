@@ -7,6 +7,7 @@ const GRID_HEIGHT: usize = 52;
 const SCREEN_WIDTH: i32 = 800;
 const SCREEN_HEIGHT: i32 = 416;
 const BLOCK_SIZE: i32 = SCREEN_WIDTH / GRID_WIDTH as i32;
+const DEL_SIZE: i32 = 3;
 
 #[derive(Serialize, Deserialize)]
 struct MapData {
@@ -23,7 +24,6 @@ fn main() {
 
     rl.set_target_fps(60);
 
-    // Initialize grid - all false (inactive)
     let mut grid: Vec<Vec<bool>> = vec![vec![false; GRID_WIDTH]; GRID_HEIGHT];
 
     // Try to load existing map
@@ -37,14 +37,32 @@ fn main() {
     }
 
     while !rl.window_should_close() {
-        // Update
         if rl.is_mouse_button_pressed(MouseButton::MOUSE_BUTTON_LEFT) {
             let mouse_pos = rl.get_mouse_position();
             let grid_x = (mouse_pos.x as i32 / BLOCK_SIZE) as usize;
             let grid_y = (mouse_pos.y as i32 / BLOCK_SIZE) as usize;
 
             if grid_x < GRID_WIDTH && grid_y < GRID_HEIGHT {
-                grid[grid_y][grid_x] = !grid[grid_y][grid_x];
+                if grid[grid_y][grid_x] {
+                    // Active block → deactivate just this one
+                    grid[grid_y][grid_x] = false;
+                } else {
+                    // Inactive block → activate a square area
+                    let half = DEL_SIZE / 2;
+                    for dy in -half..=half {
+                        for dx in -half..=half {
+                            let nx = grid_x as i32 + dx;
+                            let ny = grid_y as i32 + dy;
+                            if nx >= 0
+                                && ny >= 0
+                                && nx < GRID_WIDTH as i32
+                                && ny < GRID_HEIGHT as i32
+                            {
+                                grid[ny as usize][nx as usize] = true;
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -52,7 +70,6 @@ fn main() {
         let mut d = rl.begin_drawing(&thread);
         d.clear_background(Color::DARKGRAY);
 
-        // Draw grid
         for y in 0..GRID_HEIGHT {
             for x in 0..GRID_WIDTH {
                 let pos_x = (x as i32) * BLOCK_SIZE;
@@ -70,7 +87,10 @@ fn main() {
         }
 
         d.draw_text(
-            "Click to toggle - Close to save",
+            &format!(
+                "Click to toggle (brush {}x{}) - Close to save",
+                DEL_SIZE, DEL_SIZE
+            ),
             10,
             SCREEN_HEIGHT - 20,
             10,
