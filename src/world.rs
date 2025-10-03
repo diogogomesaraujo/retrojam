@@ -1,6 +1,4 @@
-use crate::{
-    BLOCK_SIZE, BlockType, SCREEN_HEIGHT, SCREEN_WIDTH, WorldMap, load_map, player::Player,
-};
+use crate::{BLOCK_SIZE, BlockType, WorldMap, load_map, player::Player};
 use raylib::prelude::*;
 
 pub struct World {
