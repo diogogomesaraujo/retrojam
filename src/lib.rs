@@ -22,6 +22,7 @@ pub const SPRITE_SIZE: f32 = 8.;
 pub enum BlockType {
     Blank,
     Stone,
+    Start,
 }
 
 #[derive(Serialize, Deserialize)]

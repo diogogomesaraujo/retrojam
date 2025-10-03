@@ -28,6 +28,7 @@ impl World {
             let color = match b {
                 BlockType::Blank => Color::LIGHTGRAY,
                 BlockType::Stone => Color::DARKGRAY,
+                BlockType::Start => Color::YELLOW,
             };
             d.draw_rectangle(nx, ny, BLOCK_SIZE, BLOCK_SIZE, color);
         }
