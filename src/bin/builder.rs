@@ -16,7 +16,6 @@ fn main() {
 
     rl.set_target_fps(60);
 
-    // Load existing map using your lib function
     let mut map = load_map();
 
     while !rl.window_should_close() {
@@ -28,11 +27,9 @@ fn main() {
             if grid_x < GRID_WIDTH && grid_y < GRID_HEIGHT {
                 let pos = (grid_x, grid_y);
 
-                // Check if clicking on existing blank - toggle it off
                 if map.get(&pos) == Some(&BlockType::Blank) {
                     map.remove(&pos);
                 } else {
-                    // Paint brush area with blanks
                     let half = DEL_SIZE / 2;
                     for dy in -half..=half {
                         for dx in -half..=half {
@@ -50,7 +47,6 @@ fn main() {
                 }
             }
 
-            // Recompute stone borders using your lib function
             recompute_stone_borders(&mut map);
         }
 
@@ -86,7 +82,5 @@ fn main() {
             Color::WHITE,
         );
     }
-
-    // Save using your lib function
     save_map(&map);
 }
