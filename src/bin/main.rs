@@ -1,8 +1,9 @@
 use raylib::prelude::*;
-use retrojam::player::Player;
+use retrojam::{TARGET_FPS, player::Player};
 
 fn main() {
     let (mut rl, thread) = raylib::init().size(640, 480).title("Hello, World").build();
+    rl.set_target_fps(TARGET_FPS);
     let mut player = Player::new(&mut rl);
 
     while !rl.window_should_close() {
