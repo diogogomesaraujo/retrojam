@@ -16,6 +16,7 @@ pub const DEL_SIZE: i32 = 3;
 pub const TARGET_FPS: u32 = 60;
 pub const PLAYER_SPEED: f32 = 5.0;
 pub const JUMP_SPEED: f32 = 20.0;
+pub const SPRITE_SIZE: f32 = 8.0;
 
 pub type WorldMap = HashMap<(usize, usize), BlockType>;
 

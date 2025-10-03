@@ -3,18 +3,923 @@
   "height": 52,
   "blocks": [
     {
-      "x": 22,
+      "x": 57,
+      "y": 41,
+      "block_type": "Stone"
+    },
+    {
+      "x": 39,
+      "y": 31,
+      "block_type": "Stone"
+    },
+    {
+      "x": 59,
+      "y": 31,
+      "block_type": "Stone"
+    },
+    {
+      "x": 54,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 33,
+      "y": 38,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 36,
+      "block_type": "Blank"
+    },
+    {
+      "x": 15,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 41,
+      "block_type": "Blank"
+    },
+    {
+      "x": 24,
+      "y": 33,
+      "block_type": "Stone"
+    },
+    {
+      "x": 44,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 14,
+      "y": 27,
+      "block_type": "Stone"
+    },
+    {
+      "x": 39,
+      "y": 33,
+      "block_type": "Stone"
+    },
+    {
+      "x": 57,
+      "y": 47,
+      "block_type": "Stone"
+    },
+    {
+      "x": 57,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 34,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 15,
       "y": 29,
       "block_type": "Blank"
     },
     {
-      "x": 57,
+      "x": 45,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 42,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 61,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 18,
+      "y": 28,
+      "block_type": "Stone"
+    },
+    {
+      "x": 59,
       "y": 51,
       "block_type": "Stone"
     },
     {
+      "x": 45,
+      "y": 46,
+      "block_type": "Stone"
+    },
+    {
+      "x": 36,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 54,
+      "y": 45,
+      "block_type": "Blank"
+    },
+    {
+      "x": 17,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 33,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 39,
+      "y": 38,
+      "block_type": "Blank"
+    },
+    {
+      "x": 25,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 37,
+      "y": 37,
+      "block_type": "Blank"
+    },
+    {
+      "x": 24,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 18,
+      "y": 25,
+      "block_type": "Stone"
+    },
+    {
+      "x": 16,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
       "x": 58,
+      "y": 40,
+      "block_type": "Blank"
+    },
+    {
+      "x": 27,
+      "y": 36,
+      "block_type": "Stone"
+    },
+    {
+      "x": 34,
+      "y": 37,
+      "block_type": "Stone"
+    },
+    {
+      "x": 15,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 32,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 35,
+      "block_type": "Stone"
+    },
+    {
+      "x": 56,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 52,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 49,
+      "y": 46,
+      "block_type": "Blank"
+    },
+    {
+      "x": 15,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 53,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 23,
+      "y": 33,
+      "block_type": "Stone"
+    },
+    {
+      "x": 18,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 26,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 62,
+      "y": 32,
+      "block_type": "Stone"
+    },
+    {
+      "x": 38,
+      "y": 41,
+      "block_type": "Stone"
+    },
+    {
+      "x": 60,
+      "y": 39,
+      "block_type": "Stone"
+    },
+    {
+      "x": 25,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 39,
+      "y": 40,
+      "block_type": "Blank"
+    },
+    {
+      "x": 37,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 54,
+      "y": 48,
+      "block_type": "Blank"
+    },
+    {
+      "x": 34,
+      "y": 38,
+      "block_type": "Stone"
+    },
+    {
+      "x": 52,
+      "y": 46,
+      "block_type": "Blank"
+    },
+    {
+      "x": 35,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 55,
       "y": 51,
+      "block_type": "Stone"
+    },
+    {
+      "x": 62,
+      "y": 41,
+      "block_type": "Blank"
+    },
+    {
+      "x": 43,
+      "y": 44,
+      "block_type": "Blank"
+    },
+    {
+      "x": 47,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 58,
+      "y": 49,
+      "block_type": "Blank"
+    },
+    {
+      "x": 41,
+      "y": 43,
+      "block_type": "Stone"
+    },
+    {
+      "x": 52,
+      "y": 47,
+      "block_type": "Blank"
+    },
+    {
+      "x": 20,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 21,
+      "y": 27,
+      "block_type": "Stone"
+    },
+    {
+      "x": 23,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 19,
+      "y": 32,
+      "block_type": "Stone"
+    },
+    {
+      "x": 53,
+      "y": 45,
+      "block_type": "Blank"
+    },
+    {
+      "x": 53,
+      "y": 47,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 50,
+      "block_type": "Blank"
+    },
+    {
+      "x": 65,
+      "y": 37,
+      "block_type": "Stone"
+    },
+    {
+      "x": 44,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 28,
+      "y": 36,
+      "block_type": "Blank"
+    },
+    {
+      "x": 17,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 42,
+      "y": 45,
+      "block_type": "Stone"
+    },
+    {
+      "x": 38,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 33,
+      "y": 41,
+      "block_type": "Stone"
+    },
+    {
+      "x": 43,
+      "y": 37,
+      "block_type": "Stone"
+    },
+    {
+      "x": 64,
+      "y": 40,
+      "block_type": "Stone"
+    },
+    {
+      "x": 59,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 36,
+      "y": 38,
+      "block_type": "Stone"
+    },
+    {
+      "x": 27,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 64,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 58,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 46,
+      "y": 47,
+      "block_type": "Blank"
+    },
+    {
+      "x": 51,
+      "y": 46,
+      "block_type": "Blank"
+    },
+    {
+      "x": 41,
+      "y": 37,
+      "block_type": "Blank"
+    },
+    {
+      "x": 28,
+      "y": 30,
+      "block_type": "Stone"
+    },
+    {
+      "x": 38,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 58,
+      "y": 44,
+      "block_type": "Stone"
+    },
+    {
+      "x": 59,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 37,
+      "y": 30,
+      "block_type": "Stone"
+    },
+    {
+      "x": 32,
+      "y": 36,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 41,
+      "block_type": "Blank"
+    },
+    {
+      "x": 36,
+      "y": 39,
+      "block_type": "Stone"
+    },
+    {
+      "x": 30,
+      "y": 37,
+      "block_type": "Blank"
+    },
+    {
+      "x": 56,
+      "y": 49,
+      "block_type": "Blank"
+    },
+    {
+      "x": 44,
+      "y": 44,
+      "block_type": "Blank"
+    },
+    {
+      "x": 57,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 41,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 31,
+      "y": 38,
+      "block_type": "Blank"
+    },
+    {
+      "x": 17,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 62,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 36,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 48,
+      "y": 44,
+      "block_type": "Stone"
+    },
+    {
+      "x": 35,
+      "y": 31,
+      "block_type": "Stone"
+    },
+    {
+      "x": 28,
+      "y": 32,
+      "block_type": "Stone"
+    },
+    {
+      "x": 27,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 26,
+      "y": 28,
+      "block_type": "Stone"
+    },
+    {
+      "x": 56,
+      "y": 51,
+      "block_type": "Stone"
+    },
+    {
+      "x": 60,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 27,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 18,
+      "y": 27,
+      "block_type": "Stone"
+    },
+    {
+      "x": 36,
+      "y": 36,
+      "block_type": "Blank"
+    },
+    {
+      "x": 18,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 45,
+      "y": 41,
+      "block_type": "Stone"
+    },
+    {
+      "x": 43,
+      "y": 45,
+      "block_type": "Stone"
+    },
+    {
+      "x": 16,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 61,
+      "y": 39,
+      "block_type": "Stone"
+    },
+    {
+      "x": 26,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 56,
+      "y": 45,
+      "block_type": "Stone"
+    },
+    {
+      "x": 19,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 25,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 43,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 35,
+      "y": 32,
+      "block_type": "Stone"
+    },
+    {
+      "x": 16,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 53,
+      "y": 48,
+      "block_type": "Stone"
+    },
+    {
+      "x": 24,
+      "y": 27,
+      "block_type": "Stone"
+    },
+    {
+      "x": 39,
+      "y": 42,
+      "block_type": "Stone"
+    },
+    {
+      "x": 48,
+      "y": 43,
+      "block_type": "Stone"
+    },
+    {
+      "x": 57,
+      "y": 40,
+      "block_type": "Stone"
+    },
+    {
+      "x": 59,
+      "y": 49,
+      "block_type": "Blank"
+    },
+    {
+      "x": 28,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 25,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 14,
+      "y": 23,
+      "block_type": "Blank"
+    },
+    {
+      "x": 45,
+      "y": 47,
+      "block_type": "Stone"
+    },
+    {
+      "x": 20,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 61,
+      "y": 37,
+      "block_type": "Stone"
+    },
+    {
+      "x": 58,
+      "y": 48,
+      "block_type": "Blank"
+    },
+    {
+      "x": 15,
+      "y": 30,
+      "block_type": "Stone"
+    },
+    {
+      "x": 26,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 19,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 33,
+      "y": 37,
+      "block_type": "Blank"
+    },
+    {
+      "x": 14,
+      "y": 29,
+      "block_type": "Stone"
+    },
+    {
+      "x": 28,
+      "y": 31,
+      "block_type": "Stone"
+    },
+    {
+      "x": 61,
+      "y": 40,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 37,
+      "block_type": "Blank"
+    },
+    {
+      "x": 64,
+      "y": 37,
+      "block_type": "Blank"
+    },
+    {
+      "x": 50,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 38,
+      "y": 37,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 54,
+      "y": 49,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 63,
+      "y": 41,
+      "block_type": "Blank"
+    },
+    {
+      "x": 46,
+      "y": 41,
+      "block_type": "Stone"
+    },
+    {
+      "x": 49,
+      "y": 48,
+      "block_type": "Stone"
+    },
+    {
+      "x": 61,
+      "y": 31,
+      "block_type": "Stone"
+    },
+    {
+      "x": 25,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 29,
+      "y": 37,
+      "block_type": "Blank"
+    },
+    {
+      "x": 39,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 34,
+      "y": 39,
+      "block_type": "Stone"
+    },
+    {
+      "x": 55,
+      "y": 47,
+      "block_type": "Stone"
+    },
+    {
+      "x": 58,
+      "y": 32,
+      "block_type": "Stone"
+    },
+    {
+      "x": 49,
+      "y": 43,
+      "block_type": "Stone"
+    },
+    {
+      "x": 42,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 48,
+      "y": 45,
+      "block_type": "Blank"
+    },
+    {
+      "x": 61,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 30,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 48,
+      "y": 48,
+      "block_type": "Stone"
+    },
+    {
+      "x": 55,
+      "y": 44,
+      "block_type": "Blank"
+    },
+    {
+      "x": 33,
+      "y": 36,
+      "block_type": "Blank"
+    },
+    {
+      "x": 25,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 53,
+      "y": 46,
+      "block_type": "Blank"
+    },
+    {
+      "x": 30,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 62,
+      "y": 33,
+      "block_type": "Stone"
+    },
+    {
+      "x": 57,
+      "y": 45,
+      "block_type": "Stone"
+    },
+    {
+      "x": 25,
+      "y": 36,
+      "block_type": "Stone"
+    },
+    {
+      "x": 59,
+      "y": 48,
+      "block_type": "Blank"
+    },
+    {
+      "x": 50,
+      "y": 44,
+      "block_type": "Blank"
+    },
+    {
+      "x": 34,
+      "y": 36,
+      "block_type": "Blank"
+    },
+    {
+      "x": 24,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 35,
+      "block_type": "Stone"
+    },
+    {
+      "x": 52,
+      "y": 48,
       "block_type": "Stone"
     },
     {
@@ -23,13 +928,268 @@
       "block_type": "Stone"
     },
     {
-      "x": 57,
-      "y": 44,
+      "x": 24,
+      "y": 34,
+      "block_type": "Stone"
+    },
+    {
+      "x": 62,
+      "y": 37,
+      "block_type": "Blank"
+    },
+    {
+      "x": 65,
+      "y": 39,
+      "block_type": "Stone"
+    },
+    {
+      "x": 38,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 65,
+      "y": 35,
+      "block_type": "Stone"
+    },
+    {
+      "x": 30,
+      "y": 38,
+      "block_type": "Stone"
+    },
+    {
+      "x": 60,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 63,
+      "y": 43,
+      "block_type": "Stone"
+    },
+    {
+      "x": 29,
+      "y": 38,
+      "block_type": "Stone"
+    },
+    {
+      "x": 26,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 37,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 31,
+      "y": 34,
+      "block_type": "Stone"
+    },
+    {
+      "x": 43,
+      "y": 43,
       "block_type": "Blank"
     },
     {
       "x": 62,
+      "y": 34,
+      "block_type": "Stone"
+    },
+    {
+      "x": 41,
+      "y": 38,
+      "block_type": "Blank"
+    },
+    {
+      "x": 30,
+      "y": 32,
+      "block_type": "Stone"
+    },
+    {
+      "x": 65,
       "y": 36,
+      "block_type": "Stone"
+    },
+    {
+      "x": 22,
+      "y": 31,
+      "block_type": "Stone"
+    },
+    {
+      "x": 31,
+      "y": 33,
+      "block_type": "Stone"
+    },
+    {
+      "x": 61,
+      "y": 36,
+      "block_type": "Stone"
+    },
+    {
+      "x": 32,
+      "y": 37,
+      "block_type": "Blank"
+    },
+    {
+      "x": 50,
+      "y": 42,
+      "block_type": "Stone"
+    },
+    {
+      "x": 16,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 34,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 53,
+      "y": 44,
+      "block_type": "Blank"
+    },
+    {
+      "x": 36,
+      "y": 30,
+      "block_type": "Stone"
+    },
+    {
+      "x": 51,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 17,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 64,
+      "y": 36,
+      "block_type": "Blank"
+    },
+    {
+      "x": 22,
+      "y": 32,
+      "block_type": "Stone"
+    },
+    {
+      "x": 42,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 61,
+      "y": 35,
+      "block_type": "Stone"
+    },
+    {
+      "x": 28,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 47,
+      "y": 45,
+      "block_type": "Blank"
+    },
+    {
+      "x": 39,
+      "y": 41,
+      "block_type": "Blank"
+    },
+    {
+      "x": 26,
+      "y": 29,
+      "block_type": "Stone"
+    },
+    {
+      "x": 14,
+      "y": 28,
+      "block_type": "Stone"
+    },
+    {
+      "x": 64,
+      "y": 41,
+      "block_type": "Stone"
+    },
+    {
+      "x": 25,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 18,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 32,
+      "y": 38,
+      "block_type": "Blank"
+    },
+    {
+      "x": 38,
+      "y": 36,
+      "block_type": "Blank"
+    },
+    {
+      "x": 29,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 36,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 46,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 29,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 56,
+      "y": 48,
+      "block_type": "Blank"
+    },
+    {
+      "x": 18,
+      "y": 26,
+      "block_type": "Stone"
+    },
+    {
+      "x": 25,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 28,
+      "y": 37,
+      "block_type": "Blank"
+    },
+    {
+      "x": 46,
+      "y": 45,
+      "block_type": "Blank"
+    },
+    {
+      "x": 34,
+      "y": 40,
+      "block_type": "Stone"
+    },
+    {
+      "x": 22,
+      "y": 28,
       "block_type": "Blank"
     },
     {
@@ -38,134 +1198,149 @@
       "block_type": "Stone"
     },
     {
-      "x": 20,
+      "x": 29,
+      "y": 36,
+      "block_type": "Blank"
+    },
+    {
+      "x": 15,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 40,
+      "block_type": "Blank"
+    },
+    {
+      "x": 23,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 61,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 21,
       "y": 29,
       "block_type": "Blank"
     },
     {
-      "x": 52,
-      "y": 45,
-      "block_type": "Blank"
-    },
-    {
-      "x": 52,
-      "y": 48,
-      "block_type": "Stone"
-    },
-    {
-      "x": 44,
-      "y": 40,
-      "block_type": "Stone"
-    },
-    {
-      "x": 51,
-      "y": 47,
-      "block_type": "Blank"
-    },
-    {
-      "x": 43,
-      "y": 36,
-      "block_type": "Stone"
-    },
-    {
-      "x": 55,
+      "x": 42,
       "y": 44,
       "block_type": "Blank"
     },
     {
-      "x": 56,
-      "y": 47,
-      "block_type": "Stone"
-    },
-    {
-      "x": 64,
-      "y": 38,
+      "x": 16,
+      "y": 28,
       "block_type": "Blank"
     },
     {
-      "x": 14,
-      "y": 26,
+      "x": 46,
+      "y": 48,
       "block_type": "Stone"
     },
     {
-      "x": 26,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 35,
-      "y": 31,
+      "x": 27,
+      "y": 37,
       "block_type": "Stone"
     },
     {
-      "x": 34,
-      "y": 40,
-      "block_type": "Stone"
-    },
-    {
-      "x": 63,
-      "y": 40,
+      "x": 55,
+      "y": 43,
       "block_type": "Blank"
     },
     {
-      "x": 53,
-      "y": 47,
-      "block_type": "Blank"
-    },
-    {
-      "x": 39,
-      "y": 31,
-      "block_type": "Stone"
-    },
-    {
-      "x": 23,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 64,
-      "y": 36,
-      "block_type": "Blank"
-    },
-    {
-      "x": 53,
-      "y": 49,
-      "block_type": "Stone"
-    },
-    {
-      "x": 19,
-      "y": 32,
-      "block_type": "Stone"
-    },
-    {
-      "x": 56,
-      "y": 50,
-      "block_type": "Blank"
-    },
-    {
-      "x": 24,
+      "x": 41,
       "y": 33,
       "block_type": "Stone"
     },
     {
-      "x": 60,
-      "y": 43,
+      "x": 63,
+      "y": 39,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 38,
+      "block_type": "Blank"
+    },
+    {
+      "x": 64,
+      "y": 34,
       "block_type": "Stone"
     },
     {
-      "x": 16,
-      "y": 30,
+      "x": 51,
+      "y": 42,
       "block_type": "Stone"
     },
     {
-      "x": 57,
+      "x": 43,
+      "y": 40,
+      "block_type": "Blank"
+    },
+    {
+      "x": 41,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 55,
       "y": 41,
       "block_type": "Stone"
     },
     {
-      "x": 14,
-      "y": 27,
+      "x": 36,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 42,
+      "y": 37,
+      "block_type": "Blank"
+    },
+    {
+      "x": 56,
+      "y": 41,
       "block_type": "Stone"
+    },
+    {
+      "x": 57,
+      "y": 50,
+      "block_type": "Blank"
+    },
+    {
+      "x": 15,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 31,
+      "block_type": "Stone"
+    },
+    {
+      "x": 40,
+      "y": 42,
+      "block_type": "Stone"
+    },
+    {
+      "x": 42,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 58,
+      "y": 41,
+      "block_type": "Blank"
+    },
+    {
+      "x": 62,
+      "y": 40,
+      "block_type": "Blank"
     },
     {
       "x": 31,
@@ -173,199 +1348,24 @@
       "block_type": "Blank"
     },
     {
-      "x": 22,
-      "y": 31,
-      "block_type": "Stone"
-    },
-    {
-      "x": 53,
-      "y": 45,
+      "x": 46,
+      "y": 44,
       "block_type": "Blank"
     },
     {
-      "x": 33,
-      "y": 36,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
-      "y": 51,
-      "block_type": "Stone"
-    },
-    {
-      "x": 42,
-      "y": 45,
-      "block_type": "Stone"
-    },
-    {
-      "x": 15,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 39,
-      "y": 34,
-      "block_type": "Stone"
-    },
-    {
-      "x": 37,
-      "y": 38,
-      "block_type": "Blank"
-    },
-    {
-      "x": 36,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 47,
-      "y": 45,
-      "block_type": "Blank"
-    },
-    {
-      "x": 30,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 23,
-      "y": 27,
-      "block_type": "Stone"
-    },
-    {
-      "x": 55,
-      "y": 46,
-      "block_type": "Stone"
-    },
-    {
-      "x": 16,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 55,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 63,
+      "x": 32,
       "y": 39,
       "block_type": "Blank"
-    },
-    {
-      "x": 55,
-      "y": 51,
-      "block_type": "Stone"
-    },
-    {
-      "x": 42,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 40,
-      "y": 41,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 47,
-      "block_type": "Blank"
-    },
-    {
-      "x": 28,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 63,
-      "y": 43,
-      "block_type": "Stone"
-    },
-    {
-      "x": 53,
-      "y": 50,
-      "block_type": "Stone"
-    },
-    {
-      "x": 34,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 39,
-      "y": 38,
-      "block_type": "Blank"
-    },
-    {
-      "x": 41,
-      "y": 43,
-      "block_type": "Stone"
-    },
-    {
-      "x": 34,
-      "y": 33,
-      "block_type": "Stone"
-    },
-    {
-      "x": 34,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 33,
-      "y": 39,
-      "block_type": "Blank"
-    },
-    {
-      "x": 15,
-      "y": 23,
-      "block_type": "Blank"
-    },
-    {
-      "x": 38,
-      "y": 41,
-      "block_type": "Stone"
-    },
-    {
-      "x": 15,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 25,
-      "y": 36,
-      "block_type": "Stone"
-    },
-    {
-      "x": 41,
-      "y": 39,
-      "block_type": "Blank"
-    },
-    {
-      "x": 14,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 64,
-      "y": 34,
-      "block_type": "Stone"
     },
     {
       "x": 50,
-      "y": 47,
+      "y": 46,
       "block_type": "Blank"
     },
     {
-      "x": 42,
-      "y": 34,
-      "block_type": "Blank"
+      "x": 41,
+      "y": 44,
+      "block_type": "Stone"
     },
     {
       "x": 53,
@@ -373,53 +1373,8 @@
       "block_type": "Stone"
     },
     {
-      "x": 15,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 57,
-      "y": 49,
-      "block_type": "Blank"
-    },
-    {
-      "x": 20,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 27,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 52,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 40,
-      "y": 36,
-      "block_type": "Blank"
-    },
-    {
-      "x": 26,
-      "y": 28,
-      "block_type": "Stone"
-    },
-    {
-      "x": 41,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 35,
-      "y": 37,
-      "block_type": "Stone"
-    },
-    {
-      "x": 45,
-      "y": 47,
+      "x": 18,
+      "y": 32,
       "block_type": "Stone"
     },
     {
@@ -428,363 +1383,58 @@
       "block_type": "Stone"
     },
     {
-      "x": 43,
-      "y": 39,
-      "block_type": "Stone"
-    },
-    {
-      "x": 59,
-      "y": 40,
-      "block_type": "Blank"
-    },
-    {
-      "x": 26,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 62,
-      "y": 40,
-      "block_type": "Blank"
-    },
-    {
-      "x": 22,
-      "y": 32,
-      "block_type": "Stone"
-    },
-    {
-      "x": 16,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 63,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 31,
-      "y": 38,
-      "block_type": "Blank"
-    },
-    {
-      "x": 46,
-      "y": 48,
-      "block_type": "Stone"
-    },
-    {
-      "x": 28,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 33,
-      "y": 41,
-      "block_type": "Stone"
-    },
-    {
-      "x": 56,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 51,
-      "y": 42,
-      "block_type": "Stone"
-    },
-    {
-      "x": 25,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
       "x": 23,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 52,
-      "y": 42,
-      "block_type": "Stone"
-    },
-    {
-      "x": 30,
-      "y": 40,
-      "block_type": "Stone"
-    },
-    {
-      "x": 45,
-      "y": 45,
-      "block_type": "Stone"
-    },
-    {
-      "x": 49,
-      "y": 44,
-      "block_type": "Stone"
-    },
-    {
-      "x": 17,
-      "y": 23,
-      "block_type": "Stone"
-    },
-    {
-      "x": 17,
-      "y": 31,
-      "block_type": "Stone"
-    },
-    {
-      "x": 54,
-      "y": 50,
-      "block_type": "Blank"
-    },
-    {
-      "x": 57,
-      "y": 47,
-      "block_type": "Stone"
-    },
-    {
-      "x": 62,
-      "y": 41,
-      "block_type": "Blank"
-    },
-    {
-      "x": 37,
-      "y": 40,
-      "block_type": "Stone"
-    },
-    {
-      "x": 60,
-      "y": 39,
-      "block_type": "Stone"
-    },
-    {
-      "x": 64,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 55,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 40,
-      "y": 42,
-      "block_type": "Stone"
-    },
-    {
-      "x": 37,
-      "y": 37,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
-      "y": 47,
-      "block_type": "Stone"
-    },
-    {
-      "x": 39,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 43,
-      "y": 42,
+      "y": 32,
       "block_type": "Blank"
     },
     {
       "x": 25,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 41,
-      "y": 38,
-      "block_type": "Blank"
-    },
-    {
-      "x": 15,
-      "y": 30,
+      "y": 27,
       "block_type": "Stone"
     },
     {
-      "x": 24,
-      "y": 34,
-      "block_type": "Stone"
-    },
-    {
-      "x": 63,
-      "y": 41,
-      "block_type": "Blank"
-    },
-    {
-      "x": 15,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 37,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 24,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 22,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 24,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 51,
-      "block_type": "Stone"
-    },
-    {
-      "x": 49,
-      "y": 45,
-      "block_type": "Blank"
-    },
-    {
-      "x": 33,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 39,
-      "y": 42,
-      "block_type": "Stone"
-    },
-    {
-      "x": 20,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 32,
-      "y": 37,
+      "x": 35,
+      "y": 36,
       "block_type": "Blank"
     },
     {
       "x": 43,
-      "y": 34,
-      "block_type": "Stone"
-    },
-    {
-      "x": 27,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 26,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 46,
-      "block_type": "Blank"
-    },
-    {
-      "x": 64,
-      "y": 39,
-      "block_type": "Blank"
-    },
-    {
-      "x": 52,
-      "y": 47,
-      "block_type": "Blank"
-    },
-    {
-      "x": 28,
-      "y": 37,
-      "block_type": "Blank"
-    },
-    {
-      "x": 36,
-      "y": 36,
-      "block_type": "Blank"
-    },
-    {
-      "x": 33,
-      "y": 38,
-      "block_type": "Blank"
-    },
-    {
-      "x": 14,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 29,
-      "y": 36,
-      "block_type": "Blank"
-    },
-    {
-      "x": 31,
-      "y": 39,
-      "block_type": "Blank"
-    },
-    {
-      "x": 39,
-      "y": 37,
-      "block_type": "Blank"
-    },
-    {
-      "x": 61,
-      "y": 37,
-      "block_type": "Stone"
-    },
-    {
-      "x": 27,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 29,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 42,
-      "y": 40,
-      "block_type": "Blank"
-    },
-    {
-      "x": 36,
-      "y": 38,
-      "block_type": "Stone"
-    },
-    {
-      "x": 37,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 45,
-      "y": 44,
-      "block_type": "Blank"
-    },
-    {
-      "x": 17,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
       "y": 41,
       "block_type": "Blank"
     },
     {
-      "x": 31,
-      "y": 33,
+      "x": 58,
+      "y": 39,
+      "block_type": "Stone"
+    },
+    {
+      "x": 43,
+      "y": 35,
+      "block_type": "Stone"
+    },
+    {
+      "x": 54,
+      "y": 42,
+      "block_type": "Stone"
+    },
+    {
+      "x": 52,
+      "y": 42,
+      "block_type": "Stone"
+    },
+    {
+      "x": 27,
+      "y": 29,
+      "block_type": "Stone"
+    },
+    {
+      "x": 62,
+      "y": 38,
+      "block_type": "Blank"
+    },
+    {
+      "x": 65,
+      "y": 38,
       "block_type": "Stone"
     },
     {
@@ -793,53 +1443,13 @@
       "block_type": "Stone"
     },
     {
-      "x": 60,
-      "y": 40,
-      "block_type": "Blank"
-    },
-    {
-      "x": 57,
-      "y": 50,
-      "block_type": "Blank"
-    },
-    {
-      "x": 49,
-      "y": 47,
-      "block_type": "Blank"
-    },
-    {
-      "x": 38,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 49,
-      "y": 43,
+      "x": 17,
+      "y": 31,
       "block_type": "Stone"
     },
     {
-      "x": 18,
+      "x": 16,
       "y": 27,
-      "block_type": "Stone"
-    },
-    {
-      "x": 62,
-      "y": 43,
-      "block_type": "Stone"
-    },
-    {
-      "x": 28,
-      "y": 31,
-      "block_type": "Stone"
-    },
-    {
-      "x": 41,
-      "y": 33,
-      "block_type": "Stone"
-    },
-    {
-      "x": 23,
-      "y": 31,
       "block_type": "Blank"
     },
     {
@@ -848,107 +1458,12 @@
       "block_type": "Blank"
     },
     {
-      "x": 50,
-      "y": 43,
+      "x": 30,
+      "y": 33,
       "block_type": "Blank"
     },
     {
-      "x": 38,
-      "y": 30,
-      "block_type": "Stone"
-    },
-    {
-      "x": 17,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 58,
-      "y": 48,
-      "block_type": "Blank"
-    },
-    {
-      "x": 46,
-      "y": 46,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
-      "y": 39,
-      "block_type": "Stone"
-    },
-    {
-      "x": 60,
-      "y": 50,
-      "block_type": "Stone"
-    },
-    {
-      "x": 34,
-      "y": 36,
-      "block_type": "Blank"
-    },
-    {
-      "x": 36,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 64,
-      "y": 40,
-      "block_type": "Stone"
-    },
-    {
-      "x": 45,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 22,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 42,
-      "y": 38,
-      "block_type": "Blank"
-    },
-    {
-      "x": 34,
-      "y": 39,
-      "block_type": "Stone"
-    },
-    {
-      "x": 54,
-      "y": 49,
-      "block_type": "Blank"
-    },
-    {
-      "x": 38,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 55,
-      "y": 45,
-      "block_type": "Stone"
-    },
-    {
-      "x": 53,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 17,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 41,
-      "y": 40,
-      "block_type": "Blank"
-    },
-    {
-      "x": 38,
+      "x": 39,
       "y": 37,
       "block_type": "Blank"
     },
@@ -958,8 +1473,98 @@
       "block_type": "Blank"
     },
     {
+      "x": 16,
+      "y": 23,
+      "block_type": "Blank"
+    },
+    {
+      "x": 13,
+      "y": 25,
+      "block_type": "Stone"
+    },
+    {
+      "x": 58,
+      "y": 43,
+      "block_type": "Stone"
+    },
+    {
+      "x": 43,
+      "y": 38,
+      "block_type": "Stone"
+    },
+    {
+      "x": 17,
+      "y": 24,
+      "block_type": "Stone"
+    },
+    {
+      "x": 23,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 40,
+      "block_type": "Blank"
+    },
+    {
       "x": 31,
       "y": 40,
+      "block_type": "Blank"
+    },
+    {
+      "x": 58,
+      "y": 47,
+      "block_type": "Stone"
+    },
+    {
+      "x": 61,
+      "y": 38,
+      "block_type": "Stone"
+    },
+    {
+      "x": 38,
+      "y": 40,
+      "block_type": "Stone"
+    },
+    {
+      "x": 17,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 54,
+      "y": 50,
+      "block_type": "Blank"
+    },
+    {
+      "x": 51,
+      "y": 47,
+      "block_type": "Blank"
+    },
+    {
+      "x": 45,
+      "y": 44,
+      "block_type": "Blank"
+    },
+    {
+      "x": 63,
+      "y": 40,
+      "block_type": "Blank"
+    },
+    {
+      "x": 58,
+      "y": 50,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 41,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 32,
       "block_type": "Blank"
     },
     {
@@ -968,33 +1573,53 @@
       "block_type": "Blank"
     },
     {
-      "x": 31,
-      "y": 41,
-      "block_type": "Stone"
-    },
-    {
-      "x": 62,
-      "y": 35,
+      "x": 28,
+      "y": 33,
       "block_type": "Blank"
     },
     {
-      "x": 31,
-      "y": 36,
-      "block_type": "Blank"
-    },
-    {
-      "x": 24,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 58,
+      "x": 32,
       "y": 40,
       "block_type": "Blank"
     },
     {
-      "x": 55,
-      "y": 48,
+      "x": 24,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 28,
+      "y": 38,
+      "block_type": "Stone"
+    },
+    {
+      "x": 37,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 37,
+      "y": 38,
+      "block_type": "Blank"
+    },
+    {
+      "x": 23,
+      "y": 27,
+      "block_type": "Stone"
+    },
+    {
+      "x": 53,
+      "y": 49,
+      "block_type": "Stone"
+    },
+    {
+      "x": 37,
+      "y": 36,
+      "block_type": "Blank"
+    },
+    {
+      "x": 42,
+      "y": 38,
       "block_type": "Blank"
     },
     {
@@ -1003,33 +1628,338 @@
       "block_type": "Blank"
     },
     {
-      "x": 21,
-      "y": 27,
+      "x": 58,
+      "y": 33,
       "block_type": "Stone"
     },
     {
-      "x": 47,
+      "x": 37,
+      "y": 40,
+      "block_type": "Stone"
+    },
+    {
+      "x": 37,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 54,
       "y": 44,
       "block_type": "Blank"
     },
     {
+      "x": 47,
+      "y": 41,
+      "block_type": "Stone"
+    },
+    {
+      "x": 41,
+      "y": 40,
+      "block_type": "Blank"
+    },
+    {
+      "x": 24,
+      "y": 35,
+      "block_type": "Stone"
+    },
+    {
+      "x": 46,
+      "y": 46,
+      "block_type": "Blank"
+    },
+    {
+      "x": 63,
+      "y": 38,
+      "block_type": "Blank"
+    },
+    {
+      "x": 32,
+      "y": 41,
+      "block_type": "Stone"
+    },
+    {
       "x": 42,
+      "y": 41,
+      "block_type": "Blank"
+    },
+    {
+      "x": 52,
+      "y": 44,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 40,
+      "block_type": "Blank"
+    },
+    {
+      "x": 21,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 61,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 36,
       "y": 35,
       "block_type": "Blank"
     },
     {
-      "x": 48,
+      "x": 50,
       "y": 47,
       "block_type": "Blank"
     },
     {
-      "x": 22,
-      "y": 27,
+      "x": 41,
+      "y": 36,
+      "block_type": "Blank"
+    },
+    {
+      "x": 45,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 38,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 39,
+      "block_type": "Blank"
+    },
+    {
+      "x": 35,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 53,
+      "y": 50,
       "block_type": "Stone"
     },
     {
-      "x": 51,
+      "x": 55,
+      "y": 50,
+      "block_type": "Blank"
+    },
+    {
+      "x": 21,
+      "y": 31,
+      "block_type": "Stone"
+    },
+    {
+      "x": 55,
+      "y": 49,
+      "block_type": "Blank"
+    },
+    {
+      "x": 38,
+      "y": 30,
+      "block_type": "Stone"
+    },
+    {
+      "x": 60,
+      "y": 50,
+      "block_type": "Stone"
+    },
+    {
+      "x": 27,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 57,
+      "y": 49,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 44,
       "y": 45,
+      "block_type": "Stone"
+    },
+    {
+      "x": 49,
+      "y": 44,
+      "block_type": "Stone"
+    },
+    {
+      "x": 45,
+      "y": 45,
+      "block_type": "Stone"
+    },
+    {
+      "x": 56,
+      "y": 47,
+      "block_type": "Stone"
+    },
+    {
+      "x": 22,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 39,
+      "y": 36,
+      "block_type": "Blank"
+    },
+    {
+      "x": 27,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 47,
+      "y": 47,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 49,
+      "block_type": "Stone"
+    },
+    {
+      "x": 64,
+      "y": 39,
+      "block_type": "Blank"
+    },
+    {
+      "x": 55,
+      "y": 46,
+      "block_type": "Stone"
+    },
+    {
+      "x": 49,
+      "y": 47,
+      "block_type": "Blank"
+    },
+    {
+      "x": 26,
+      "y": 36,
+      "block_type": "Stone"
+    },
+    {
+      "x": 35,
+      "y": 37,
+      "block_type": "Stone"
+    },
+    {
+      "x": 56,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 37,
+      "y": 39,
+      "block_type": "Blank"
+    },
+    {
+      "x": 14,
+      "y": 26,
+      "block_type": "Stone"
+    },
+    {
+      "x": 62,
+      "y": 43,
+      "block_type": "Stone"
+    },
+    {
+      "x": 22,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 33,
+      "block_type": "Stone"
+    },
+    {
+      "x": 41,
+      "y": 41,
+      "block_type": "Blank"
+    },
+    {
+      "x": 14,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 30,
+      "y": 40,
+      "block_type": "Stone"
+    },
+    {
+      "x": 34,
+      "y": 33,
+      "block_type": "Stone"
+    },
+    {
+      "x": 42,
+      "y": 40,
+      "block_type": "Blank"
+    },
+    {
+      "x": 17,
+      "y": 30,
+      "block_type": "Stone"
+    },
+    {
+      "x": 24,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 39,
+      "block_type": "Stone"
+    },
+    {
+      "x": 19,
+      "y": 28,
+      "block_type": "Stone"
+    },
+    {
+      "x": 17,
+      "y": 23,
+      "block_type": "Stone"
+    },
+    {
+      "x": 59,
+      "y": 43,
+      "block_type": "Stone"
+    },
+    {
+      "x": 16,
+      "y": 30,
+      "block_type": "Stone"
+    },
+    {
+      "x": 31,
+      "y": 41,
+      "block_type": "Stone"
+    },
+    {
+      "x": 43,
+      "y": 36,
+      "block_type": "Stone"
+    },
+    {
+      "x": 54,
+      "y": 47,
+      "block_type": "Blank"
+    },
+    {
+      "x": 39,
+      "y": 39,
       "block_type": "Blank"
     },
     {
@@ -1038,304 +1968,24 @@
       "block_type": "Stone"
     },
     {
-      "x": 55,
-      "y": 41,
-      "block_type": "Stone"
-    },
-    {
-      "x": 63,
-      "y": 38,
-      "block_type": "Blank"
-    },
-    {
-      "x": 16,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
-      "y": 49,
-      "block_type": "Blank"
-    },
-    {
-      "x": 23,
-      "y": 33,
-      "block_type": "Stone"
-    },
-    {
-      "x": 19,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 55,
-      "y": 49,
-      "block_type": "Blank"
-    },
-    {
-      "x": 45,
-      "y": 41,
-      "block_type": "Stone"
-    },
-    {
       "x": 43,
-      "y": 38,
-      "block_type": "Stone"
-    },
-    {
-      "x": 48,
-      "y": 46,
-      "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 44,
-      "block_type": "Blank"
-    },
-    {
-      "x": 63,
       "y": 34,
       "block_type": "Stone"
     },
     {
-      "x": 43,
-      "y": 35,
-      "block_type": "Stone"
-    },
-    {
-      "x": 57,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 51,
-      "y": 46,
-      "block_type": "Blank"
-    },
-    {
       "x": 48,
-      "y": 45,
-      "block_type": "Blank"
-    },
-    {
-      "x": 26,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 38,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 36,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 40,
-      "y": 40,
-      "block_type": "Blank"
-    },
-    {
-      "x": 24,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 51,
-      "y": 48,
-      "block_type": "Stone"
-    },
-    {
-      "x": 41,
-      "y": 41,
-      "block_type": "Blank"
-    },
-    {
-      "x": 15,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 17,
-      "y": 30,
-      "block_type": "Stone"
-    },
-    {
-      "x": 52,
       "y": 46,
-      "block_type": "Blank"
-    },
-    {
-      "x": 19,
-      "y": 28,
-      "block_type": "Stone"
-    },
-    {
-      "x": 61,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 20,
-      "y": 32,
-      "block_type": "Stone"
-    },
-    {
-      "x": 42,
-      "y": 37,
-      "block_type": "Blank"
-    },
-    {
-      "x": 40,
-      "y": 39,
-      "block_type": "Blank"
-    },
-    {
-      "x": 18,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 57,
-      "y": 40,
-      "block_type": "Stone"
-    },
-    {
-      "x": 39,
-      "y": 40,
-      "block_type": "Blank"
-    },
-    {
-      "x": 37,
-      "y": 39,
-      "block_type": "Blank"
-    },
-    {
-      "x": 41,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 61,
-      "y": 39,
-      "block_type": "Stone"
-    },
-    {
-      "x": 50,
-      "y": 44,
-      "block_type": "Blank"
-    },
-    {
-      "x": 43,
-      "y": 37,
-      "block_type": "Stone"
-    },
-    {
-      "x": 58,
-      "y": 41,
-      "block_type": "Blank"
-    },
-    {
-      "x": 65,
-      "y": 39,
-      "block_type": "Stone"
-    },
-    {
-      "x": 61,
-      "y": 43,
-      "block_type": "Stone"
-    },
-    {
-      "x": 38,
-      "y": 39,
-      "block_type": "Blank"
-    },
-    {
-      "x": 26,
-      "y": 36,
-      "block_type": "Stone"
-    },
-    {
-      "x": 46,
-      "y": 41,
-      "block_type": "Stone"
-    },
-    {
-      "x": 32,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 30,
-      "y": 39,
-      "block_type": "Stone"
-    },
-    {
-      "x": 37,
-      "y": 31,
       "block_type": "Blank"
     },
     {
       "x": 27,
-      "y": 31,
+      "y": 35,
       "block_type": "Blank"
     },
     {
       "x": 21,
-      "y": 29,
+      "y": 30,
       "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 41,
-      "block_type": "Stone"
-    },
-    {
-      "x": 59,
-      "y": 48,
-      "block_type": "Blank"
-    },
-    {
-      "x": 46,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 30,
-      "y": 38,
-      "block_type": "Stone"
-    },
-    {
-      "x": 26,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 47,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 34,
-      "y": 38,
-      "block_type": "Stone"
-    },
-    {
-      "x": 47,
-      "y": 47,
-      "block_type": "Blank"
-    },
-    {
-      "x": 64,
-      "y": 41,
-      "block_type": "Stone"
-    },
-    {
-      "x": 47,
-      "y": 41,
-      "block_type": "Stone"
     },
     {
       "x": 50,
@@ -1343,83 +1993,38 @@
       "block_type": "Stone"
     },
     {
-      "x": 37,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 62,
-      "y": 38,
-      "block_type": "Blank"
-    },
-    {
-      "x": 30,
-      "y": 36,
-      "block_type": "Blank"
-    },
-    {
-      "x": 55,
-      "y": 50,
-      "block_type": "Blank"
-    },
-    {
-      "x": 62,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 29,
-      "y": 32,
-      "block_type": "Stone"
-    },
-    {
-      "x": 24,
-      "y": 35,
-      "block_type": "Stone"
-    },
-    {
-      "x": 43,
-      "y": 44,
-      "block_type": "Blank"
-    },
-    {
       "x": 49,
+      "y": 45,
+      "block_type": "Blank"
+    },
+    {
+      "x": 62,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 47,
       "y": 48,
       "block_type": "Stone"
     },
     {
-      "x": 58,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
-      "y": 43,
-      "block_type": "Stone"
-    },
-    {
-      "x": 34,
-      "y": 37,
-      "block_type": "Stone"
-    },
-    {
-      "x": 18,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 23,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 25,
-      "y": 31,
+      "x": 24,
+      "y": 29,
       "block_type": "Blank"
     },
     {
       "x": 42,
       "y": 39,
+      "block_type": "Blank"
+    },
+    {
+      "x": 31,
+      "y": 39,
+      "block_type": "Blank"
+    },
+    {
+      "x": 29,
+      "y": 35,
       "block_type": "Blank"
     },
     {
@@ -1428,38 +2033,38 @@
       "block_type": "Stone"
     },
     {
-      "x": 13,
-      "y": 24,
-      "block_type": "Stone"
-    },
-    {
-      "x": 62,
-      "y": 37,
+      "x": 55,
+      "y": 48,
       "block_type": "Blank"
     },
     {
-      "x": 25,
-      "y": 33,
+      "x": 64,
+      "y": 42,
+      "block_type": "Stone"
+    },
+    {
+      "x": 48,
+      "y": 47,
       "block_type": "Blank"
     },
     {
-      "x": 42,
-      "y": 33,
-      "block_type": "Stone"
+      "x": 20,
+      "y": 29,
+      "block_type": "Blank"
     },
     {
-      "x": 40,
-      "y": 33,
-      "block_type": "Stone"
+      "x": 46,
+      "y": 42,
+      "block_type": "Blank"
     },
     {
-      "x": 56,
-      "y": 45,
-      "block_type": "Stone"
+      "x": 63,
+      "y": 36,
+      "block_type": "Blank"
     },
     {
-      "x": 35,
-      "y": 34,
+      "x": 63,
+      "y": 42,
       "block_type": "Blank"
     },
     {
@@ -1468,64 +2073,29 @@
       "block_type": "Blank"
     },
     {
-      "x": 14,
-      "y": 28,
-      "block_type": "Stone"
-    },
-    {
-      "x": 61,
-      "y": 35,
-      "block_type": "Stone"
-    },
-    {
-      "x": 62,
+      "x": 41,
       "y": 39,
       "block_type": "Blank"
     },
     {
+      "x": 37,
+      "y": 35,
+      "block_type": "Blank"
+    },
+    {
+      "x": 61,
+      "y": 41,
+      "block_type": "Blank"
+    },
+    {
       "x": 42,
-      "y": 41,
+      "y": 36,
       "block_type": "Blank"
     },
     {
-      "x": 18,
-      "y": 32,
-      "block_type": "Stone"
-    },
-    {
-      "x": 60,
-      "y": 49,
-      "block_type": "Stone"
-    },
-    {
-      "x": 44,
-      "y": 44,
-      "block_type": "Blank"
-    },
-    {
-      "x": 19,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 57,
+      "x": 50,
       "y": 45,
-      "block_type": "Stone"
-    },
-    {
-      "x": 49,
-      "y": 46,
       "block_type": "Blank"
-    },
-    {
-      "x": 39,
-      "y": 41,
-      "block_type": "Blank"
-    },
-    {
-      "x": 28,
-      "y": 32,
-      "block_type": "Stone"
     },
     {
       "x": 33,
@@ -1533,233 +2103,68 @@
       "block_type": "Stone"
     },
     {
-      "x": 33,
-      "y": 37,
-      "block_type": "Blank"
-    },
-    {
-      "x": 28,
+      "x": 30,
       "y": 36,
       "block_type": "Blank"
     },
     {
-      "x": 40,
-      "y": 35,
+      "x": 39,
+      "y": 34,
+      "block_type": "Stone"
+    },
+    {
+      "x": 55,
+      "y": 42,
       "block_type": "Blank"
     },
     {
-      "x": 56,
+      "x": 47,
+      "y": 44,
+      "block_type": "Blank"
+    },
+    {
+      "x": 38,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 26,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 58,
+      "y": 34,
+      "block_type": "Stone"
+    },
+    {
+      "x": 58,
       "y": 51,
       "block_type": "Stone"
     },
     {
-      "x": 54,
-      "y": 45,
-      "block_type": "Blank"
-    },
-    {
-      "x": 38,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 32,
-      "y": 36,
-      "block_type": "Blank"
-    },
-    {
-      "x": 32,
-      "y": 38,
-      "block_type": "Blank"
-    },
-    {
-      "x": 27,
+      "x": 23,
       "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 22,
+      "y": 27,
       "block_type": "Stone"
     },
     {
-      "x": 27,
-      "y": 36,
-      "block_type": "Stone"
-    },
-    {
-      "x": 58,
-      "y": 49,
-      "block_type": "Blank"
-    },
-    {
-      "x": 21,
-      "y": 31,
-      "block_type": "Stone"
-    },
-    {
-      "x": 35,
-      "y": 36,
-      "block_type": "Blank"
-    },
-    {
-      "x": 29,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 36,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 44,
-      "y": 45,
-      "block_type": "Stone"
-    },
-    {
-      "x": 17,
-      "y": 24,
-      "block_type": "Stone"
-    },
-    {
-      "x": 28,
-      "y": 30,
-      "block_type": "Stone"
-    },
-    {
-      "x": 44,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 41,
-      "y": 37,
-      "block_type": "Blank"
-    },
-    {
-      "x": 30,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 52,
-      "y": 44,
-      "block_type": "Blank"
-    },
-    {
-      "x": 28,
+      "x": 64,
       "y": 38,
-      "block_type": "Stone"
-    },
-    {
-      "x": 25,
-      "y": 34,
       "block_type": "Blank"
     },
     {
-      "x": 61,
-      "y": 40,
-      "block_type": "Blank"
-    },
-    {
-      "x": 35,
+      "x": 20,
       "y": 32,
       "block_type": "Stone"
     },
     {
-      "x": 45,
+      "x": 60,
       "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 45,
-      "y": 46,
-      "block_type": "Stone"
-    },
-    {
-      "x": 46,
-      "y": 44,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 48,
-      "block_type": "Blank"
-    },
-    {
-      "x": 44,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 31,
-      "y": 34,
-      "block_type": "Stone"
-    },
-    {
-      "x": 32,
-      "y": 34,
-      "block_type": "Stone"
-    },
-    {
-      "x": 25,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
-      "y": 50,
-      "block_type": "Blank"
-    },
-    {
-      "x": 26,
-      "y": 29,
-      "block_type": "Stone"
-    },
-    {
-      "x": 58,
-      "y": 47,
-      "block_type": "Stone"
-    },
-    {
-      "x": 65,
-      "y": 37,
-      "block_type": "Stone"
-    },
-    {
-      "x": 46,
-      "y": 45,
-      "block_type": "Blank"
-    },
-    {
-      "x": 39,
-      "y": 36,
-      "block_type": "Blank"
-    },
-    {
-      "x": 57,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 61,
-      "y": 36,
-      "block_type": "Stone"
-    },
-    {
-      "x": 30,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 38,
-      "y": 36,
-      "block_type": "Blank"
-    },
-    {
-      "x": 14,
-      "y": 23,
-      "block_type": "Blank"
-    },
-    {
-      "x": 27,
-      "y": 37,
       "block_type": "Stone"
     },
     {
@@ -1768,89 +2173,9 @@
       "block_type": "Blank"
     },
     {
-      "x": 56,
-      "y": 48,
-      "block_type": "Blank"
-    },
-    {
-      "x": 61,
-      "y": 41,
-      "block_type": "Blank"
-    },
-    {
-      "x": 21,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 37,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 58,
-      "y": 44,
-      "block_type": "Stone"
-    },
-    {
-      "x": 31,
-      "y": 37,
-      "block_type": "Blank"
-    },
-    {
-      "x": 43,
-      "y": 45,
-      "block_type": "Stone"
-    },
-    {
-      "x": 40,
-      "y": 38,
-      "block_type": "Blank"
-    },
-    {
-      "x": 58,
-      "y": 50,
-      "block_type": "Blank"
-    },
-    {
-      "x": 58,
+      "x": 30,
       "y": 39,
       "block_type": "Stone"
-    },
-    {
-      "x": 24,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 44,
-      "block_type": "Blank"
-    },
-    {
-      "x": 55,
-      "y": 47,
-      "block_type": "Stone"
-    },
-    {
-      "x": 16,
-      "y": 23,
-      "block_type": "Blank"
-    },
-    {
-      "x": 18,
-      "y": 25,
-      "block_type": "Stone"
-    },
-    {
-      "x": 53,
-      "y": 48,
-      "block_type": "Stone"
-    },
-    {
-      "x": 42,
-      "y": 44,
-      "block_type": "Blank"
     },
     {
       "x": 63,
@@ -1858,29 +2183,19 @@
       "block_type": "Blank"
     },
     {
-      "x": 36,
-      "y": 39,
-      "block_type": "Stone"
-    },
-    {
-      "x": 46,
-      "y": 42,
+      "x": 15,
+      "y": 23,
       "block_type": "Blank"
     },
     {
-      "x": 43,
-      "y": 41,
+      "x": 31,
+      "y": 37,
       "block_type": "Blank"
     },
     {
-      "x": 41,
-      "y": 36,
-      "block_type": "Blank"
-    },
-    {
-      "x": 36,
+      "x": 32,
       "y": 34,
-      "block_type": "Blank"
+      "block_type": "Stone"
     },
     {
       "x": 39,
@@ -1888,44 +2203,59 @@
       "block_type": "Stone"
     },
     {
-      "x": 36,
-      "y": 37,
+      "x": 13,
+      "y": 24,
       "block_type": "Stone"
     },
     {
-      "x": 65,
-      "y": 35,
+      "x": 47,
+      "y": 46,
+      "block_type": "Blank"
+    },
+    {
+      "x": 61,
+      "y": 43,
       "block_type": "Stone"
     },
     {
-      "x": 60,
-      "y": 41,
+      "x": 26,
+      "y": 33,
       "block_type": "Blank"
     },
     {
-      "x": 16,
-      "y": 25,
+      "x": 42,
+      "y": 33,
+      "block_type": "Stone"
+    },
+    {
+      "x": 14,
+      "y": 24,
       "block_type": "Blank"
     },
     {
-      "x": 28,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 23,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 65,
+      "x": 62,
       "y": 36,
+      "block_type": "Blank"
+    },
+    {
+      "x": 29,
+      "y": 32,
       "block_type": "Stone"
     },
     {
-      "x": 65,
-      "y": 38,
+      "x": 35,
+      "y": 33,
       "block_type": "Stone"
+    },
+    {
+      "x": 62,
+      "y": 39,
+      "block_type": "Blank"
+    },
+    {
+      "x": 31,
+      "y": 36,
+      "block_type": "Blank"
     },
     {
       "x": 20,
@@ -1933,18 +2263,63 @@
       "block_type": "Stone"
     },
     {
-      "x": 46,
+      "x": 41,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 56,
+      "y": 44,
+      "block_type": "Blank"
+    },
+    {
+      "x": 63,
+      "y": 34,
+      "block_type": "Stone"
+    },
+    {
+      "x": 57,
+      "y": 44,
+      "block_type": "Blank"
+    },
+    {
+      "x": 43,
+      "y": 39,
+      "block_type": "Stone"
+    },
+    {
+      "x": 55,
+      "y": 45,
+      "block_type": "Stone"
+    },
+    {
+      "x": 38,
+      "y": 39,
+      "block_type": "Blank"
+    },
+    {
+      "x": 33,
+      "y": 39,
+      "block_type": "Blank"
+    },
+    {
+      "x": 36,
+      "y": 37,
+      "block_type": "Stone"
+    },
+    {
+      "x": 59,
       "y": 47,
+      "block_type": "Stone"
+    },
+    {
+      "x": 54,
+      "y": 46,
       "block_type": "Blank"
     },
     {
-      "x": 29,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 37,
-      "y": 36,
+      "x": 51,
+      "y": 45,
       "block_type": "Blank"
     },
     {
@@ -1953,238 +2328,8 @@
       "block_type": "Stone"
     },
     {
-      "x": 35,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 61,
-      "y": 38,
-      "block_type": "Stone"
-    },
-    {
-      "x": 27,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 25,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 50,
-      "y": 46,
-      "block_type": "Blank"
-    },
-    {
-      "x": 16,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 47,
-      "y": 48,
-      "block_type": "Stone"
-    },
-    {
-      "x": 39,
-      "y": 39,
-      "block_type": "Blank"
-    },
-    {
-      "x": 42,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 24,
-      "y": 27,
-      "block_type": "Stone"
-    },
-    {
-      "x": 17,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 14,
-      "y": 29,
-      "block_type": "Stone"
-    },
-    {
-      "x": 40,
-      "y": 37,
-      "block_type": "Blank"
-    },
-    {
-      "x": 41,
-      "y": 44,
-      "block_type": "Stone"
-    },
-    {
-      "x": 29,
-      "y": 37,
-      "block_type": "Blank"
-    },
-    {
-      "x": 18,
-      "y": 28,
-      "block_type": "Stone"
-    },
-    {
-      "x": 35,
-      "y": 33,
-      "block_type": "Stone"
-    },
-    {
-      "x": 63,
-      "y": 37,
-      "block_type": "Blank"
-    },
-    {
-      "x": 26,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 32,
-      "y": 40,
-      "block_type": "Blank"
-    },
-    {
-      "x": 25,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 43,
-      "y": 40,
-      "block_type": "Blank"
-    },
-    {
-      "x": 38,
-      "y": 40,
-      "block_type": "Stone"
-    },
-    {
-      "x": 56,
-      "y": 49,
-      "block_type": "Blank"
-    },
-    {
-      "x": 50,
-      "y": 45,
-      "block_type": "Blank"
-    },
-    {
-      "x": 64,
-      "y": 37,
-      "block_type": "Blank"
-    },
-    {
-      "x": 42,
-      "y": 36,
-      "block_type": "Blank"
-    },
-    {
-      "x": 30,
-      "y": 37,
-      "block_type": "Blank"
-    },
-    {
-      "x": 41,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 43,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 58,
-      "y": 43,
-      "block_type": "Stone"
-    },
-    {
-      "x": 13,
-      "y": 25,
-      "block_type": "Stone"
-    },
-    {
-      "x": 16,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 29,
-      "y": 38,
-      "block_type": "Stone"
-    },
-    {
-      "x": 54,
-      "y": 42,
-      "block_type": "Stone"
-    },
-    {
-      "x": 56,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
       "x": 51,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 50,
-      "y": 42,
-      "block_type": "Stone"
-    },
-    {
-      "x": 48,
-      "y": 43,
-      "block_type": "Stone"
-    },
-    {
-      "x": 48,
-      "y": 44,
-      "block_type": "Stone"
-    },
-    {
-      "x": 64,
-      "y": 42,
-      "block_type": "Stone"
-    },
-    {
-      "x": 62,
-      "y": 34,
-      "block_type": "Stone"
-    },
-    {
-      "x": 17,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 39,
-      "y": 33,
-      "block_type": "Stone"
-    },
-    {
-      "x": 21,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 37,
-      "y": 30,
+      "y": 48,
       "block_type": "Stone"
     },
     {
@@ -2193,83 +2338,33 @@
       "block_type": "Blank"
     },
     {
-      "x": 15,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 48,
-      "y": 48,
-      "block_type": "Stone"
-    },
-    {
-      "x": 60,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 27,
-      "y": 35,
-      "block_type": "Blank"
-    },
-    {
-      "x": 47,
-      "y": 46,
-      "block_type": "Blank"
-    },
-    {
-      "x": 53,
-      "y": 46,
-      "block_type": "Blank"
-    },
-    {
-      "x": 18,
-      "y": 26,
-      "block_type": "Stone"
-    },
-    {
-      "x": 18,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 30,
-      "y": 32,
-      "block_type": "Stone"
-    },
-    {
-      "x": 53,
-      "y": 44,
-      "block_type": "Blank"
-    },
-    {
-      "x": 32,
-      "y": 41,
-      "block_type": "Stone"
-    },
-    {
-      "x": 32,
-      "y": 39,
-      "block_type": "Blank"
-    },
-    {
       "x": 63,
-      "y": 36,
+      "y": 37,
       "block_type": "Blank"
     },
     {
-      "x": 25,
-      "y": 27,
+      "x": 54,
+      "y": 51,
       "block_type": "Stone"
     },
     {
-      "x": 38,
-      "y": 32,
+      "x": 56,
+      "y": 50,
       "block_type": "Blank"
     },
     {
-      "x": 36,
-      "y": 30,
+      "x": 57,
+      "y": 51,
+      "block_type": "Stone"
+    },
+    {
+      "x": 52,
+      "y": 45,
+      "block_type": "Blank"
+    },
+    {
+      "x": 44,
+      "y": 40,
       "block_type": "Stone"
     }
   ]

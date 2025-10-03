@@ -1,3 +1,5 @@
+use std::error::Error;
+
 use crate::{BLOCK_SIZE, BlockType, WorldMap, load_map, player::Player};
 use raylib::prelude::*;
 
@@ -7,19 +9,19 @@ pub struct World {
 }
 
 impl World {
-    pub fn new(_handle: &mut RaylibHandle) -> Self {
+    pub fn new(
+        game_handle: &mut RaylibHandle,
+        game_thread: &RaylibThread,
+    ) -> Result<Self, Box<dyn Error>> {
         let map = load_map();
 
-        Self {
+        Ok(Self {
             map,
-            player: Player {
-                body: Rectangle::new(50.0, 50.0, BLOCK_SIZE as f32, BLOCK_SIZE as f32),
-                can_jump: true,
-            },
-        }
+            player: Player::new(game_handle, game_thread)?,
+        })
     }
 
-    pub fn draw(&self, d: &mut RaylibDrawHandle) {
+    pub fn draw(&mut self, d: &mut RaylibDrawHandle) {
         for ((x, y), b) in &self.map {
             let nx = (*x as i32) * BLOCK_SIZE;
             let ny = (*y as i32) * BLOCK_SIZE;
@@ -29,6 +31,6 @@ impl World {
             };
             d.draw_rectangle(nx, ny, BLOCK_SIZE, BLOCK_SIZE, color);
         }
-        d.draw_rectangle_rec(self.player.body, Color::RED);
+        self.player.draw(d);
     }
 }

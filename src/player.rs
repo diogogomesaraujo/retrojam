@@ -124,7 +124,7 @@ impl Player {
             moved = true;
         }
 
-        if player_after_move.body.y < 400. {
+        if player_after_move.body.y < 300. {
             player_after_move.body.y += PLAYER_SPEED;
             player_after_move.update_state(game_handle);
             moved = true;
