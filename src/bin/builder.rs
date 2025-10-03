@@ -1,0 +1,98 @@
+use raylib::prelude::*;
+use serde::{Deserialize, Serialize};
+use std::fs;
+
+const GRID_WIDTH: usize = 100;
+const GRID_HEIGHT: usize = 52;
+const SCREEN_WIDTH: i32 = 800;
+const SCREEN_HEIGHT: i32 = 416;
+const BLOCK_SIZE: i32 = SCREEN_WIDTH / GRID_WIDTH as i32;
+
+#[derive(Serialize, Deserialize)]
+struct MapData {
+    width: usize,
+    height: usize,
+    blocks: Vec<Vec<bool>>,
+}
+
+fn main() {
+    let (mut rl, thread) = raylib::init()
+        .size(SCREEN_WIDTH, SCREEN_HEIGHT)
+        .title("Map Builder - Click to toggle blocks")
+        .build();
+
+    rl.set_target_fps(60);
+
+    // Initialize grid - all false (inactive)
+    let mut grid: Vec<Vec<bool>> = vec![vec![false; GRID_WIDTH]; GRID_HEIGHT];
+
+    // Try to load existing map
+    if let Ok(content) = fs::read_to_string("map.json") {
+        if let Ok(map_data) = serde_json::from_str::<MapData>(&content) {
+            if map_data.height == GRID_HEIGHT && map_data.width == GRID_WIDTH {
+                grid = map_data.blocks;
+                println!("Loaded existing map from map.json");
+            }
+        }
+    }
+
+    while !rl.window_should_close() {
+        // Update
+        if rl.is_mouse_button_pressed(MouseButton::MOUSE_BUTTON_LEFT) {
+            let mouse_pos = rl.get_mouse_position();
+            let grid_x = (mouse_pos.x as i32 / BLOCK_SIZE) as usize;
+            let grid_y = (mouse_pos.y as i32 / BLOCK_SIZE) as usize;
+
+            if grid_x < GRID_WIDTH && grid_y < GRID_HEIGHT {
+                grid[grid_y][grid_x] = !grid[grid_y][grid_x];
+            }
+        }
+
+        // Draw
+        let mut d = rl.begin_drawing(&thread);
+        d.clear_background(Color::DARKGRAY);
+
+        // Draw grid
+        for y in 0..GRID_HEIGHT {
+            for x in 0..GRID_WIDTH {
+                let pos_x = (x as i32) * BLOCK_SIZE;
+                let pos_y = (y as i32) * BLOCK_SIZE;
+
+                let color = if grid[y][x] {
+                    Color::WHITE
+                } else {
+                    Color::BLACK
+                };
+
+                d.draw_rectangle(pos_x, pos_y, BLOCK_SIZE, BLOCK_SIZE, color);
+                d.draw_rectangle_lines(pos_x, pos_y, BLOCK_SIZE, BLOCK_SIZE, Color::BLACK);
+            }
+        }
+
+        d.draw_text(
+            "Click to toggle - Close to save",
+            10,
+            SCREEN_HEIGHT - 20,
+            10,
+            Color::WHITE,
+        );
+    }
+
+    // Save map on exit
+    let map_data = MapData {
+        width: GRID_WIDTH,
+        height: GRID_HEIGHT,
+        blocks: grid,
+    };
+
+    match serde_json::to_string_pretty(&map_data) {
+        Ok(json) => {
+            if let Err(e) = fs::write("map.json", json) {
+                eprintln!("Failed to save map: {}", e);
+            } else {
+                println!("Map saved to map.json");
+            }
+        }
+        Err(e) => eprintln!("Failed to serialize map: {}", e),
+    }
+}
