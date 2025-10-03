@@ -16,9 +16,7 @@ pub const DEL_SIZE: i32 = 3;
 pub const TARGET_FPS: u32 = 60;
 pub const PLAYER_SPEED: f32 = 5.0;
 pub const JUMP_SPEED: f32 = 20.0;
-pub const SPRITE_SIZE: f32 = 8.0;
-
-pub type WorldMap = HashMap<(usize, usize), BlockType>;
+pub const SPRITE_SIZE: f32 = 8.;
 
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash, Debug)]
 pub enum BlockType {
@@ -26,20 +24,53 @@ pub enum BlockType {
     Stone,
 }
 
-/// Serializable entry for saving/loading
 #[derive(Serialize, Deserialize)]
-pub struct BlockEntry {
-    pub x: usize,
-    pub y: usize,
-    pub block_type: BlockType,
+struct SerializableMap {
+    #[serde(with = "tuple_vec_map")]
+    blocks: HashMap<(usize, usize), BlockType>,
 }
 
-#[derive(Serialize, Deserialize)]
-pub struct MapData {
-    pub width: usize,
-    pub height: usize,
-    pub blocks: Vec<BlockEntry>, // FIXED: Was just Vec
+mod tuple_vec_map {
+    use super::BlockType;
+    use serde::{Deserialize, Deserializer, Serialize, Serializer};
+    use std::collections::HashMap;
+
+    #[derive(Serialize, Deserialize)]
+    struct Entry {
+        x: usize,
+        y: usize,
+        block_type: BlockType,
+    }
+
+    pub fn serialize<S>(
+        map: &HashMap<(usize, usize), BlockType>,
+        serializer: S,
+    ) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        let entries: Vec<Entry> = map
+            .iter()
+            .map(|(&(x, y), &block_type)| Entry { x, y, block_type })
+            .collect();
+        entries.serialize(serializer)
+    }
+
+    pub fn deserialize<'de, D>(
+        deserializer: D,
+    ) -> Result<HashMap<(usize, usize), BlockType>, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        let entries = Vec::<Entry>::deserialize(deserializer)?;
+        Ok(entries
+            .into_iter()
+            .map(|e| ((e.x, e.y), e.block_type))
+            .collect())
+    }
 }
+
+pub type WorldMap = HashMap<(usize, usize), BlockType>;
 
 /// Recompute stone borders around blanks
 pub fn recompute_stone_borders(map: &mut WorldMap) {
@@ -75,45 +106,39 @@ pub fn recompute_stone_borders(map: &mut WorldMap) {
 
 /// Load map.json into a WorldMap
 pub fn load_map() -> WorldMap {
-    if let Ok(content) = fs::read_to_string("map.json") {
-        if let Ok(map_data) = serde_json::from_str::<MapData>(&content) {
-            if map_data.width == GRID_WIDTH && map_data.height == GRID_HEIGHT {
-                println!("Loaded map.json");
-                let mut map = HashMap::new();
-                for block in map_data.blocks {
-                    map.insert((block.x, block.y), block.block_type);
-                }
-                return map;
+    match fs::read_to_string("map.json") {
+        Ok(content) => match serde_json::from_str::<SerializableMap>(&content) {
+            Ok(serializable_map) => {
+                println!(
+                    "Loaded map.json with {} blocks",
+                    serializable_map.blocks.len()
+                );
+                serializable_map.blocks
             }
+            Err(e) => {
+                eprintln!("Failed to parse map.json: {}", e);
+                HashMap::new()
+            }
+        },
+        Err(_) => {
+            println!("No map.json found, starting empty.");
+            HashMap::new()
         }
     }
-    println!("No map.json found, starting empty.");
-    HashMap::new()
 }
 
 /// Save world to map.json
 pub fn save_map(map: &WorldMap) {
-    let blocks: Vec<BlockEntry> = map
-        .iter()
-        .map(|(&(x, y), &bt)| BlockEntry {
-            x,
-            y,
-            block_type: bt,
-        })
-        .collect();
-
-    let map_data = MapData {
-        width: GRID_WIDTH,
-        height: GRID_HEIGHT,
-        blocks,
+    let serializable_map = SerializableMap {
+        blocks: map.clone(),
     };
 
-    match serde_json::to_string_pretty(&map_data) {
+    match serde_json::to_string_pretty(&serializable_map) {
         Ok(json) => {
             if let Err(e) = fs::write("map.json", json) {
                 eprintln!("Failed to save map: {}", e);
             } else {
-                println!("Map saved to map.json");
+                println!("Map saved to map.json with {} blocks", map.len());
             }
         }
         Err(e) => eprintln!("Failed to serialize map: {}", e),
