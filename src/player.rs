@@ -2,16 +2,19 @@ use crate::*;
 use raylib::prelude::*;
 use std::error::Error;
 
-const PLAYER_SPRITE_PATH: &str = "src/assets/player.png";
-const PLAYER_SPRITE_WALK_INIT: u32 = 1;
-const PLAYER_SPRITE_WALK_END: u32 = 5;
-const PLAYER_SPRITE_SPEED: f64 = 0.075;
-const PLAYER_SCALE: f32 = 1.;
-
 #[derive(Clone, Debug)]
-pub enum PlayerFacing {
+pub enum Facing {
     Left,
     Right,
+}
+
+impl Facing {
+    pub fn to_value(&self) -> f32 {
+        match self {
+            Self::Left => -1.,
+            _ => 1.,
+        }
+    }
 }
 
 #[derive(Clone, Debug)]
@@ -46,6 +49,7 @@ pub struct Player {
     pub state: PlayerState,
     pub sprite: Texture2D,
     pub grounded: bool,
+    pub facing: Facing,
 }
 
 impl Player {
@@ -66,6 +70,7 @@ impl Player {
             sprite: game_handle.load_texture(game_thread, PLAYER_SPRITE_PATH)?,
             grounded: true,
             vel: (0., 0.),
+            facing: Facing::Right,
         })
     }
 
@@ -86,8 +91,8 @@ impl Player {
             &self.sprite,
             Rectangle {
                 x: sprite_position,
-                y: 2. * SPRITE_SIZE,
-                width: SPRITE_SIZE,
+                y: 0. * SPRITE_SIZE,
+                width: SPRITE_SIZE * self.facing.to_value(),
                 height: SPRITE_SIZE,
             },
             Rectangle {
@@ -104,14 +109,21 @@ impl Player {
 
     pub fn after_move(&mut self, game_handle: &mut RaylibHandle, map: &mut WorldMap) {
         let mut moved = false;
-
         self.state.increment_count(game_handle);
 
         if game_handle.is_key_down(KeyboardKey::KEY_RIGHT) {
             self.vel.0 = PLAYER_SPEED;
+            match self.facing {
+                Facing::Left => self.facing = Facing::Right,
+                _ => {}
+            }
             moved = true;
         } else if game_handle.is_key_down(KeyboardKey::KEY_LEFT) {
             self.vel.0 = -PLAYER_SPEED;
+            match self.facing {
+                Facing::Right => self.facing = Facing::Left,
+                _ => {}
+            }
             moved = true;
         } else {
             self.vel.0 = 0.0;
