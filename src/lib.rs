@@ -22,7 +22,14 @@ pub const GRAVITY: f32 = 0.7;
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash, Debug)]
 pub enum BlockType {
     Blank,
-    Stone,
+    StoneLeftUp,
+    StoneLeftDown,
+    StoneRightUp,
+    StoneRightDown,
+    StoneSlabLeft,
+    StoneSlabRight,
+    StoneSlabUp,
+    StoneSlabDown,
     Start,
 }
 
@@ -74,39 +81,6 @@ mod tuple_vec_map {
 
 pub type WorldMap = HashMap<(usize, usize), BlockType>;
 
-/// Recompute stone borders around blanks
-pub fn recompute_stone_borders(map: &mut WorldMap) {
-    // Remove old stone borders
-    map.retain(|_, bt| *bt == BlockType::Blank);
-
-    let dirs = [(0, 1), (0, -1), (1, 0), (-1, 0)];
-
-    let blanks: Vec<(usize, usize)> = map
-        .iter()
-        .filter_map(|(&(x, y), bt)| {
-            if *bt == BlockType::Blank {
-                Some((x, y))
-            } else {
-                None
-            }
-        })
-        .collect();
-
-    for (x, y) in blanks {
-        for (dx, dy) in dirs {
-            let nx = x as i32 + dx;
-            let ny = y as i32 + dy;
-            if nx >= 0 && ny >= 0 && nx < GRID_WIDTH as i32 && ny < GRID_HEIGHT as i32 {
-                let pos = (nx as usize, ny as usize);
-                if !map.contains_key(&pos) {
-                    map.insert(pos, BlockType::Stone);
-                }
-            }
-        }
-    }
-}
-
-/// Load map.json into a WorldMap
 pub fn load_map() -> WorldMap {
     match fs::read_to_string("map.json") {
         Ok(content) => match serde_json::from_str::<SerializableMap>(&content) {
@@ -144,5 +118,91 @@ pub fn save_map(map: &WorldMap) {
             }
         }
         Err(e) => eprintln!("Failed to serialize map: {}", e),
+    }
+}
+
+pub fn recompute_stone_borders(map: &mut WorldMap) {
+    map.retain(|_, bt| *bt == BlockType::Blank || *bt == BlockType::Start);
+
+    for y in 0..GRID_HEIGHT {
+        for x in 0..GRID_WIDTH {
+            let pos = (x, y);
+
+            // skip occupied
+            if map.contains_key(&pos) {
+                continue;
+            }
+
+            // check blank all dirs
+            let has_blank_up = y > 0 && map.get(&(x, y - 1)) == Some(&BlockType::Blank);
+            let has_blank_down =
+                y < GRID_HEIGHT - 1 && map.get(&(x, y + 1)) == Some(&BlockType::Blank);
+            let has_blank_left = x > 0 && map.get(&(x - 1, y)) == Some(&BlockType::Blank);
+            let has_blank_right =
+                x < GRID_WIDTH - 1 && map.get(&(x + 1, y)) == Some(&BlockType::Blank);
+
+            let has_blank_up_left =
+                x > 0 && y > 0 && map.get(&(x - 1, y - 1)) == Some(&BlockType::Blank);
+            let has_blank_up_right =
+                x < GRID_WIDTH - 1 && y > 0 && map.get(&(x + 1, y - 1)) == Some(&BlockType::Blank);
+            let has_blank_down_left =
+                x > 0 && y < GRID_HEIGHT - 1 && map.get(&(x - 1, y + 1)) == Some(&BlockType::Blank);
+            let has_blank_down_right = x < GRID_WIDTH - 1
+                && y < GRID_HEIGHT - 1
+                && map.get(&(x + 1, y + 1)) == Some(&BlockType::Blank);
+
+            // match tuple
+            let border_type = match (
+                has_blank_up,
+                has_blank_down,
+                has_blank_left,
+                has_blank_right,
+                has_blank_up_left,
+                has_blank_up_right,
+                has_blank_down_left,
+                has_blank_down_right,
+            ) {
+                // exact
+                (true, false, false, false, false, false, false, false) => {
+                    Some(BlockType::StoneSlabUp)
+                }
+                (false, true, false, false, false, false, false, false) => {
+                    Some(BlockType::StoneSlabDown)
+                }
+                (false, false, true, false, false, false, false, false) => {
+                    Some(BlockType::StoneSlabLeft)
+                }
+                (false, false, false, true, false, false, false, false) => {
+                    Some(BlockType::StoneSlabRight)
+                }
+                (false, false, false, false, true, false, false, false) => {
+                    Some(BlockType::StoneLeftUp)
+                }
+                (false, false, false, false, false, true, false, false) => {
+                    Some(BlockType::StoneRightUp)
+                }
+                (false, false, false, false, false, false, true, false) => {
+                    Some(BlockType::StoneLeftDown)
+                }
+                (false, false, false, false, false, false, false, true) => {
+                    Some(BlockType::StoneRightDown)
+                }
+
+                // wildcard -> where the magic happens
+                (true, _, _, _, _, _, _, _) => Some(BlockType::StoneSlabUp),
+                (_, true, _, _, _, _, _, _) => Some(BlockType::StoneSlabDown),
+                (_, _, true, _, _, _, _, _) => Some(BlockType::StoneSlabLeft),
+                (_, _, _, true, _, _, _, _) => Some(BlockType::StoneSlabRight),
+                (_, _, _, _, true, _, _, _) => Some(BlockType::StoneLeftUp),
+                (_, _, _, _, _, true, _, _) => Some(BlockType::StoneRightUp),
+                (_, _, _, _, _, _, true, _) => Some(BlockType::StoneLeftDown),
+                // No blanks adjacent
+                _ => None,
+            };
+
+            if let Some(bt) = border_type {
+                map.insert(pos, bt);
+            }
+        }
     }
 }

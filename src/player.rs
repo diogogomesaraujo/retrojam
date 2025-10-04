@@ -161,7 +161,7 @@ impl Player {
     //floor or wall
     pub fn collides(&self, map: &WorldMap) -> Option<Rectangle> {
         for ((x, y), b) in map {
-            if *b == BlockType::Stone {
+            if *b != BlockType::Blank && *b != BlockType::Start {
                 let nx = (*x as f32) * BLOCK_SIZE as f32;
                 let ny = (*y as f32) * BLOCK_SIZE as f32;
 

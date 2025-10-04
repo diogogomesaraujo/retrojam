@@ -24,8 +24,7 @@ impl World {
                     spawn_y = (*y as f32) * BLOCK_SIZE as f32;
                     break;
                 }
-                BlockType::Stone => continue,
-                BlockType::Blank => continue,
+                _ => continue,
             }
         }
 
@@ -41,8 +40,17 @@ impl World {
             let ny = (*y as i32) * BLOCK_SIZE;
             let color = match b {
                 BlockType::Blank => Color::LIGHTGRAY,
-                BlockType::Stone => Color::DARKGRAY,
                 BlockType::Start => Color::YELLOW,
+
+                BlockType::StoneLeftUp => Color::RED,
+                BlockType::StoneLeftDown => Color::ORANGE,
+                BlockType::StoneRightUp => Color::BLUE,
+                BlockType::StoneRightDown => Color::PURPLE,
+
+                BlockType::StoneSlabLeft => Color::DARKBLUE,
+                BlockType::StoneSlabRight => Color::DARKPURPLE,
+                BlockType::StoneSlabUp => Color::DARKGREEN,
+                BlockType::StoneSlabDown => Color::BROWN,
             };
             d.draw_rectangle(nx, ny, BLOCK_SIZE, BLOCK_SIZE, color);
         }
