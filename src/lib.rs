@@ -156,54 +156,61 @@ pub fn save_map(map: &WorldMap) {
 }
 
 pub fn recompute_stone_borders(map: &mut WorldMap) {
+    // Keep only blanks and start positions
     map.retain(|_, bt| *bt == BlockType::Blank || *bt == BlockType::Start);
 
+    // Iterate over every possible tile
     for y in 0..GRID_HEIGHT {
         for x in 0..GRID_WIDTH {
             let pos = (x, y);
 
+            // If tile is already something (Blank or Start), skip
             if map.contains_key(&pos) {
                 continue;
             }
 
-            let has_blank_up = y > 0 && map.get(&(x, y - 1)) == Some(&BlockType::Blank);
-            let has_blank_down =
-                y < GRID_HEIGHT - 1 && map.get(&(x, y + 1)) == Some(&BlockType::Blank);
-            let has_blank_left = x > 0 && map.get(&(x - 1, y)) == Some(&BlockType::Blank);
-            let has_blank_right =
-                x < GRID_WIDTH - 1 && map.get(&(x + 1, y)) == Some(&BlockType::Blank);
+            // Get neighbor states (true = blank)
+            let up = y > 0 && matches!(map.get(&(x, y - 1)), Some(BlockType::Blank));
+            let down =
+                y < GRID_HEIGHT - 1 && matches!(map.get(&(x, y + 1)), Some(BlockType::Blank));
+            let left = x > 0 && matches!(map.get(&(x - 1, y)), Some(BlockType::Blank));
+            let right =
+                x < GRID_WIDTH - 1 && matches!(map.get(&(x + 1, y)), Some(BlockType::Blank));
 
-            let has_blank_up_left =
-                x > 0 && y > 0 && map.get(&(x - 1, y - 1)) == Some(&BlockType::Blank);
-            let has_blank_up_right =
-                x < GRID_WIDTH - 1 && y > 0 && map.get(&(x + 1, y - 1)) == Some(&BlockType::Blank);
-            let has_blank_down_left =
-                x > 0 && y < GRID_HEIGHT - 1 && map.get(&(x - 1, y + 1)) == Some(&BlockType::Blank);
-            let has_blank_down_right = x < GRID_WIDTH - 1
+            let up_left =
+                x > 0 && y > 0 && matches!(map.get(&(x - 1, y - 1)), Some(BlockType::Blank));
+            let up_right = x < GRID_WIDTH - 1
+                && y > 0
+                && matches!(map.get(&(x + 1, y - 1)), Some(BlockType::Blank));
+            let down_left = x > 0
                 && y < GRID_HEIGHT - 1
-                && map.get(&(x + 1, y + 1)) == Some(&BlockType::Blank);
+                && matches!(map.get(&(x - 1, y + 1)), Some(BlockType::Blank));
+            let down_right = x < GRID_WIDTH - 1
+                && y < GRID_HEIGHT - 1
+                && matches!(map.get(&(x + 1, y + 1)), Some(BlockType::Blank));
 
-            // corners over edges
-            let border_type = if has_blank_up_left && !has_blank_up && !has_blank_left {
-                Some(BlockType::StoneRightDown)
-            } else if has_blank_up_right && !has_blank_up && !has_blank_right {
-                Some(BlockType::StoneLeftDown)
-            } else if has_blank_down_left && !has_blank_down && !has_blank_left {
-                Some(BlockType::StoneRightUp)
-            } else if has_blank_down_right && !has_blank_down && !has_blank_right {
+            // Determine border type, giving priority to corners
+            let border_type = if up_left && !up && !left {
                 Some(BlockType::StoneLeftUp)
-            } else if has_blank_up {
-                Some(BlockType::StoneSlabDown)
-            } else if has_blank_down {
+            } else if up_right && !up && !right {
+                Some(BlockType::StoneRightUp)
+            } else if down_left && !down && !left {
+                Some(BlockType::StoneLeftDown)
+            } else if down_right && !down && !right {
+                Some(BlockType::StoneRightDown)
+            } else if up {
                 Some(BlockType::StoneSlabUp)
-            } else if has_blank_left {
-                Some(BlockType::StoneSlabRight)
-            } else if has_blank_right {
+            } else if down {
+                Some(BlockType::StoneSlabDown)
+            } else if left {
                 Some(BlockType::StoneSlabLeft)
+            } else if right {
+                Some(BlockType::StoneSlabRight)
             } else {
                 None
             };
 
+            // Insert border if needed
             if let Some(bt) = border_type {
                 map.insert(pos, bt);
             }
