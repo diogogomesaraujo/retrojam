@@ -6,7 +6,7 @@ use retrojam::*;
 fn main() -> Result<(), Box<dyn Error>> {
     let (mut rl, thread) = raylib::init()
         .size(SCREEN_WIDTH, SCREEN_HEIGHT)
-        .title("Hello, World")
+        .title("RetroJam 2025")
         .build();
     rl.set_target_fps(TARGET_FPS);
     let mut world = World::new(&mut rl, &thread)?;
