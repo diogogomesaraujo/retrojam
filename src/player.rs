@@ -1,11 +1,11 @@
 use crate::*;
-use raylib::{ffi::CheckCollisionRecs, prelude::*};
+use raylib::prelude::*;
 use std::error::Error;
 
 const PLAYER_SPRITE_PATH: &str = "src/assets/player.png";
 const PLAYER_SPRITE_WALK_INIT: u32 = 1;
 const PLAYER_SPRITE_WALK_END: u32 = 5;
-const PLAYER_SPRITE_SPEED: f64 = 0.15;
+const PLAYER_SPRITE_SPEED: f64 = 0.075;
 const PLAYER_SCALE: f32 = 1.;
 
 #[derive(Clone, Debug)]
@@ -42,6 +42,7 @@ impl PlayerState {
 
 pub struct Player {
     pub body: Rectangle,
+    pub vel: (f32, f32),
     pub state: PlayerState,
     pub sprite: Texture2D,
     pub grounded: bool,
@@ -64,11 +65,11 @@ impl Player {
             state: PlayerState::Idle,
             sprite: game_handle.load_texture(game_thread, PLAYER_SPRITE_PATH)?,
             grounded: true,
+            vel: (0., 0.),
         })
     }
 
     pub fn draw(&mut self, draw_handle: &mut RaylibDrawHandle) {
-        draw_handle.draw_rectangle_rec(self.body, Color::RED);
         let sprite_position = match self.state {
             PlayerState::Idle => 0,
             PlayerState::Walk {
@@ -107,57 +108,58 @@ impl Player {
         self.state.increment_count(game_handle);
 
         if game_handle.is_key_down(KeyboardKey::KEY_RIGHT) {
-            let old_x = self.body.x;
-            self.body.x += PLAYER_SPEED;
-            if self.collides(map) {
-                self.body.x = old_x;
-            } else {
-                moved = true;
-            }
-        }
-
-        if game_handle.is_key_down(KeyboardKey::KEY_LEFT) {
-            let old_x = self.body.x;
-            self.body.x -= PLAYER_SPEED;
-            if self.collides(map) {
-                self.body.x = old_x;
-            } else {
-                moved = true;
-            }
+            self.vel.0 = PLAYER_SPEED;
+            moved = true;
+        } else if game_handle.is_key_down(KeyboardKey::KEY_LEFT) {
+            self.vel.0 = -PLAYER_SPEED;
+            moved = true;
+        } else {
+            self.vel.0 = 0.0;
         }
 
         if (game_handle.is_key_down(KeyboardKey::KEY_UP)
             || game_handle.is_key_down(KeyboardKey::KEY_SPACE))
             && self.grounded
         {
-            let old_y = self.body.y;
-            self.body.y -= JUMP_SPEED;
-            if self.collides(map) {
-                self.body.y = old_y;
-            } else {
-                self.grounded = false;
-                moved = true;
-            }
+            self.vel.1 = -JUMP_SPEED;
+            self.grounded = false;
+            moved = true;
         }
 
-        let old_y = self.body.y;
-        self.body.y += PLAYER_SPEED;
-        if self.collides(map) {
-            self.body.y = old_y; // landed
-            self.grounded = true;
+        self.vel.1 += GRAVITY;
+
+        self.body.x += self.vel.0;
+        if let Some(block) = self.collides(map) {
+            if self.vel.0 > 0.0 {
+                self.body.x = block.x - self.body.width;
+            } else if self.vel.0 < 0.0 {
+                self.body.x = block.x + block.width;
+            }
+            self.vel.0 = 0.0;
+        }
+
+        self.body.y += self.vel.1;
+        if let Some(block) = self.collides(map) {
+            if self.vel.1 > 0.0 {
+                self.body.y = block.y - self.body.height;
+                self.grounded = true;
+            } else if self.vel.1 < 0.0 {
+                self.body.y = block.y + block.height;
+            }
+            self.vel.1 = 0.0;
         } else {
             self.grounded = false;
         }
 
         if moved {
             self.update_state(game_handle);
-        } else {
+        } else if self.grounded {
             self.state = PlayerState::Idle;
         }
     }
 
     //floor or wall
-    pub fn collides(&self, map: &mut WorldMap) -> bool {
+    pub fn collides(&self, map: &WorldMap) -> Option<Rectangle> {
         for ((x, y), b) in map {
             if *b == BlockType::Stone {
                 let nx = (*x as f32) * BLOCK_SIZE as f32;
@@ -169,12 +171,13 @@ impl Player {
                     width: BLOCK_SIZE as f32,
                     height: BLOCK_SIZE as f32,
                 };
+
                 if block_rect.check_collision_recs(&self.body) {
-                    return true;
+                    return Some(block_rect);
                 }
             }
         }
-        false
+        None
     }
 
     pub fn update_state(&mut self, game_handle: &mut RaylibHandle) {

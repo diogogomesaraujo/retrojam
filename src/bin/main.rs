@@ -23,7 +23,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         world.draw(&mut d);
         d.draw_text("Hello, world!", 12, 12, 20, Color::BLACK);
 
-        if world.player.collides(&mut world.map) {
+        if world.player.collides(&mut world.map).is_some() {
             d.draw_text("Collision!", 12, 36, 20, Color::WHITE);
         }
     }
