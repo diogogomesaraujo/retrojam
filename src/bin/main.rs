@@ -6,7 +6,7 @@ use std::error::Error;
 fn main() -> Result<(), Box<dyn Error>> {
     let (mut rl, thread) = raylib::init()
         .size(SCREEN_WIDTH, SCREEN_HEIGHT)
-        .title("RetroJam")
+        .title("RetroJam 2025")
         .build();
 
     rl.set_target_fps(TARGET_FPS);
@@ -57,7 +57,6 @@ fn main() -> Result<(), Box<dyn Error>> {
         // Draw final scene with shader
         {
             let mut d = rl.begin_drawing(&thread);
-            d.clear_background(Color::BLACK);
 
             // Apply lighting shader to render texture
             {

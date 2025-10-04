@@ -126,11 +126,6 @@ impl Player {
             } => count,
         } as f32
             * SPRITE_SIZE;
-
-        // Debug collision box
-        d.draw_rectangle_rec(self.collision_box, Color::RED);
-
-        // Draw player sprite
         d.draw_texture_pro(
             &self.sprite,
             Rectangle {

@@ -54,8 +54,7 @@ impl World {
     pub fn draw<D: RaylibDraw>(&mut self, d: &mut D) {
         // Apply camera transformation
         let mut d = d.begin_mode2D(self.camera);
-
-        // Draw all map tiles
+        d.clear_background(BG_COLOR);
         for ((x, y), b) in &self.map {
             let nx = (*x as i32) * BLOCK_SIZE;
             let ny = (*y as i32) * BLOCK_SIZE;
@@ -64,8 +63,8 @@ impl World {
             d.draw_texture_rec(
                 &self.tileset_texture,
                 Rectangle {
-                    x: sprite_x * SPRITE_SIZE as f32,
-                    y: sprite_y * SPRITE_SIZE as f32,
+                    x: (sprite_x * SPRITE_SIZE) as f32,
+                    y: (sprite_y * SPRITE_SIZE) as f32,
                     width: SPRITE_SIZE as f32,
                     height: SPRITE_SIZE as f32,
                 },
