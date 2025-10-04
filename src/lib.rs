@@ -13,7 +13,7 @@ pub const GRID_HEIGHT: usize = 52;
 pub const SCREEN_WIDTH: i32 = 800;
 pub const SCREEN_HEIGHT: i32 = 416;
 
-pub const BLOCK_SIZE: i32 = SCREEN_WIDTH / GRID_WIDTH as i32;
+pub const BLOCK_SIZE: i32 = 8;
 
 pub const DEL_SIZE: i32 = 3;
 pub const TARGET_FPS: u32 = 60;
@@ -25,6 +25,7 @@ pub const JUMP_SPEED: f32 = 2.5;
 pub const GRAVITY: f32 = 0.2;
 
 pub const PLAYER_SPRITE_PATH: &str = "src/assets/player.png";
+pub const TILESET_PATH: &str = "src/assets/tileset.png";
 
 pub const PLAYER_SPRITE_WALK_INIT: u32 = 1;
 pub const PLAYER_SPRITE_WALK_END: u32 = 5;
@@ -47,6 +48,23 @@ pub enum BlockType {
     StoneSlabUp,
     StoneSlabDown,
     Start,
+}
+
+impl BlockType {
+    pub fn to_sprite_position(&self) -> (f32, f32) {
+        match self {
+            Self::Blank => (2., 2.),
+            Self::Start => (2., 2.),
+            Self::StoneLeftDown => (0., 4.),
+            Self::StoneLeftUp => (0., 0.),
+            Self::StoneRightDown => (4., 4.),
+            Self::StoneRightUp => (4., 0.),
+            Self::StoneSlabDown => (1., 4.),
+            Self::StoneSlabLeft => (0., 1.),
+            Self::StoneSlabRight => (4., 1.),
+            Self::StoneSlabUp => (0., 1.),
+        }
+    }
 }
 
 #[derive(Serialize, Deserialize)]
