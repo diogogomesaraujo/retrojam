@@ -69,7 +69,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
         // Update shader based on player's sight
         let sight = world.player.get_sight_multiplier();
-        shader.set_shader_value(light_radius_loc, 200.0f32 * sight);
+        shader.set_shader_value(light_radius_loc, 200.0f32 * sight * 1.3);
         shader.set_shader_value(light_intensity_loc, 0.95f32);
 
         world.update_cam();

@@ -6,6 +6,7 @@ pub struct AgeAttributes {
     pub sight: f32,
     pub strength: f32,
     pub speed: f32,
+    pub jump_cooldown: f32,
 }
 
 pub enum Age {
@@ -43,26 +44,31 @@ impl Age {
                 sight: 0.5,
                 strength: 0.2,
                 speed: 0.3,
+                jump_cooldown: 2.0,
             },
             Self::Child => AgeAttributes {
                 sight: 0.7,
                 strength: 0.4,
                 speed: 0.6,
+                jump_cooldown: 1.5,
             },
             Self::Teenager => AgeAttributes {
                 sight: 1.0,
                 strength: 0.7,
                 speed: 0.9,
+                jump_cooldown: 0.8,
             },
             Self::Adult => AgeAttributes {
                 sight: 1.0,
                 strength: 1.0,
                 speed: 1.0,
+                jump_cooldown: 0.5,
             },
             Self::Elder => AgeAttributes {
                 sight: 0.6,
                 strength: 0.5,
                 speed: 0.4,
+                jump_cooldown: 2.5,
             },
         }
     }
@@ -124,6 +130,7 @@ pub struct Player {
     pub age: Age,
     pub current_sight: f32,
     pub target_sight: f32,
+    pub last_jump_time: f64,
 }
 
 impl Player {
@@ -155,6 +162,7 @@ impl Player {
             age: PLAYER_INITIAL_AGE,
             current_sight: initial_sight,
             target_sight: initial_sight,
+            last_jump_time: 0.0,
         })
     }
 
@@ -250,13 +258,18 @@ impl Player {
 
         // === JUMP ===
         let jump_multiplier = attrs.strength;
+        let current_time = game_handle.get_time();
+        let time_since_jump = current_time - self.last_jump_time;
+
         if (game_handle.is_key_down(KeyboardKey::KEY_UP)
             || game_handle.is_key_down(KeyboardKey::KEY_SPACE))
             && self.grounded
+            && time_since_jump >= attrs.jump_cooldown as f64
         {
             self.vel.1 = -JUMP_SPEED * jump_multiplier;
             self.grounded = false;
             moved = true;
+            self.last_jump_time = current_time;
             self.state = PlayerState::Jump {
                 count: PLAYER_SPRITE_WALK_INIT,
                 last_update: game_handle.get_time(),
