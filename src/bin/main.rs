@@ -16,10 +16,8 @@ fn main() -> Result<(), Box<dyn Error>> {
         world.update_cam();
 
         let mut d = rl.begin_drawing(&thread);
-        d.clear_background(Color::BLACK);
 
         world.draw(&mut d);
-        d.draw_text("Hello, world!", 12, 12, 20, Color::BLACK);
     }
 
     Ok(())

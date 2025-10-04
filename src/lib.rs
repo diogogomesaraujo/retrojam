@@ -1,3 +1,4 @@
+use raylib::prelude::*;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::fs;
@@ -8,6 +9,13 @@ pub mod player;
 pub use player::Player;
 
 use crate::player::Age;
+
+pub const BG_COLOR: Color = Color {
+    r: 29,
+    g: 32,
+    b: 33,
+    a: 255,
+};
 
 pub const GRID_WIDTH: usize = 100;
 pub const GRID_HEIGHT: usize = 52;
@@ -65,16 +73,16 @@ pub enum BlockType {
 impl BlockType {
     pub fn to_sprite_position(&self) -> (f32, f32) {
         match self {
-            Self::Blank => (2., 2.),
-            Self::Start => (2., 2.),
-            Self::StoneLeftDown => (0., 5.),
+            Self::Blank => (1., 1.),
+            Self::Start => (1., 1.),
+            Self::StoneLeftDown => (0., 2.),
             Self::StoneLeftUp => (0., 0.),
-            Self::StoneRightDown => (5., 5.),
-            Self::StoneRightUp => (5., 0.),
-            Self::StoneSlabDown => (1., 5.),
+            Self::StoneRightDown => (2., 2.),
+            Self::StoneRightUp => (2., 0.),
+            Self::StoneSlabDown => (1., 2.),
             Self::StoneSlabLeft => (0., 1.),
-            Self::StoneSlabRight => (5., 1.),
-            Self::StoneSlabUp => (4., 0.),
+            Self::StoneSlabRight => (2., 1.),
+            Self::StoneSlabUp => (1., 0.),
         }
     }
 }
@@ -203,21 +211,21 @@ pub fn recompute_stone_borders(map: &mut WorldMap) {
 
             // Determine border type, giving priority to corners
             let border_type = if up_left && !up && !left {
-                Some(BlockType::StoneLeftUp)
-            } else if up_right && !up && !right {
-                Some(BlockType::StoneRightUp)
-            } else if down_left && !down && !left {
-                Some(BlockType::StoneLeftDown)
-            } else if down_right && !down && !right {
                 Some(BlockType::StoneRightDown)
+            } else if up_right && !up && !right {
+                Some(BlockType::StoneLeftDown)
+            } else if down_left && !down && !left {
+                Some(BlockType::StoneRightUp)
+            } else if down_right && !down && !right {
+                Some(BlockType::StoneLeftUp)
             } else if up {
-                Some(BlockType::StoneSlabUp)
-            } else if down {
                 Some(BlockType::StoneSlabDown)
+            } else if down {
+                Some(BlockType::StoneSlabUp)
             } else if left {
-                Some(BlockType::StoneSlabLeft)
-            } else if right {
                 Some(BlockType::StoneSlabRight)
+            } else if right {
+                Some(BlockType::StoneSlabLeft)
             } else {
                 None
             };
