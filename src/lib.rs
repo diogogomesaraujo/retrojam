@@ -7,6 +7,8 @@ pub use world::World;
 pub mod player;
 pub use player::Player;
 
+use crate::player::Age;
+
 pub const GRID_WIDTH: usize = 100;
 pub const GRID_HEIGHT: usize = 52;
 
@@ -35,6 +37,16 @@ pub const SPRITE_SIZE: f32 = 8.;
 
 pub const CAMERA_ZOOM: f32 = 6.;
 pub const CAMERA_SPEED: f32 = 0.1;
+
+pub const PLAYER_COLLISION_BOX_WIDTH: f32 = SPRITE_SIZE / 2.;
+
+pub const PLAYER_ELDER_COLLISION_BOX_HEIGHT: f32 = SPRITE_SIZE / 4. * 3.;
+pub const PLAYER_ADULT_COLLISION_BOX_HEIGHT: f32 = SPRITE_SIZE / 6. * 5.3;
+pub const PLAYER_TEEN_COLLISION_BOX_HEIGHT: f32 = SPRITE_SIZE / 4. * 3.;
+pub const PLAYER_CHILD_COLLISION_BOX_HEIGHT: f32 = SPRITE_SIZE / 6. * 3.8;
+pub const PLAYER_BABY_COLLISION_BOX_HEIGHT: f32 = SPRITE_SIZE / 2.;
+
+pub const PLAYER_INITIAL_AGE: Age = Age::Adult;
 
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash, Debug)]
 pub enum BlockType {

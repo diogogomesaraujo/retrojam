@@ -20,6 +20,16 @@ impl Age {
             Self::Elder => 4.,
         }
     }
+
+    pub fn collision_box_height(&self) -> f32 {
+        match self {
+            Self::Baby => PLAYER_BABY_COLLISION_BOX_HEIGHT,
+            Self::Child => PLAYER_CHILD_COLLISION_BOX_HEIGHT,
+            Self::Teenager => PLAYER_TEEN_COLLISION_BOX_HEIGHT,
+            Self::Adult => PLAYER_ADULT_COLLISION_BOX_HEIGHT,
+            Self::Elder => PLAYER_ELDER_COLLISION_BOX_HEIGHT,
+        }
+    }
 }
 
 #[derive(Clone, Debug)]
@@ -91,15 +101,15 @@ impl Player {
             collision_box: Rectangle {
                 x: x + SPRITE_SIZE / 4.,
                 y: y + SPRITE_SIZE / 4.,
-                width: PLAYER_SCALE * SPRITE_SIZE / 2.,
-                height: PLAYER_SCALE * SPRITE_SIZE,
+                width: PLAYER_SCALE * PLAYER_COLLISION_BOX_WIDTH,
+                height: PLAYER_SCALE * PLAYER_INITIAL_AGE.collision_box_height(),
             },
             state: PlayerState::Idle,
             sprite: game_handle.load_texture(game_thread, PLAYER_SPRITE_PATH)?,
             grounded: true,
             vel: (0., 0.),
             facing: Facing::Right,
-            age: Age::Baby,
+            age: PLAYER_INITIAL_AGE,
         })
     }
 
@@ -116,6 +126,7 @@ impl Player {
             } => count,
         } as f32
             * SPRITE_SIZE;
+        draw_handle.draw_rectangle_rec(self.collision_box, Color::RED);
         draw_handle.draw_texture_pro(
             &self.sprite,
             Rectangle {
@@ -173,10 +184,11 @@ impl Player {
         self.collision_box.x += self.vel.0;
         if let Some(block) = self.collides(map) {
             if self.vel.0 > 0.0 {
-                self.body.x = block.x - self.collision_box.width - SPRITE_SIZE / 4.;
+                self.body.x =
+                    block.x - self.collision_box.width - (PLAYER_COLLISION_BOX_WIDTH / 2.);
                 self.collision_box.x = block.x - self.collision_box.width;
             } else if self.vel.0 < 0.0 {
-                self.body.x = block.x + block.width - SPRITE_SIZE / 4.;
+                self.body.x = block.x + block.width - (PLAYER_COLLISION_BOX_WIDTH / 2.);
                 self.collision_box.x = block.x + block.width;
             }
             self.vel.0 = 0.0;
