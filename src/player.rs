@@ -2,6 +2,26 @@ use crate::*;
 use raylib::prelude::*;
 use std::error::Error;
 
+pub enum Age {
+    Baby,
+    Child,
+    Teenager,
+    Adult,
+    Elder,
+}
+
+impl Age {
+    pub fn to_value(&self) -> f32 {
+        match self {
+            Self::Baby => 0.,
+            Self::Child => 1.,
+            Self::Teenager => 2.,
+            Self::Adult => 3.,
+            Self::Elder => 4.,
+        }
+    }
+}
+
 #[derive(Clone, Debug)]
 pub enum Facing {
     Left,
@@ -50,6 +70,7 @@ pub struct Player {
     pub sprite: Texture2D,
     pub grounded: bool,
     pub facing: Facing,
+    pub age: Age,
 }
 
 impl Player {
@@ -71,6 +92,7 @@ impl Player {
             grounded: true,
             vel: (0., 0.),
             facing: Facing::Right,
+            age: Age::Adult,
         })
     }
 
@@ -91,7 +113,7 @@ impl Player {
             &self.sprite,
             Rectangle {
                 x: sprite_position,
-                y: 0. * SPRITE_SIZE,
+                y: self.age.to_value() * SPRITE_SIZE,
                 width: SPRITE_SIZE * self.facing.to_value(),
                 height: SPRITE_SIZE,
             },
