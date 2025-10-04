@@ -38,6 +38,7 @@ pub const GRAVITY: f32 = 0.15;
 
 pub const PLAYER_SPRITE_PATH: &str = "src/assets/player.png";
 pub const TILESET_PATH: &str = "src/assets/tileset.png";
+pub const BG_PATH: &str = "src/assets/background.png";
 
 pub const PLAYER_SPRITE_WALK_INIT: u32 = 1;
 pub const PLAYER_SPRITE_WALK_END: u32 = 5;
