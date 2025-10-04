@@ -7,7 +7,7 @@ type WorldMap = HashMap<(usize, usize), BlockType>;
 fn main() {
     let (mut rl, thread) = raylib::init()
         .size(BASE_WIDTH, BASE_HEIGHT)
-        .title("Map Builder - Click to toggle blocks, X to set start")
+        .title("Map Builder - Click to toggle blocks, X to set start, Z to set end")
         .build();
 
     rl.set_target_fps(60);
