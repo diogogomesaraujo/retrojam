@@ -64,6 +64,7 @@ pub const CHILD_TIME_TO_CHANGE: f64 = 10. * 1.;
 pub const TEENAGER_TIME_TO_CHANGE: f64 = 15. * 1.;
 pub const ADULT_TIME_TO_CHANGE: f64 = 20. * 1.;
 pub const ELDER_TIME_TO_CHANGE: f64 = 25. * 1.;
+pub const DEATH_ANIMATION_DURATION: f64 = 3.0;
 
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash, Debug)]
 pub enum BlockType {

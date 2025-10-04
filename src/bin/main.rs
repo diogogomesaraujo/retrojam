@@ -42,7 +42,6 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     while !rl.window_should_close() {
         Music::update_stream(&music);
-
         let delta_time = rl.get_frame_time();
 
         let jump_input =
@@ -55,7 +54,6 @@ fn main() -> Result<(), Box<dyn Error>> {
         }
         was_grounded = world.player.grounded;
 
-        // Movement
         let footstep_frame = world.player.after_move(&mut rl, &mut world.map);
         if footstep_frame {
             step_counter += 1;
@@ -64,15 +62,22 @@ fn main() -> Result<(), Box<dyn Error>> {
             }
         }
 
-        // Update sight transition
         world.player.update_sight(delta_time);
-
-        // Update shader based on player's sight
-        let sight = world.player.get_sight_multiplier();
+        let sight = world.player.get_sight_multiplier(&rl);
         shader.set_shader_value(light_radius_loc, 200.0f32 * sight * 1.3);
         shader.set_shader_value(light_intensity_loc, 0.95f32);
 
         world.update_cam();
+
+        let fade_alpha = if world.player.is_dying {
+            let elapsed = rl.get_time() - world.player.death_start_time;
+            let progress = (elapsed / DEATH_ANIMATION_DURATION).clamp(0.0, 1.0);
+            let eased = progress * progress * (3.0 - 2.0 * progress);
+            (eased * 255.0) as u8
+        } else {
+            0
+        };
+
         {
             let mut texture_mode = rl.begin_texture_mode(&thread, &mut render_target);
             texture_mode.clear_background(Color::BLACK);
@@ -85,36 +90,45 @@ fn main() -> Result<(), Box<dyn Error>> {
 
             let screen_width = d.get_screen_width() as f32;
             let screen_height = d.get_screen_height() as f32;
-
             let scale_x = screen_width / BASE_WIDTH as f32;
             let scale_y = screen_height / BASE_HEIGHT as f32;
             let scale = scale_x.min(scale_y);
-
             let scaled_width = BASE_WIDTH as f32 * scale;
             let scaled_height = BASE_HEIGHT as f32 * scale;
-
             let offset_x = (screen_width - scaled_width) / 2.0;
             let offset_y = (screen_height - scaled_height) / 2.0;
 
-            let mut shader_mode = d.begin_shader_mode(&mut shader);
-            shader_mode.draw_texture_pro(
-                render_target.texture(),
-                Rectangle {
-                    x: 0.0,
-                    y: 0.0,
-                    width: BASE_WIDTH as f32,
-                    height: -BASE_HEIGHT as f32,
-                },
-                Rectangle {
-                    x: offset_x,
-                    y: offset_y,
-                    width: scaled_width,
-                    height: scaled_height,
-                },
-                Vector2::zero(),
-                0.0,
-                Color::WHITE,
-            );
+            {
+                let mut shader_mode = d.begin_shader_mode(&mut shader);
+                shader_mode.draw_texture_pro(
+                    render_target.texture(),
+                    Rectangle {
+                        x: 0.0,
+                        y: 0.0,
+                        width: BASE_WIDTH as f32,
+                        height: -BASE_HEIGHT as f32,
+                    },
+                    Rectangle {
+                        x: offset_x,
+                        y: offset_y,
+                        width: scaled_width,
+                        height: scaled_height,
+                    },
+                    Vector2::zero(),
+                    0.0,
+                    Color::WHITE,
+                );
+            }
+
+            if fade_alpha > 0 {
+                d.draw_rectangle(
+                    0,
+                    0,
+                    d.get_screen_width(),
+                    d.get_screen_height(),
+                    Color::new(0, 0, 0, fade_alpha),
+                );
+            }
         }
     }
 

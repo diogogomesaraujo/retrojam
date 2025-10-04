@@ -97,7 +97,6 @@ pub enum PlayerState {
 }
 
 impl PlayerState {
-    /// Returns true if sprite frame advanced
     pub fn increment_count(&mut self, game_handle: &mut RaylibHandle) -> bool {
         let current_time = game_handle.get_time();
         let mut frame_advanced = false;
@@ -131,6 +130,9 @@ pub struct Player {
     pub current_sight: f32,
     pub target_sight: f32,
     pub last_jump_time: f64,
+    pub is_dying: bool,
+    pub death_start_time: f64,
+    pub spawn_position: (f32, f32),
 }
 
 impl Player {
@@ -163,14 +165,26 @@ impl Player {
             current_sight: initial_sight,
             target_sight: initial_sight,
             last_jump_time: 0.0,
+            is_dying: false,
+            death_start_time: 0.0,
+            spawn_position: (x, y),
         })
     }
 
-    pub fn get_sight_multiplier(&self) -> f32 {
-        self.current_sight
+    pub fn get_sight_multiplier(&self, game_handle: &RaylibHandle) -> f32 {
+        if self.is_dying {
+            let elapsed = game_handle.get_time() - self.death_start_time;
+            let progress = (elapsed / DEATH_ANIMATION_DURATION) as f32;
+            self.current_sight * (1.0_f32 - progress.min(1.0))
+        } else {
+            self.current_sight
+        }
     }
 
     pub fn update_sight(&mut self, delta_time: f32) {
+        if self.is_dying {
+            return;
+        }
         let transition_speed = 2.0;
         let diff = self.target_sight - self.current_sight;
         if diff.abs() > 0.01 {
@@ -180,7 +194,6 @@ impl Player {
         }
     }
 
-    /// Draw player sprite with animation frame
     pub fn draw<D: RaylibDraw>(&mut self, d: &mut D) {
         let sprite_position = match self.state {
             PlayerState::Idle => 0,
@@ -225,24 +238,48 @@ impl Player {
                 Age::Child => Age::Teenager,
                 Age::Teenager => Age::Adult,
                 Age::Adult => Age::Elder,
-                Age::Elder => Age::Baby,
+                Age::Elder => {
+                    self.is_dying = true;
+                    self.death_start_time = game_handle.get_time();
+                    self.vel = (0.0, 0.0);
+                    Age::Elder
+                }
             };
-            self.target_sight = self.age.attributes().sight;
+            if !self.is_dying {
+                self.target_sight = self.age.attributes().sight;
+            }
         }
     }
 
-    /// Moves player and returns true if a new walk frame advanced (footstep)
+    fn respawn(&mut self) {
+        self.age = Age::Baby;
+        self.body.x = self.spawn_position.0;
+        self.body.y = self.spawn_position.1;
+        self.collision_box.x = self.spawn_position.0 + SPRITE_SIZE / 4.0;
+        self.collision_box.y = self.spawn_position.1 + SPRITE_SIZE / 4.0;
+        self.collision_box.height = PLAYER_SCALE * Age::Baby.collision_box_height();
+        self.vel = (0.0, 0.0);
+        self.state = PlayerState::Idle;
+        self.grounded = true;
+        self.is_dying = false;
+        self.current_sight = Age::Baby.attributes().sight;
+        self.target_sight = Age::Baby.attributes().sight;
+    }
+
     pub fn after_move(&mut self, game_handle: &mut RaylibHandle, map: &mut WorldMap) -> bool {
+        if self.is_dying {
+            let elapsed = game_handle.get_time() - self.death_start_time;
+            if elapsed >= DEATH_ANIMATION_DURATION {
+                self.respawn();
+            }
+            return false;
+        }
+
         let mut frame_advanced = false;
         let mut moved = false;
-
-        // === AGE UPDATE ===
         self.increment_age(game_handle);
-
-        // Get current age attributes
         let attrs = self.age.attributes();
 
-        // === MOVEMENT INPUT ===
         let speed_multiplier = attrs.speed;
         if game_handle.is_key_down(KeyboardKey::KEY_RIGHT) {
             self.vel.0 = PLAYER_SPEED * speed_multiplier;
@@ -256,7 +293,6 @@ impl Player {
             self.vel.0 = 0.0;
         }
 
-        // === JUMP ===
         let jump_multiplier = attrs.strength;
         let current_time = game_handle.get_time();
         let time_since_jump = current_time - self.last_jump_time;
@@ -276,10 +312,8 @@ impl Player {
             };
         }
 
-        // === GRAVITY ===
         self.vel.1 += GRAVITY;
 
-        // === HORIZONTAL COLLISION ===
         self.body.x += self.vel.0;
         self.collision_box.x += self.vel.0;
         if let Some(block) = self.collides(map) {
@@ -294,7 +328,6 @@ impl Player {
             self.vel.0 = 0.0;
         }
 
-        // === VERTICAL COLLISION ===
         self.body.y += self.vel.1;
         self.collision_box.y += self.vel.1;
         if let Some(block) = self.collides(map) {
@@ -311,11 +344,9 @@ impl Player {
             self.grounded = false;
         }
 
-        // === STATE UPDATE ===
         if moved {
             match self.state {
                 PlayerState::Idle => {
-                    // Start walking animation immediately
                     self.state = PlayerState::Walk {
                         count: PLAYER_SPRITE_WALK_INIT,
                         last_update: game_handle.get_time(),
