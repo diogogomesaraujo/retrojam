@@ -55,20 +55,25 @@ pub enum PlayerState {
 }
 
 impl PlayerState {
-    pub fn increment_count(&mut self, game_handle: &mut RaylibHandle) {
+    /// Returns true if sprite frame advanced
+    pub fn increment_count(&mut self, game_handle: &mut RaylibHandle) -> bool {
         let current_time = game_handle.get_time();
+        let mut frame_advanced = false;
 
         if let PlayerState::Walk { count, last_update } | PlayerState::Jump { count, last_update } =
             self
         {
             if current_time - *last_update > PLAYER_SPRITE_SPEED {
-                match *count < PLAYER_SPRITE_WALK_END {
-                    true => *count += 1,
-                    _ => *count = PLAYER_SPRITE_WALK_INIT,
-                }
+                *count = if *count < PLAYER_SPRITE_WALK_END {
+                    *count + 1
+                } else {
+                    PLAYER_SPRITE_WALK_INIT
+                };
                 *last_update = current_time;
+                frame_advanced = true;
             }
         }
+        frame_advanced
     }
 }
 
@@ -112,20 +117,14 @@ impl Player {
         })
     }
 
-    /// Generic draw method that accepts any RaylibDraw context
+    /// Draw player sprite with animation frame
     pub fn draw<D: RaylibDraw>(&mut self, d: &mut D) {
         let sprite_position = match self.state {
             PlayerState::Idle => 0,
-            PlayerState::Walk {
-                count,
-                last_update: _,
-            }
-            | PlayerState::Jump {
-                count,
-                last_update: _,
-            } => count,
+            PlayerState::Walk { count, .. } | PlayerState::Jump { count, .. } => count,
         } as f32
             * SPRITE_SIZE;
+
         d.draw_texture_pro(
             &self.sprite,
             Rectangle {
@@ -168,29 +167,28 @@ impl Player {
         }
     }
 
-    pub fn after_move(&mut self, game_handle: &mut RaylibHandle, map: &mut WorldMap) {
+    /// Moves player and returns true if a new walk frame advanced (footstep)
+    pub fn after_move(&mut self, game_handle: &mut RaylibHandle, map: &mut WorldMap) -> bool {
+        let mut frame_advanced = false;
         let mut moved = false;
-        self.state.increment_count(game_handle);
+
+        // === AGE UPDATE ===
         self.increment_age(game_handle);
 
-        // Horizontal movement
+        // === MOVEMENT INPUT ===
         if game_handle.is_key_down(KeyboardKey::KEY_RIGHT) {
             self.vel.0 = PLAYER_SPEED;
-            if matches!(self.facing, Facing::Left) {
-                self.facing = Facing::Right;
-            }
+            self.facing = Facing::Right;
             moved = true;
         } else if game_handle.is_key_down(KeyboardKey::KEY_LEFT) {
             self.vel.0 = -PLAYER_SPEED;
-            if matches!(self.facing, Facing::Right) {
-                self.facing = Facing::Left;
-            }
+            self.facing = Facing::Left;
             moved = true;
         } else {
             self.vel.0 = 0.0;
         }
 
-        // Jump
+        // === JUMP ===
         if (game_handle.is_key_down(KeyboardKey::KEY_UP)
             || game_handle.is_key_down(KeyboardKey::KEY_SPACE))
             && self.grounded
@@ -198,12 +196,16 @@ impl Player {
             self.vel.1 = -JUMP_SPEED;
             self.grounded = false;
             moved = true;
+            self.state = PlayerState::Jump {
+                count: PLAYER_SPRITE_WALK_INIT,
+                last_update: game_handle.get_time(),
+            };
         }
 
-        // Apply gravity
+        // === GRAVITY ===
         self.vel.1 += GRAVITY;
 
-        // Horizontal collision
+        // === HORIZONTAL COLLISION ===
         self.body.x += self.vel.0;
         self.collision_box.x += self.vel.0;
         if let Some(block) = self.collides(map) {
@@ -218,7 +220,7 @@ impl Player {
             self.vel.0 = 0.0;
         }
 
-        // Vertical collision
+        // === VERTICAL COLLISION ===
         self.body.y += self.vel.1;
         self.collision_box.y += self.vel.1;
         if let Some(block) = self.collides(map) {
@@ -235,15 +237,28 @@ impl Player {
             self.grounded = false;
         }
 
-        // Update state
+        // === STATE UPDATE ===
         if moved {
-            self.update_state(game_handle);
+            match self.state {
+                PlayerState::Idle => {
+                    // Start walking animation immediately
+                    self.state = PlayerState::Walk {
+                        count: PLAYER_SPRITE_WALK_INIT,
+                        last_update: game_handle.get_time(),
+                    };
+                    frame_advanced = true;
+                }
+                PlayerState::Walk { .. } | PlayerState::Jump { .. } => {
+                    frame_advanced = self.state.increment_count(game_handle);
+                }
+            }
         } else if self.grounded {
             self.state = PlayerState::Idle;
         }
+
+        frame_advanced && self.grounded && moved
     }
 
-    /// Check collision with solid blocks in the map
     pub fn collides(&self, map: &WorldMap) -> Option<Rectangle> {
         for ((x, y), b) in map {
             if *b != BlockType::Blank && *b != BlockType::Start {
