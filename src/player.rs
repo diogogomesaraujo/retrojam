@@ -163,6 +163,7 @@ impl Player {
         self.vel.1 += GRAVITY;
 
         self.body.x += self.vel.0;
+
         if let Some(block) = self.collides(map) {
             if self.vel.0 > 0.0 {
                 self.body.x = block.x - self.body.width;
