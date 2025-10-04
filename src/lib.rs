@@ -80,14 +80,16 @@ pub enum BlockType {
     StoneSlabRight,
     StoneSlabUp,
     StoneSlabDown,
+    Slab,
     Start,
+    StopAging,
     End,
 }
 
 impl BlockType {
     pub fn to_sprite_position(&self) -> (f32, f32) {
         match self {
-            Self::Blank | Self::Start | Self::End => (1., 1.),
+            Self::Blank | Self::Start | Self::End | Self::StopAging => (1., 1.),
             Self::StoneLeftDown => (0., 2.),
             Self::StoneLeftUp => (0., 0.),
             Self::StoneRightDown => (2., 2.),
@@ -95,7 +97,7 @@ impl BlockType {
             Self::StoneSlabDown => (1., 2.),
             Self::StoneSlabLeft => (2., 1.),
             Self::StoneSlabRight => (2., 1.),
-            Self::StoneSlabUp => (1., 2.),
+            Self::StoneSlabUp | Self::Slab => (1., 2.),
         }
     }
 }

@@ -60,7 +60,10 @@ impl World {
             let nx = (*x as i32) * BLOCK_SIZE;
             let ny = (*y as i32) * BLOCK_SIZE;
 
-            if matches!(b, BlockType::Start | BlockType::Blank) {
+            if matches!(
+                b,
+                BlockType::Start | BlockType::Blank | BlockType::StopAging
+            ) {
                 continue;
             }
 
