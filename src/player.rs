@@ -13,11 +13,11 @@ pub enum Age {
 impl Age {
     pub fn to_value(&self) -> f32 {
         match self {
-            Self::Baby => 0.,
-            Self::Child => 1.,
-            Self::Teenager => 2.,
-            Self::Adult => 3.,
-            Self::Elder => 4.,
+            Self::Baby => 0.0,
+            Self::Child => 1.0,
+            Self::Teenager => 2.0,
+            Self::Adult => 3.0,
+            Self::Elder => 4.0,
         }
     }
 
@@ -41,8 +41,8 @@ pub enum Facing {
 impl Facing {
     pub fn to_value(&self) -> f32 {
         match self {
-            Self::Left => -1.,
-            _ => 1.,
+            Self::Left => -1.0,
+            _ => 1.0,
         }
     }
 }
@@ -55,7 +55,6 @@ pub enum PlayerState {
 }
 
 impl PlayerState {
-    // returns the last update date!
     pub fn increment_count(&mut self, game_handle: &mut RaylibHandle) {
         let current_time = game_handle.get_time();
 
@@ -99,21 +98,22 @@ impl Player {
                 height: PLAYER_SCALE * SPRITE_SIZE,
             },
             collision_box: Rectangle {
-                x: x + SPRITE_SIZE / 4.,
-                y: y + SPRITE_SIZE / 4.,
+                x: x + SPRITE_SIZE / 4.0,
+                y: y + SPRITE_SIZE / 4.0,
                 width: PLAYER_SCALE * PLAYER_COLLISION_BOX_WIDTH,
                 height: PLAYER_SCALE * PLAYER_INITIAL_AGE.collision_box_height(),
             },
             state: PlayerState::Idle,
             sprite: game_handle.load_texture(game_thread, PLAYER_SPRITE_PATH)?,
             grounded: true,
-            vel: (0., 0.),
+            vel: (0.0, 0.0),
             facing: Facing::Right,
             age: PLAYER_INITIAL_AGE,
         })
     }
 
-    pub fn draw(&mut self, draw_handle: &mut RaylibDrawHandle) {
+    /// Generic draw method that accepts any RaylibDraw context
+    pub fn draw<D: RaylibDraw>(&mut self, d: &mut D) {
         let sprite_position = match self.state {
             PlayerState::Idle => 0,
             PlayerState::Walk {
@@ -126,8 +126,12 @@ impl Player {
             } => count,
         } as f32
             * SPRITE_SIZE;
-        draw_handle.draw_rectangle_rec(self.collision_box, Color::RED);
-        draw_handle.draw_texture_pro(
+
+        // Debug collision box
+        d.draw_rectangle_rec(self.collision_box, Color::RED);
+
+        // Draw player sprite
+        d.draw_texture_pro(
             &self.sprite,
             Rectangle {
                 x: sprite_position,
@@ -151,24 +155,24 @@ impl Player {
         let mut moved = false;
         self.state.increment_count(game_handle);
 
+        // Horizontal movement
         if game_handle.is_key_down(KeyboardKey::KEY_RIGHT) {
             self.vel.0 = PLAYER_SPEED;
-            match self.facing {
-                Facing::Left => self.facing = Facing::Right,
-                _ => {}
+            if matches!(self.facing, Facing::Left) {
+                self.facing = Facing::Right;
             }
             moved = true;
         } else if game_handle.is_key_down(KeyboardKey::KEY_LEFT) {
             self.vel.0 = -PLAYER_SPEED;
-            match self.facing {
-                Facing::Right => self.facing = Facing::Left,
-                _ => {}
+            if matches!(self.facing, Facing::Right) {
+                self.facing = Facing::Left;
             }
             moved = true;
         } else {
             self.vel.0 = 0.0;
         }
 
+        // Jump
         if (game_handle.is_key_down(KeyboardKey::KEY_UP)
             || game_handle.is_key_down(KeyboardKey::KEY_SPACE))
             && self.grounded
@@ -178,22 +182,25 @@ impl Player {
             moved = true;
         }
 
+        // Apply gravity
         self.vel.1 += GRAVITY;
 
+        // Horizontal collision
         self.body.x += self.vel.0;
         self.collision_box.x += self.vel.0;
         if let Some(block) = self.collides(map) {
             if self.vel.0 > 0.0 {
                 self.body.x =
-                    block.x - self.collision_box.width - (PLAYER_COLLISION_BOX_WIDTH / 2.);
+                    block.x - self.collision_box.width - (PLAYER_COLLISION_BOX_WIDTH / 2.0);
                 self.collision_box.x = block.x - self.collision_box.width;
             } else if self.vel.0 < 0.0 {
-                self.body.x = block.x + block.width - (PLAYER_COLLISION_BOX_WIDTH / 2.);
+                self.body.x = block.x + block.width - (PLAYER_COLLISION_BOX_WIDTH / 2.0);
                 self.collision_box.x = block.x + block.width;
             }
             self.vel.0 = 0.0;
         }
 
+        // Vertical collision
         self.body.y += self.vel.1;
         self.collision_box.y += self.vel.1;
         if let Some(block) = self.collides(map) {
@@ -210,6 +217,7 @@ impl Player {
             self.grounded = false;
         }
 
+        // Update state
         if moved {
             self.update_state(game_handle);
         } else if self.grounded {
@@ -217,7 +225,7 @@ impl Player {
         }
     }
 
-    //floor or wall
+    /// Check collision with solid blocks in the map
     pub fn collides(&self, map: &WorldMap) -> Option<Rectangle> {
         for ((x, y), b) in map {
             if *b != BlockType::Blank && *b != BlockType::Start {
@@ -242,10 +250,7 @@ impl Player {
     pub fn update_state(&mut self, game_handle: &mut RaylibHandle) {
         match self.state {
             PlayerState::Jump { count, last_update } | PlayerState::Walk { count, last_update } => {
-                self.state = PlayerState::Walk {
-                    count: count,
-                    last_update: last_update,
-                }
+                self.state = PlayerState::Walk { count, last_update }
             }
             _ => {
                 self.state = PlayerState::Walk {

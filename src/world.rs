@@ -1,7 +1,6 @@
-use std::error::Error;
-
 use crate::*;
 use raylib::prelude::*;
+use std::error::Error;
 
 pub struct World {
     pub map: WorldMap,
@@ -16,9 +15,9 @@ impl World {
         game_thread: &RaylibThread,
     ) -> Result<Self, Box<dyn Error>> {
         let map = load_map();
-
         let mut spawn_x = (game_handle.get_screen_width() / 2) as f32;
         let mut spawn_y = (game_handle.get_screen_height() / 2) as f32;
+
         for ((x, y), b) in &map {
             match b {
                 BlockType::Start => {
@@ -37,26 +36,31 @@ impl World {
             player,
             camera: Camera2D {
                 offset: Vector2 {
-                    x: SCREEN_WIDTH as f32 / 2.,
-                    y: SCREEN_HEIGHT as f32 / 2.,
+                    x: SCREEN_WIDTH as f32 / 2.0,
+                    y: SCREEN_HEIGHT as f32 / 2.0,
                 },
                 target: Vector2 {
                     x: spawn_x + SPRITE_SIZE,
                     y: spawn_y + SPRITE_SIZE,
                 },
-                rotation: 0.,
+                rotation: 0.0,
                 zoom: CAMERA_ZOOM,
             },
             tileset_texture: game_handle.load_texture(&game_thread, TILESET_PATH)?,
         })
     }
 
-    pub fn draw(&mut self, d: &mut RaylibDrawHandle) {
+    /// Generic draw method that accepts any RaylibDraw context
+    pub fn draw<D: RaylibDraw>(&mut self, d: &mut D) {
+        // Apply camera transformation
         let mut d = d.begin_mode2D(self.camera);
+
+        // Draw all map tiles
         for ((x, y), b) in &self.map {
             let nx = (*x as i32) * BLOCK_SIZE;
             let ny = (*y as i32) * BLOCK_SIZE;
             let (sprite_x, sprite_y) = b.to_sprite_position();
+
             d.draw_texture_rec(
                 &self.tileset_texture,
                 Rectangle {
@@ -72,29 +76,24 @@ impl World {
                 Color::WHITE,
             );
         }
+
+        // Draw player
         self.player.draw(&mut d);
     }
 
+    /// Update camera to smoothly follow player
     pub fn update_cam(&mut self) {
-        self.camera = Camera2D {
-            offset: Vector2 {
-                x: SCREEN_WIDTH as f32 / 2.,
-                y: SCREEN_HEIGHT as f32 / 2.,
-            },
-            target: Vector2 {
-                x: smoothing(
-                    self.camera.target.x,
-                    self.player.body.x + SPRITE_SIZE,
-                    CAMERA_SPEED,
-                ),
-                y: smoothing(
-                    self.camera.target.y,
-                    self.player.body.y + SPRITE_SIZE,
-                    CAMERA_SPEED,
-                ),
-            },
-            rotation: 0.,
-            zoom: CAMERA_ZOOM,
+        self.camera.target = Vector2 {
+            x: smoothing(
+                self.camera.target.x,
+                self.player.body.x + SPRITE_SIZE,
+                CAMERA_SPEED,
+            ),
+            y: smoothing(
+                self.camera.target.y,
+                self.player.body.y + SPRITE_SIZE,
+                CAMERA_SPEED,
+            ),
         };
     }
 }

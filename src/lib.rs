@@ -7,6 +7,8 @@ pub use world::World;
 pub mod player;
 pub use player::Player;
 
+pub mod shaders;
+
 use crate::player::Age;
 
 pub const GRID_WIDTH: usize = 100;
