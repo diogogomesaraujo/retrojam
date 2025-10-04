@@ -16,6 +16,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     while !rl.window_should_close() {
         world.player.after_move(&mut rl, &mut world.map);
+        world.update_cam();
 
         let mut d = rl.begin_drawing(&thread);
         d.clear_background(Color::BLACK);

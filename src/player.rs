@@ -86,7 +86,7 @@ impl Player {
             &self.sprite,
             Rectangle {
                 x: sprite_position,
-                y: 0.,
+                y: 2. * SPRITE_SIZE,
                 width: SPRITE_SIZE,
                 height: SPRITE_SIZE,
             },

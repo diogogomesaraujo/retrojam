@@ -1,11 +1,15 @@
 use std::error::Error;
 
-use crate::{BLOCK_SIZE, BlockType, WorldMap, load_map, player::Player};
+use crate::{
+    BLOCK_SIZE, BlockType, CAMERA_ZOOM, SCREEN_HEIGHT, SCREEN_WIDTH, SPRITE_SIZE, WorldMap,
+    load_map, player::Player,
+};
 use raylib::prelude::*;
 
 pub struct World {
     pub map: WorldMap,
     pub player: Player,
+    pub camera: Camera2D,
 }
 
 impl World {
@@ -29,13 +33,28 @@ impl World {
             }
         }
 
+        let player = Player::new(game_handle, game_thread, spawn_x, spawn_y)?;
+
         Ok(Self {
             map,
-            player: Player::new(game_handle, game_thread, spawn_x, spawn_y)?,
+            player,
+            camera: Camera2D {
+                offset: Vector2 {
+                    x: SCREEN_WIDTH as f32 / 2.,
+                    y: SCREEN_HEIGHT as f32 / 2.,
+                },
+                target: Vector2 {
+                    x: spawn_x + SPRITE_SIZE,
+                    y: spawn_y + SPRITE_SIZE,
+                },
+                rotation: 0.,
+                zoom: CAMERA_ZOOM,
+            },
         })
     }
 
     pub fn draw(&mut self, d: &mut RaylibDrawHandle) {
+        let mut d = d.begin_mode2D(self.camera);
         for ((x, y), b) in &self.map {
             let nx = (*x as i32) * BLOCK_SIZE;
             let ny = (*y as i32) * BLOCK_SIZE;
@@ -46,6 +65,21 @@ impl World {
             };
             d.draw_rectangle(nx, ny, BLOCK_SIZE, BLOCK_SIZE, color);
         }
-        self.player.draw(d);
+        self.player.draw(&mut d);
+    }
+
+    pub fn update_cam(&mut self) {
+        self.camera = Camera2D {
+            offset: Vector2 {
+                x: SCREEN_WIDTH as f32 / 2.,
+                y: SCREEN_HEIGHT as f32 / 2.,
+            },
+            target: Vector2 {
+                x: self.player.body.x + SPRITE_SIZE,
+                y: self.player.body.y + SPRITE_SIZE,
+            },
+            rotation: 0.,
+            zoom: CAMERA_ZOOM,
+        };
     }
 }

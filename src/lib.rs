@@ -15,9 +15,10 @@ pub const BLOCK_SIZE: i32 = SCREEN_WIDTH / GRID_WIDTH as i32;
 pub const DEL_SIZE: i32 = 3;
 pub const TARGET_FPS: u32 = 60;
 pub const PLAYER_SPEED: f32 = 1.5;
-pub const JUMP_SPEED: f32 = 5.0;
+pub const JUMP_SPEED: f32 = 7.0;
 pub const SPRITE_SIZE: f32 = 8.;
-pub const GRAVITY: f32 = 0.7;
+pub const GRAVITY: f32 = 1.;
+pub const CAMERA_ZOOM: f32 = 6.;
 
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash, Debug)]
 pub enum BlockType {
