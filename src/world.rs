@@ -72,7 +72,6 @@ impl World {
                 Color::WHITE,
             );
         }
-        d.draw_rectangle_rec(self.player.collision_box, Color::RED);
         self.player.draw(&mut d);
     }
 

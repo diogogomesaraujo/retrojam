@@ -99,7 +99,7 @@ impl Player {
             grounded: true,
             vel: (0., 0.),
             facing: Facing::Right,
-            age: Age::Adult,
+            age: Age::Baby,
         })
     }
 
@@ -176,7 +176,7 @@ impl Player {
                 self.body.x = block.x - self.collision_box.width - SPRITE_SIZE / 4.;
                 self.collision_box.x = block.x - self.collision_box.width;
             } else if self.vel.0 < 0.0 {
-                self.body.x = block.x + block.width;
+                self.body.x = block.x + block.width - SPRITE_SIZE / 4.;
                 self.collision_box.x = block.x + block.width;
             }
             self.vel.0 = 0.0;
