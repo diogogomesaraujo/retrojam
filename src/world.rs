@@ -15,9 +15,23 @@ impl World {
     ) -> Result<Self, Box<dyn Error>> {
         let map = load_map();
 
+        let mut spawn_x = (game_handle.get_screen_width() / 2) as f32;
+        let mut spawn_y = (game_handle.get_screen_height() / 2) as f32;
+        for ((x, y), b) in &map {
+            match b {
+                BlockType::Start => {
+                    spawn_x = (*x as f32) * BLOCK_SIZE as f32;
+                    spawn_y = (*y as f32) * BLOCK_SIZE as f32;
+                    break;
+                }
+                BlockType::Stone => continue,
+                BlockType::Blank => continue,
+            }
+        }
+
         Ok(Self {
             map,
-            player: Player::new(game_handle, game_thread)?,
+            player: Player::new(game_handle, game_thread, spawn_x, spawn_y)?,
         })
     }
 

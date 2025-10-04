@@ -51,11 +51,13 @@ impl Player {
     pub fn new(
         game_handle: &mut RaylibHandle,
         game_thread: &RaylibThread,
+        x: f32,
+        y: f32,
     ) -> Result<Self, Box<dyn Error>> {
         Ok(Self {
             body: Rectangle {
-                x: (game_handle.get_screen_width() / 2) as f32,
-                y: (game_handle.get_screen_height() / 2) as f32,
+                x,
+                y,
                 width: PLAYER_SCALE * SPRITE_SIZE,
                 height: PLAYER_SCALE * SPRITE_SIZE,
             },
