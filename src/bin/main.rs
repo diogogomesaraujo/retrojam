@@ -27,8 +27,6 @@ fn main() -> Result<(), Box<dyn Error>> {
     let light_radius_loc = shader.get_shader_location("lightRadius");
     let light_intensity_loc = shader.get_shader_location("lightIntensity");
     shader.set_shader_value(resolution_loc, [BASE_WIDTH as f32, BASE_HEIGHT as f32]);
-    shader.set_shader_value(light_radius_loc, 200.0f32);
-    shader.set_shader_value(light_intensity_loc, 0.95f32);
 
     let mut render_target =
         rl.load_render_texture(&thread, BASE_WIDTH as u32, BASE_HEIGHT as u32)?;
@@ -44,6 +42,8 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     while !rl.window_should_close() {
         Music::update_stream(&music);
+
+        let delta_time = rl.get_frame_time();
 
         let jump_input =
             rl.is_key_down(KeyboardKey::KEY_UP) || rl.is_key_down(KeyboardKey::KEY_SPACE);
@@ -63,6 +63,14 @@ fn main() -> Result<(), Box<dyn Error>> {
                 Sound::play(&walk_sound);
             }
         }
+
+        // Update sight transition
+        world.player.update_sight(delta_time);
+
+        // Update shader based on player's sight
+        let sight = world.player.get_sight_multiplier();
+        shader.set_shader_value(light_radius_loc, 200.0f32 * sight);
+        shader.set_shader_value(light_intensity_loc, 0.95f32);
 
         world.update_cam();
         {

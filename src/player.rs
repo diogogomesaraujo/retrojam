@@ -122,6 +122,8 @@ pub struct Player {
     pub grounded: bool,
     pub facing: Facing,
     pub age: Age,
+    pub current_sight: f32,
+    pub target_sight: f32,
 }
 
 impl Player {
@@ -131,6 +133,7 @@ impl Player {
         x: f32,
         y: f32,
     ) -> Result<Self, Box<dyn Error>> {
+        let initial_sight = PLAYER_INITIAL_AGE.attributes().sight;
         Ok(Self {
             body: Rectangle {
                 x,
@@ -150,7 +153,23 @@ impl Player {
             vel: (0.0, 0.0),
             facing: Facing::Right,
             age: PLAYER_INITIAL_AGE,
+            current_sight: initial_sight,
+            target_sight: initial_sight,
         })
+    }
+
+    pub fn get_sight_multiplier(&self) -> f32 {
+        self.current_sight
+    }
+
+    pub fn update_sight(&mut self, delta_time: f32) {
+        let transition_speed = 2.0;
+        let diff = self.target_sight - self.current_sight;
+        if diff.abs() > 0.01 {
+            self.current_sight += diff * transition_speed * delta_time;
+        } else {
+            self.current_sight = self.target_sight;
+        }
     }
 
     /// Draw player sprite with animation frame
@@ -199,7 +218,8 @@ impl Player {
                 Age::Teenager => Age::Adult,
                 Age::Adult => Age::Elder,
                 Age::Elder => Age::Baby,
-            }
+            };
+            self.target_sight = self.age.attributes().sight;
         }
     }
 
