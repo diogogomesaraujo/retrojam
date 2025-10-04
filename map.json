@@ -1,1524 +1,214 @@
 {
   "blocks": [
     {
-      "x": 41,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 42,
-      "y": 21,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 57,
-      "y": 44,
-      "block_type": "Blank"
-    },
-    {
-      "x": 63,
-      "y": 14,
-      "block_type": "Blank"
-    },
-    {
-      "x": 52,
-      "y": 32,
+      "x": 40,
+      "y": 33,
       "block_type": "StoneSlabRight"
     },
     {
       "x": 37,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 47,
-      "y": 19,
-      "block_type": "Blank"
-    },
-    {
-      "x": 43,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 34,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 18,
+      "y": 26,
       "block_type": "StoneSlabDown"
     },
     {
-      "x": 30,
-      "y": 25,
+      "x": 52,
+      "y": 16,
       "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 18,
-      "block_type": "StoneSlabDown"
     },
     {
       "x": 50,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 49,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 44,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 49,
-      "y": 35,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 62,
-      "y": 15,
-      "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 14,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 48,
-      "y": 17,
-      "block_type": "Blank"
-    },
-    {
-      "x": 67,
-      "y": 10,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 29,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 51,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 67,
-      "y": 14,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 38,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 46,
-      "y": 21,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 30,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 39,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 34,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 33,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 68,
-      "y": 13,
-      "block_type": "Blank"
-    },
-    {
-      "x": 39,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 28,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 49,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 49,
-      "y": 19,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 58,
-      "y": 15,
-      "block_type": "Blank"
-    },
-    {
-      "x": 51,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 31,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 46,
-      "y": 20,
-      "block_type": "Blank"
-    },
-    {
-      "x": 38,
-      "y": 35,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 69,
-      "y": 14,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 54,
-      "y": 45,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 37,
-      "y": 30,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 58,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 27,
-      "y": 26,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 57,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 41,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 69,
-      "y": 10,
-      "block_type": "StoneRightUp"
-    },
-    {
-      "x": 52,
-      "y": 14,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 40,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 38,
-      "y": 23,
-      "block_type": "Blank"
-    },
-    {
-      "x": 69,
-      "y": 13,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 51,
-      "y": 17,
-      "block_type": "Blank"
-    },
-    {
-      "x": 40,
-      "y": 20,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 35,
-      "y": 32,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 60,
-      "y": 41,
-      "block_type": "StoneRightUp"
-    },
-    {
-      "x": 40,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 46,
-      "y": 18,
-      "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 30,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 42,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 55,
-      "y": 39,
-      "block_type": "StoneLeftUp"
-    },
-    {
-      "x": 30,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 40,
-      "y": 33,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 42,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 44,
-      "block_type": "Blank"
-    },
-    {
-      "x": 38,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 39,
-      "y": 35,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 44,
-      "y": 35,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 39,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 45,
-      "y": 33,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 60,
-      "y": 32,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 60,
-      "y": 17,
-      "block_type": "Blank"
-    },
-    {
-      "x": 57,
-      "y": 40,
-      "block_type": "Blank"
-    },
-    {
-      "x": 60,
-      "y": 45,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 41,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 17,
-      "block_type": "Blank"
-    },
-    {
-      "x": 34,
-      "y": 24,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 52,
-      "y": 18,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 54,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 58,
-      "y": 25,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 33,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 41,
-      "y": 20,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 31,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 42,
-      "y": 22,
-      "block_type": "Blank"
-    },
-    {
-      "x": 46,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 29,
-      "y": 26,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 53,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 45,
-      "y": 25,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 32,
       "y": 34,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 38,
-      "y": 22,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 52,
-      "y": 27,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 43,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 60,
-      "y": 29,
-      "block_type": "StoneRightUp"
-    },
-    {
-      "x": 36,
-      "y": 26,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 51,
-      "y": 18,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 33,
-      "y": 29,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 57,
-      "y": 16,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 41,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 32,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 28,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 32,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 61,
-      "y": 13,
-      "block_type": "Blank"
-    },
-    {
-      "x": 46,
-      "y": 23,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 43,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 37,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 32,
-      "y": 27,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 47,
-      "y": 21,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 60,
-      "y": 13,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 33,
-      "y": 22,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 55,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 51,
-      "y": 27,
       "block_type": "Blank"
     },
     {
       "x": 53,
       "y": 42,
       "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 44,
-      "y": 28,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 48,
-      "y": 16,
-      "block_type": "Blank"
-    },
-    {
-      "x": 57,
-      "y": 25,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 68,
-      "y": 11,
-      "block_type": "Blank"
-    },
-    {
-      "x": 29,
-      "y": 33,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 38,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 43,
-      "y": 24,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 57,
-      "y": 41,
-      "block_type": "Blank"
-    },
-    {
-      "x": 60,
-      "y": 31,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 54,
-      "y": 14,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 59,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 53,
-      "y": 14,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 29,
-      "y": 29,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 29,
-      "y": 28,
-      "block_type": "StoneSlabDown"
     },
     {
       "x": 64,
-      "y": 16,
-      "block_type": "StoneRightDown"
+      "y": 11,
+      "block_type": "StoneSlabUp"
     },
     {
-      "x": 44,
-      "y": 17,
-      "block_type": "StoneLeftUp"
-    },
-    {
-      "x": 39,
-      "y": 20,
-      "block_type": "StoneLeftUp"
-    },
-    {
-      "x": 39,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 40,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 41,
+      "x": 59,
       "y": 31,
       "block_type": "Blank"
     },
     {
-      "x": 30,
-      "y": 22,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 45,
-      "y": 35,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 38,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 48,
-      "y": 27,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 42,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 38,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 28,
-      "y": 29,
-      "block_type": "StoneLeftUp"
-    },
-    {
-      "x": 56,
-      "y": 32,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 60,
-      "y": 33,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 33,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 39,
-      "y": 21,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 40,
-      "y": 32,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 33,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
-      "y": 29,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 32,
-      "y": 26,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 44,
-      "y": 25,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 45,
-      "y": 31,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 42,
-      "y": 25,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 55,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 36,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 52,
+      "x": 37,
       "y": 30,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 47,
-      "y": 15,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 58,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 55,
-      "y": 18,
       "block_type": "StoneSlabDown"
     },
     {
-      "x": 31,
-      "y": 33,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 59,
-      "y": 15,
-      "block_type": "Blank"
-    },
-    {
-      "x": 35,
-      "y": 23,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 31,
-      "y": 26,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 43,
-      "y": 20,
-      "block_type": "Blank"
-    },
-    {
-      "x": 55,
-      "y": 15,
-      "block_type": "Blank"
-    },
-    {
-      "x": 45,
-      "y": 23,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 33,
-      "y": 23,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
-      "y": 33,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 41,
-      "y": 23,
-      "block_type": "Blank"
-    },
-    {
-      "x": 36,
-      "y": 33,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 36,
-      "y": 34,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 47,
-      "y": 16,
-      "block_type": "Blank"
-    },
-    {
-      "x": 53,
-      "y": 45,
-      "block_type": "StoneLeftDown"
-    },
-    {
-      "x": 61,
-      "y": 14,
-      "block_type": "Blank"
-    },
-    {
-      "x": 46,
-      "y": 19,
-      "block_type": "Blank"
-    },
-    {
-      "x": 36,
-      "y": 22,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 33,
-      "y": 28,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 47,
-      "y": 23,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 54,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 50,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 58,
-      "y": 41,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 15,
-      "block_type": "Blank"
-    },
-    {
-      "x": 52,
-      "y": 33,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 40,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 48,
-      "y": 15,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 56,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
+      "x": 27,
       "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 42,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 43,
-      "y": 35,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 53,
-      "y": 15,
-      "block_type": "Blank"
-    },
-    {
-      "x": 53,
-      "y": 18,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 31,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 48,
-      "y": 26,
-      "block_type": "Blank"
+      "block_type": "StoneSlabLeft"
     },
     {
       "x": 49,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 28,
-      "y": 22,
+      "y": 15,
       "block_type": "StoneSlabUp"
     },
     {
-      "x": 55,
-      "y": 45,
+      "x": 45,
+      "y": 29,
       "block_type": "StoneSlabDown"
     },
     {
-      "x": 59,
-      "y": 14,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 48,
-      "y": 29,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 53,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 42,
-      "y": 23,
-      "block_type": "Blank"
-    },
-    {
-      "x": 60,
-      "y": 12,
-      "block_type": "StoneLeftUp"
-    },
-    {
-      "x": 62,
+      "x": 55,
       "y": 16,
-      "block_type": "Blank"
+      "block_type": "StoneSlabDown"
     },
     {
-      "x": 53,
-      "y": 41,
-      "block_type": "StoneLeftUp"
-    },
-    {
-      "x": 41,
-      "y": 34,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 67,
+      "x": 65,
       "y": 13,
       "block_type": "Blank"
     },
     {
-      "x": 61,
-      "y": 16,
-      "block_type": "Blank"
-    },
-    {
-      "x": 45,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 44,
-      "y": 19,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 32,
+      "x": 36,
       "y": 28,
-      "block_type": "StoneLeftDown"
-    },
-    {
-      "x": 28,
-      "y": 30,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 33,
-      "y": 34,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 49,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 17,
       "block_type": "Blank"
     },
     {
       "x": 36,
+      "y": 22,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 42,
+      "y": 22,
+      "block_type": "Blank"
+    },
+    {
+      "x": 51,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 34,
       "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 49,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 44,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 50,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 57,
-      "y": 17,
-      "block_type": "Blank"
-    },
-    {
-      "x": 45,
-      "y": 20,
-      "block_type": "Blank"
-    },
-    {
-      "x": 61,
-      "y": 15,
       "block_type": "Blank"
     },
     {
       "x": 48,
-      "y": 21,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 44,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 46,
-      "y": 22,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 32,
-      "y": 29,
-      "block_type": "StoneRightUp"
-    },
-    {
-      "x": 43,
-      "y": 21,
-      "block_type": "Blank"
-    },
-    {
-      "x": 29,
-      "y": 23,
-      "block_type": "Blank"
-    },
-    {
-      "x": 34,
-      "y": 34,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 56,
-      "y": 41,
-      "block_type": "Blank"
-    },
-    {
-      "x": 41,
-      "y": 32,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 31,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 63,
-      "y": 16,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 34,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 45,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
-      "y": 26,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 58,
-      "y": 14,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 36,
       "y": 32,
       "block_type": "StoneSlabLeft"
     },
     {
-      "x": 32,
-      "y": 33,
+      "x": 54,
+      "y": 44,
       "block_type": "Blank"
     },
     {
-      "x": 60,
-      "y": 43,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 35,
-      "y": 30,
+      "x": 53,
+      "y": 16,
       "block_type": "Blank"
     },
     {
-      "x": 42,
-      "y": 27,
+      "x": 41,
+      "y": 26,
       "block_type": "Blank"
     },
     {
-      "x": 39,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 31,
-      "y": 34,
-      "block_type": "StoneLeftDown"
-    },
-    {
-      "x": 38,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 50,
-      "y": 18,
-      "block_type": "StoneLeftDown"
-    },
-    {
-      "x": 40,
-      "y": 34,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 43,
+      "x": 37,
       "y": 22,
-      "block_type": "Blank"
-    },
-    {
-      "x": 65,
-      "y": 15,
-      "block_type": "StoneSlabDown"
+      "block_type": "StoneSlabUp"
     },
     {
       "x": 52,
-      "y": 23,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 38,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 40,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 68,
-      "y": 12,
-      "block_type": "Blank"
-    },
-    {
-      "x": 41,
-      "y": 35,
-      "block_type": "StoneLeftDown"
-    },
-    {
-      "x": 42,
-      "y": 24,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 57,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 29,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 40,
-      "y": 21,
-      "block_type": "Blank"
-    },
-    {
-      "x": 33,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 39,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 69,
-      "y": 11,
+      "y": 29,
       "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 48,
-      "y": 19,
-      "block_type": "StoneSlabDown"
     },
     {
       "x": 66,
-      "y": 10,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 50,
-      "y": 19,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 42,
-      "y": 19,
-      "block_type": "StoneLeftUp"
-    },
-    {
-      "x": 50,
-      "y": 30,
+      "y": 12,
       "block_type": "Blank"
     },
     {
-      "x": 57,
-      "y": 33,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 55,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 16,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 48,
-      "y": 20,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 47,
-      "y": 27,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 57,
-      "y": 45,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 56,
+      "x": 58,
       "y": 43,
       "block_type": "Blank"
     },
     {
-      "x": 65,
-      "y": 10,
-      "block_type": "StoneLeftUp"
-    },
-    {
-      "x": 44,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 45,
-      "y": 17,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 68,
-      "y": 14,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 57,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 55,
-      "y": 29,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 42,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 64,
-      "y": 13,
-      "block_type": "Blank"
-    },
-    {
-      "x": 63,
-      "y": 11,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 51,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 28,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
       "x": 48,
       "y": 23,
       "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 52,
-      "y": 17,
-      "block_type": "Blank"
-    },
-    {
-      "x": 48,
-      "y": 28,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 55,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 60,
-      "y": 18,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 34,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 45,
-      "y": 29,
-      "block_type": "StoneSlabDown"
     },
     {
       "x": 46,
-      "y": 24,
-      "block_type": "StoneSlabLeft"
+      "y": 25,
+      "block_type": "StoneSlabUp"
     },
     {
-      "x": 50,
-      "y": 29,
+      "x": 56,
+      "y": 40,
+      "block_type": "Blank"
+    },
+    {
+      "x": 31,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 37,
+      "y": 24,
       "block_type": "Blank"
     },
     {
       "x": 34,
-      "y": 23,
-      "block_type": "StoneSlabRight"
+      "y": 34,
+      "block_type": "StoneSlabDown"
     },
     {
-      "x": 57,
+      "x": 40,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 34,
       "y": 26,
       "block_type": "Blank"
     },
     {
-      "x": 59,
-      "y": 40,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 55,
-      "y": 23,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 28,
-      "y": 28,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 50,
-      "y": 23,
-      "block_type": "StoneSlabUp"
+      "x": 32,
+      "y": 33,
+      "block_type": "Blank"
     },
     {
       "x": 53,
-      "y": 24,
+      "y": 27,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 52,
+      "y": 34,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 58,
+      "y": 32,
       "block_type": "Blank"
     },
     {
-      "x": 62,
-      "y": 11,
-      "block_type": "StoneLeftUp"
-    },
-    {
-      "x": 67,
-      "y": 11,
-      "block_type": "Blank"
-    },
-    {
-      "x": 27,
-      "y": 24,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 30,
+      "x": 53,
       "y": 29,
-      "block_type": "StoneSlabUp"
+      "block_type": "StoneLeftDown"
     },
     {
-      "x": 62,
-      "y": 18,
+      "x": 55,
+      "y": 45,
       "block_type": "StoneSlabDown"
     },
     {
-      "x": 51,
-      "y": 35,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 49,
+      "x": 63,
       "y": 17,
-      "block_type": "Blank"
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 69,
+      "y": 13,
+      "block_type": "StoneSlabRight"
     },
     {
       "x": 66,
@@ -1526,43 +216,48 @@
       "block_type": "StoneRightDown"
     },
     {
-      "x": 36,
-      "y": 23,
+      "x": 38,
+      "y": 31,
       "block_type": "Blank"
     },
     {
-      "x": 57,
+      "x": 33,
+      "y": 22,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 43,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 56,
       "y": 15,
       "block_type": "Blank"
     },
     {
-      "x": 44,
-      "y": 20,
-      "block_type": "Blank"
+      "x": 61,
+      "y": 18,
+      "block_type": "StoneSlabDown"
     },
     {
-      "x": 35,
-      "y": 33,
+      "x": 32,
+      "y": 26,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 50,
+      "y": 16,
       "block_type": "StoneSlabRight"
     },
     {
-      "x": 34,
+      "x": 56,
+      "y": 41,
+      "block_type": "Blank"
+    },
+    {
+      "x": 50,
       "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 44,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 27,
-      "y": 27,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 40,
-      "y": 27,
       "block_type": "Blank"
     },
     {
@@ -1571,69 +266,254 @@
       "block_type": "StoneSlabUp"
     },
     {
-      "x": 59,
-      "y": 45,
-      "block_type": "StoneSlabDown"
+      "x": 50,
+      "y": 25,
+      "block_type": "Blank"
     },
     {
-      "x": 43,
-      "y": 19,
-      "block_type": "StoneSlabUp"
+      "x": 40,
+      "y": 27,
+      "block_type": "Blank"
     },
     {
-      "x": 39,
-      "y": 22,
-      "block_type": "StoneSlabUp"
+      "x": 34,
+      "y": 31,
+      "block_type": "Blank"
     },
     {
-      "x": 45,
+      "x": 41,
       "y": 28,
       "block_type": "Blank"
     },
     {
-      "x": 47,
-      "y": 18,
+      "x": 37,
+      "y": 28,
       "block_type": "Blank"
     },
     {
-      "x": 31,
-      "y": 27,
-      "block_type": "StoneSlabRight"
+      "x": 39,
+      "y": 31,
+      "block_type": "Blank"
     },
     {
       "x": 55,
-      "y": 14,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 46,
       "y": 26,
       "block_type": "Blank"
     },
     {
-      "x": 60,
-      "y": 42,
-      "block_type": "StoneSlabRight"
+      "x": 49,
+      "y": 29,
+      "block_type": "Blank"
     },
     {
-      "x": 56,
-      "y": 23,
+      "x": 59,
+      "y": 39,
       "block_type": "StoneRightUp"
     },
     {
-      "x": 65,
-      "y": 11,
+      "x": 57,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 17,
+      "block_type": "Blank"
+    },
+    {
+      "x": 31,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 46,
+      "y": 16,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 52,
+      "y": 23,
       "block_type": "StoneSlabUp"
     },
     {
-      "x": 63,
-      "y": 18,
+      "x": 44,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 34,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 65,
+      "y": 12,
+      "block_type": "Blank"
+    },
+    {
+      "x": 30,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 56,
+      "y": 32,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 62,
+      "y": 12,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 29,
+      "y": 29,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 59,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 58,
+      "y": 40,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 12,
+      "block_type": "StoneLeftUp"
+    },
+    {
+      "x": 46,
+      "y": 23,
       "block_type": "StoneRightDown"
+    },
+    {
+      "x": 54,
+      "y": 16,
+      "block_type": "Blank"
+    },
+    {
+      "x": 45,
+      "y": 18,
+      "block_type": "Blank"
+    },
+    {
+      "x": 44,
+      "y": 35,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 53,
+      "y": 17,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 46,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 39,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 31,
+      "y": 28,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 28,
+      "y": 23,
+      "block_type": "Blank"
+    },
+    {
+      "x": 47,
+      "y": 27,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 49,
+      "y": 35,
+      "block_type": "StoneSlabDown"
     },
     {
       "x": 45,
       "y": 30,
       "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 42,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 42,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 27,
+      "y": 25,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 38,
+      "y": 32,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 38,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 55,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 45,
+      "y": 35,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 30,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 15,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 29,
+      "block_type": "StoneRightUp"
+    },
+    {
+      "x": 51,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 28,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 68,
+      "y": 12,
+      "block_type": "Blank"
     },
     {
       "x": 67,
@@ -1642,63 +522,123 @@
     },
     {
       "x": 46,
-      "y": 25,
-      "block_type": "StoneSlabUp"
+      "y": 21,
+      "block_type": "StoneSlabDown"
     },
     {
-      "x": 37,
-      "y": 28,
+      "x": 28,
+      "y": 29,
+      "block_type": "StoneLeftUp"
+    },
+    {
+      "x": 48,
+      "y": 27,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 63,
+      "y": 18,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 45,
+      "y": 33,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 43,
+      "y": 27,
       "block_type": "Blank"
     },
     {
-      "x": 47,
-      "y": 28,
+      "x": 56,
+      "y": 24,
       "block_type": "StoneSlabRight"
     },
     {
       "x": 33,
-      "y": 26,
+      "y": 31,
       "block_type": "Blank"
     },
     {
-      "x": 30,
-      "y": 33,
-      "block_type": "StoneSlabDown"
+      "x": 63,
+      "y": 14,
+      "block_type": "Blank"
     },
     {
-      "x": 35,
-      "y": 31,
-      "block_type": "StoneSlabDown"
+      "x": 44,
+      "y": 21,
+      "block_type": "Blank"
     },
     {
-      "x": 27,
-      "y": 23,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 58,
+      "x": 45,
       "y": 28,
       "block_type": "Blank"
     },
     {
-      "x": 42,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 47,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 49,
-      "y": 24,
-      "block_type": "Blank"
+      "x": 50,
+      "y": 23,
+      "block_type": "StoneSlabUp"
     },
     {
       "x": 35,
-      "y": 34,
-      "block_type": "StoneRightDown"
+      "y": 23,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 57,
+      "y": 39,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 57,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 43,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 58,
+      "y": 14,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 46,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 44,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 32,
+      "y": 23,
+      "block_type": "Blank"
+    },
+    {
+      "x": 39,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 41,
+      "y": 21,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 44,
+      "block_type": "Blank"
+    },
+    {
+      "x": 50,
+      "y": 35,
+      "block_type": "StoneSlabDown"
     },
     {
       "x": 62,
@@ -1706,89 +646,174 @@
       "block_type": "Blank"
     },
     {
-      "x": 49,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 50,
-      "y": 28,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 32,
-      "y": 30,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 49,
-      "y": 16,
-      "block_type": "Blank"
-    },
-    {
-      "x": 31,
-      "y": 22,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 57,
-      "y": 18,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 46,
-      "y": 15,
-      "block_type": "StoneLeftUp"
-    },
-    {
-      "x": 48,
-      "y": 31,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 35,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 47,
+      "x": 33,
       "y": 25,
       "block_type": "Blank"
     },
     {
-      "x": 38,
-      "y": 31,
+      "x": 48,
+      "y": 25,
       "block_type": "Blank"
     },
     {
-      "x": 43,
+      "x": 40,
+      "y": 21,
+      "block_type": "Blank"
+    },
+    {
+      "x": 36,
+      "y": 33,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 46,
+      "y": 24,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 64,
+      "y": 14,
+      "block_type": "Blank"
+    },
+    {
+      "x": 54,
+      "y": 15,
+      "block_type": "Blank"
+    },
+    {
+      "x": 49,
+      "y": 19,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 49,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 30,
+      "y": 28,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 42,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 41,
       "y": 30,
       "block_type": "Blank"
     },
     {
-      "x": 42,
-      "y": 20,
-      "block_type": "StoneRightUp"
-    },
-    {
-      "x": 49,
-      "y": 15,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 41,
-      "y": 26,
+      "x": 29,
+      "y": 24,
       "block_type": "Blank"
     },
     {
-      "x": 58,
+      "x": 69,
+      "y": 14,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 31,
+      "y": 29,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 32,
+      "y": 29,
+      "block_type": "StoneRightUp"
+    },
+    {
+      "x": 48,
+      "y": 18,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 41,
+      "block_type": "StoneRightUp"
+    },
+    {
+      "x": 44,
+      "y": 28,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 62,
       "y": 16,
       "block_type": "Blank"
     },
     {
-      "x": 39,
-      "y": 23,
+      "x": 51,
+      "y": 15,
       "block_type": "Blank"
+    },
+    {
+      "x": 38,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 48,
+      "y": 30,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 55,
+      "y": 39,
+      "block_type": "StoneLeftUp"
+    },
+    {
+      "x": 64,
+      "y": 16,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 58,
+      "y": 15,
+      "block_type": "Blank"
+    },
+    {
+      "x": 54,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 35,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 27,
+      "y": 23,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 48,
+      "y": 34,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 47,
+      "y": 18,
+      "block_type": "Blank"
+    },
+    {
+      "x": 49,
+      "y": 18,
+      "block_type": "Blank"
+    },
+    {
+      "x": 36,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 29,
+      "block_type": "StoneRightDown"
     },
     {
       "x": 36,
@@ -1796,87 +821,117 @@
       "block_type": "StoneLeftDown"
     },
     {
-      "x": 61,
+      "x": 49,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 57,
+      "y": 29,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 35,
+      "y": 22,
+      "block_type": "StoneLeftUp"
+    },
+    {
+      "x": 40,
+      "y": 20,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 29,
+      "y": 23,
+      "block_type": "Blank"
+    },
+    {
+      "x": 52,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 43,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 33,
+      "y": 29,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 44,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 33,
+      "y": 23,
+      "block_type": "Blank"
+    },
+    {
+      "x": 57,
+      "y": 33,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 51,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 56,
       "y": 18,
       "block_type": "StoneSlabDown"
     },
     {
-      "x": 44,
-      "y": 22,
+      "x": 57,
+      "y": 16,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 38,
+      "y": 25,
       "block_type": "Blank"
     },
     {
-      "x": 51,
-      "y": 23,
+      "x": 56,
+      "y": 25,
       "block_type": "StoneSlabUp"
     },
     {
-      "x": 58,
-      "y": 44,
+      "x": 33,
+      "y": 30,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 54,
+      "y": 14,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 49,
+      "y": 27,
       "block_type": "Blank"
     },
     {
-      "x": 47,
-      "y": 17,
-      "block_type": "Blank"
-    },
-    {
-      "x": 51,
-      "y": 15,
-      "block_type": "Blank"
-    },
-    {
-      "x": 52,
-      "y": 16,
-      "block_type": "Blank"
-    },
-    {
-      "x": 50,
-      "y": 15,
-      "block_type": "StoneRightUp"
-    },
-    {
-      "x": 45,
-      "y": 18,
+      "x": 38,
+      "y": 34,
       "block_type": "Blank"
     },
     {
       "x": 27,
-      "y": 25,
-      "block_type": "StoneSlabLeft"
+      "y": 22,
+      "block_type": "StoneLeftUp"
     },
     {
-      "x": 56,
-      "y": 31,
-      "block_type": "StoneSlabLeft"
+      "x": 37,
+      "y": 23,
+      "block_type": "Blank"
     },
     {
       "x": 53,
-      "y": 43,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 50,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 41,
-      "y": 22,
-      "block_type": "Blank"
-    },
-    {
-      "x": 52,
-      "y": 35,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 47,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 28,
       "y": 26,
       "block_type": "Blank"
     },
@@ -1886,124 +941,189 @@
       "block_type": "Blank"
     },
     {
-      "x": 37,
-      "y": 23,
-      "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 40,
-      "block_type": "Blank"
-    },
-    {
-      "x": 49,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 50,
-      "y": 35,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 53,
-      "y": 29,
-      "block_type": "StoneLeftDown"
-    },
-    {
       "x": 54,
-      "y": 23,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 29,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 50,
       "y": 26,
       "block_type": "Blank"
     },
     {
-      "x": 55,
-      "y": 41,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 63,
-      "y": 13,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
       "x": 40,
-      "y": 23,
+      "y": 31,
       "block_type": "Blank"
-    },
-    {
-      "x": 48,
-      "y": 18,
-      "block_type": "Blank"
-    },
-    {
-      "x": 30,
-      "y": 28,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 58,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 37,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 60,
-      "y": 14,
-      "block_type": "StoneSlabUp"
     },
     {
       "x": 35,
-      "y": 27,
+      "y": 33,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 49,
+      "y": 30,
       "block_type": "Blank"
     },
     {
-      "x": 50,
+      "x": 27,
+      "y": 28,
+      "block_type": "StoneLeftDown"
+    },
+    {
+      "x": 57,
+      "y": 45,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 42,
+      "y": 19,
+      "block_type": "StoneLeftUp"
+    },
+    {
+      "x": 61,
+      "y": 12,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 47,
+      "y": 29,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 57,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 55,
       "y": 25,
       "block_type": "Blank"
     },
     {
+      "x": 50,
+      "y": 19,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 59,
+      "y": 27,
+      "block_type": "StoneSlabRight"
+    },
+    {
       "x": 45,
-      "y": 21,
+      "y": 23,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 35,
+      "y": 26,
       "block_type": "Blank"
     },
     {
-      "x": 43,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 30,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 32,
-      "y": 24,
+      "x": 57,
+      "y": 15,
       "block_type": "Blank"
     },
     {
       "x": 44,
+      "y": 19,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 32,
+      "y": 30,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 59,
       "y": 18,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 56,
+      "y": 14,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 27,
+      "y": 26,
       "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 59,
+      "y": 41,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 28,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 15,
+      "block_type": "Blank"
+    },
+    {
+      "x": 31,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 33,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 26,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 39,
+      "y": 23,
+      "block_type": "Blank"
+    },
+    {
+      "x": 46,
+      "y": 20,
+      "block_type": "Blank"
+    },
+    {
+      "x": 52,
+      "y": 18,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 44,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 42,
+      "y": 35,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 56,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 46,
+      "y": 15,
+      "block_type": "StoneLeftUp"
+    },
+    {
+      "x": 54,
+      "y": 45,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 34,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 37,
+      "y": 33,
+      "block_type": "Blank"
     },
     {
       "x": 51,
@@ -2012,28 +1132,433 @@
     },
     {
       "x": 42,
-      "y": 34,
-      "block_type": "Blank"
+      "y": 21,
+      "block_type": "StoneSlabUp"
     },
     {
-      "x": 43,
-      "y": 28,
-      "block_type": "Blank"
+      "x": 56,
+      "y": 33,
+      "block_type": "StoneLeftDown"
     },
     {
-      "x": 35,
+      "x": 60,
+      "y": 30,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 39,
       "y": 26,
       "block_type": "Blank"
     },
     {
-      "x": 62,
-      "y": 12,
+      "x": 50,
+      "y": 15,
+      "block_type": "StoneRightUp"
+    },
+    {
+      "x": 43,
+      "y": 35,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 55,
+      "y": 14,
       "block_type": "StoneSlabUp"
     },
     {
-      "x": 53,
+      "x": 60,
+      "y": 17,
+      "block_type": "Blank"
+    },
+    {
+      "x": 44,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 47,
+      "y": 23,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 35,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 46,
+      "y": 29,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 51,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 43,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 44,
+      "y": 31,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 61,
+      "y": 14,
+      "block_type": "Blank"
+    },
+    {
+      "x": 39,
+      "y": 21,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 51,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 65,
+      "y": 10,
+      "block_type": "StoneLeftUp"
+    },
+    {
+      "x": 38,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 57,
+      "y": 41,
+      "block_type": "Blank"
+    },
+    {
+      "x": 58,
+      "y": 29,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 68,
+      "y": 11,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 32,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 37,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 67,
+      "y": 10,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 52,
+      "y": 28,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 47,
+      "y": 19,
+      "block_type": "Blank"
+    },
+    {
+      "x": 66,
+      "y": 13,
+      "block_type": "Blank"
+    },
+    {
+      "x": 38,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 49,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 51,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 56,
+      "y": 30,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 33,
+      "y": 34,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 36,
+      "y": 23,
+      "block_type": "Blank"
+    },
+    {
+      "x": 43,
+      "y": 19,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 57,
+      "y": 14,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 57,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 48,
+      "y": 17,
+      "block_type": "Blank"
+    },
+    {
+      "x": 33,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 64,
+      "y": 15,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 50,
+      "y": 18,
+      "block_type": "StoneLeftDown"
+    },
+    {
+      "x": 44,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 37,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 30,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 35,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 48,
       "y": 28,
       "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 60,
+      "y": 44,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 48,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 33,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 16,
+      "block_type": "Blank"
+    },
+    {
+      "x": 41,
+      "y": 32,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 38,
+      "y": 26,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 37,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 36,
+      "y": 26,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 42,
+      "y": 23,
+      "block_type": "Blank"
+    },
+    {
+      "x": 61,
+      "y": 15,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 28,
+      "y": 32,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 52,
+      "y": 15,
+      "block_type": "Blank"
+    },
+    {
+      "x": 38,
+      "y": 22,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 29,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 36,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 58,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 44,
+      "y": 22,
+      "block_type": "Blank"
+    },
+    {
+      "x": 41,
+      "y": 35,
+      "block_type": "StoneLeftDown"
+    },
+    {
+      "x": 51,
+      "y": 35,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 57,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 52,
+      "y": 33,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 55,
+      "y": 17,
+      "block_type": "Blank"
+    },
+    {
+      "x": 47,
+      "y": 21,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 67,
+      "y": 11,
+      "block_type": "Blank"
+    },
+    {
+      "x": 54,
+      "y": 18,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 39,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 38,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 28,
+      "y": 30,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 56,
+      "y": 23,
+      "block_type": "StoneRightUp"
+    },
+    {
+      "x": 47,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 48,
+      "y": 21,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 37,
+      "y": 35,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 55,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 57,
+      "y": 44,
+      "block_type": "Blank"
+    },
+    {
+      "x": 34,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 45,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 50,
+      "y": 28,
+      "block_type": "StoneSlabDown"
     },
     {
       "x": 55,
@@ -2041,13 +1566,98 @@
       "block_type": "Blank"
     },
     {
-      "x": 58,
+      "x": 54,
       "y": 42,
       "block_type": "Blank"
     },
     {
-      "x": 30,
-      "y": 23,
+      "x": 41,
+      "y": 20,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 48,
+      "y": 33,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 62,
+      "y": 18,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 29,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 48,
+      "y": 20,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 51,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 31,
+      "y": 34,
+      "block_type": "StoneLeftDown"
+    },
+    {
+      "x": 64,
+      "y": 12,
+      "block_type": "Blank"
+    },
+    {
+      "x": 54,
+      "y": 17,
+      "block_type": "Blank"
+    },
+    {
+      "x": 58,
+      "y": 44,
+      "block_type": "Blank"
+    },
+    {
+      "x": 44,
+      "y": 25,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 46,
+      "y": 18,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 28,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 52,
+      "y": 14,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 58,
+      "y": 41,
+      "block_type": "Blank"
+    },
+    {
+      "x": 50,
+      "y": 17,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 33,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 49,
+      "y": 31,
       "block_type": "Blank"
     },
     {
@@ -2056,253 +1666,113 @@
       "block_type": "StoneSlabRight"
     },
     {
-      "x": 64,
-      "y": 11,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 29,
-      "y": 22,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 37,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 45,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 52,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 52,
-      "y": 34,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 55,
-      "y": 16,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 50,
-      "y": 17,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 44,
-      "y": 23,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 38,
-      "y": 33,
-      "block_type": "Blank"
-    },
-    {
-      "x": 34,
-      "y": 22,
-      "block_type": "StoneRightUp"
-    },
-    {
-      "x": 52,
-      "y": 31,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 38,
-      "y": 32,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 55,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 52,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 33,
-      "block_type": "StoneLeftDown"
-    },
-    {
-      "x": 56,
-      "y": 29,
-      "block_type": "StoneLeftUp"
-    },
-    {
-      "x": 30,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 60,
-      "y": 15,
-      "block_type": "Blank"
-    },
-    {
-      "x": 57,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 63,
-      "y": 12,
-      "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 15,
-      "block_type": "Blank"
-    },
-    {
-      "x": 58,
-      "y": 40,
-      "block_type": "Blank"
-    },
-    {
-      "x": 58,
-      "y": 39,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 58,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 45,
-      "y": 32,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 37,
-      "y": 22,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 58,
-      "y": 45,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 52,
-      "y": 15,
-      "block_type": "Blank"
-    },
-    {
-      "x": 51,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 51,
-      "y": 14,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 37,
+      "x": 49,
       "y": 25,
       "block_type": "Blank"
     },
     {
-      "x": 65,
+      "x": 45,
+      "y": 31,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 51,
+      "y": 17,
+      "block_type": "Blank"
+    },
+    {
+      "x": 61,
       "y": 13,
       "block_type": "Blank"
     },
     {
-      "x": 59,
-      "y": 27,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 56,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 24,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 58,
-      "y": 29,
+      "x": 31,
+      "y": 26,
       "block_type": "StoneSlabDown"
     },
     {
-      "x": 32,
-      "y": 25,
+      "x": 48,
+      "y": 26,
       "block_type": "Blank"
     },
     {
-      "x": 60,
-      "y": 30,
-      "block_type": "StoneSlabRight"
+      "x": 30,
+      "y": 23,
+      "block_type": "Blank"
     },
     {
-      "x": 59,
-      "y": 39,
-      "block_type": "StoneRightUp"
+      "x": 64,
+      "y": 13,
+      "block_type": "Blank"
     },
     {
-      "x": 59,
-      "y": 43,
+      "x": 42,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 58,
+      "y": 27,
       "block_type": "Blank"
     },
     {
       "x": 36,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 57,
       "y": 30,
       "block_type": "Blank"
     },
     {
-      "x": 59,
-      "y": 28,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 58,
-      "y": 43,
-      "block_type": "Blank"
-    },
-    {
-      "x": 46,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 25,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 65,
-      "y": 12,
-      "block_type": "Blank"
-    },
-    {
-      "x": 51,
-      "y": 24,
+      "x": 57,
+      "y": 17,
       "block_type": "Blank"
     },
     {
       "x": 41,
-      "y": 21,
+      "y": 24,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 42,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 42,
+      "y": 25,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 53,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 33,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 48,
+      "y": 31,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 48,
+      "y": 29,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 56,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 47,
+      "y": 24,
       "block_type": "Blank"
     },
     {
@@ -2311,423 +1781,53 @@
       "block_type": "Blank"
     },
     {
-      "x": 54,
+      "x": 31,
       "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 43,
-      "y": 25,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 52,
-      "y": 28,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 44,
-      "y": 21,
-      "block_type": "Blank"
-    },
-    {
-      "x": 33,
-      "y": 30,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 29,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 55,
-      "y": 43,
       "block_type": "Start"
     },
     {
-      "x": 35,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 43,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
       "x": 51,
-      "y": 30,
+      "y": 27,
       "block_type": "Blank"
     },
     {
-      "x": 53,
-      "y": 17,
-      "block_type": "Blank"
-    },
-    {
-      "x": 47,
-      "y": 29,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 51,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 40,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 37,
-      "y": 35,
+      "x": 33,
+      "y": 28,
       "block_type": "StoneSlabDown"
     },
     {
-      "x": 43,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 62,
-      "y": 14,
-      "block_type": "Blank"
-    },
-    {
-      "x": 64,
-      "y": 15,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 34,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 53,
-      "y": 23,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 53,
-      "y": 44,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 39,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 41,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 48,
-      "y": 34,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 64,
-      "y": 12,
-      "block_type": "Blank"
-    },
-    {
-      "x": 40,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 60,
-      "y": 16,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 50,
-      "y": 14,
-      "block_type": "StoneLeftUp"
-    },
-    {
-      "x": 58,
-      "y": 18,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 56,
-      "y": 42,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
-      "y": 25,
-      "block_type": "StoneRightUp"
-    },
-    {
-      "x": 39,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 58,
-      "y": 17,
-      "block_type": "Blank"
-    },
-    {
-      "x": 66,
+      "x": 68,
       "y": 13,
       "block_type": "Blank"
     },
     {
-      "x": 54,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 49,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 34,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 44,
-      "y": 34,
-      "block_type": "Blank"
-    },
-    {
-      "x": 35,
-      "y": 22,
-      "block_type": "StoneLeftUp"
-    },
-    {
-      "x": 51,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 28,
-      "y": 32,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 59,
-      "y": 30,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 16,
-      "block_type": "Blank"
-    },
-    {
-      "x": 41,
-      "y": 33,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 66,
-      "y": 14,
+      "x": 55,
+      "y": 18,
       "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 49,
-      "y": 27,
-      "block_type": "Blank"
-    },
-    {
-      "x": 68,
-      "y": 10,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 63,
-      "y": 17,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 49,
-      "y": 23,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 35,
-      "y": 24,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 37,
-      "y": 26,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 59,
-      "y": 16,
-      "block_type": "Blank"
-    },
-    {
-      "x": 38,
-      "y": 26,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 31,
-      "y": 28,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 39,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 48,
-      "y": 30,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 28,
-      "y": 31,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 37,
-      "y": 31,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 58,
-      "y": 33,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 42,
-      "y": 35,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 56,
-      "y": 44,
-      "block_type": "Blank"
-    },
-    {
-      "x": 43,
-      "y": 23,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 27,
-      "y": 28,
-      "block_type": "StoneLeftDown"
-    },
-    {
-      "x": 57,
-      "y": 28,
-      "block_type": "Blank"
-    },
-    {
-      "x": 60,
-      "y": 44,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 52,
-      "y": 29,
-      "block_type": "StoneSlabRight"
-    },
-    {
-      "x": 57,
-      "y": 32,
-      "block_type": "Blank"
-    },
-    {
-      "x": 63,
-      "y": 15,
-      "block_type": "Blank"
-    },
-    {
-      "x": 32,
-      "y": 23,
-      "block_type": "Blank"
-    },
-    {
-      "x": 54,
-      "y": 29,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 53,
-      "y": 27,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 31,
-      "y": 23,
-      "block_type": "Blank"
-    },
-    {
-      "x": 37,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 57,
-      "y": 39,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 66,
-      "y": 11,
-      "block_type": "Blank"
-    },
-    {
-      "x": 46,
-      "y": 17,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 35,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 28,
-      "y": 23,
-      "block_type": "Blank"
-    },
-    {
-      "x": 48,
-      "y": 33,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 45,
-      "y": 19,
-      "block_type": "Blank"
-    },
-    {
-      "x": 62,
-      "y": 17,
-      "block_type": "Blank"
     },
     {
       "x": 50,
-      "y": 32,
+      "y": 30,
       "block_type": "Blank"
     },
     {
-      "x": 36,
-      "y": 30,
+      "x": 58,
+      "y": 16,
+      "block_type": "Blank"
+    },
+    {
+      "x": 39,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 49,
+      "y": 17,
+      "block_type": "Blank"
+    },
+    {
+      "x": 29,
+      "y": 32,
       "block_type": "Blank"
     },
     {
@@ -2736,119 +1836,169 @@
       "block_type": "Blank"
     },
     {
-      "x": 65,
-      "y": 14,
+      "x": 58,
+      "y": 45,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 45,
+      "y": 19,
       "block_type": "Blank"
     },
     {
-      "x": 49,
-      "y": 18,
-      "block_type": "Blank"
-    },
-    {
-      "x": 56,
-      "y": 39,
+      "x": 47,
+      "y": 15,
       "block_type": "StoneSlabUp"
     },
     {
-      "x": 41,
-      "y": 24,
-      "block_type": "StoneSlabDown"
-    },
-    {
       "x": 52,
-      "y": 25,
+      "y": 17,
       "block_type": "Blank"
     },
     {
-      "x": 57,
+      "x": 37,
       "y": 29,
-      "block_type": "StoneSlabDown"
-    },
-    {
-      "x": 36,
-      "y": 31,
-      "block_type": "StoneLeftUp"
-    },
-    {
-      "x": 36,
-      "y": 25,
-      "block_type": "Blank"
-    },
-    {
-      "x": 29,
-      "y": 27,
       "block_type": "Blank"
     },
     {
       "x": 46,
-      "y": 16,
-      "block_type": "StoneSlabLeft"
+      "y": 17,
+      "block_type": "StoneSlabUp"
     },
     {
-      "x": 64,
-      "y": 14,
+      "x": 45,
+      "y": 21,
       "block_type": "Blank"
     },
     {
       "x": 48,
-      "y": 32,
-      "block_type": "StoneSlabLeft"
-    },
-    {
-      "x": 48,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 46,
-      "y": 29,
+      "y": 19,
       "block_type": "StoneSlabDown"
     },
     {
-      "x": 34,
-      "y": 29,
+      "x": 38,
+      "y": 23,
       "block_type": "Blank"
     },
     {
-      "x": 40,
-      "y": 22,
-      "block_type": "Blank"
-    },
-    {
-      "x": 48,
-      "y": 35,
-      "block_type": "StoneLeftDown"
-    },
-    {
-      "x": 36,
-      "y": 24,
-      "block_type": "Blank"
-    },
-    {
-      "x": 29,
-      "y": 31,
-      "block_type": "Blank"
-    },
-    {
-      "x": 55,
-      "y": 42,
+      "x": 62,
+      "y": 17,
       "block_type": "Blank"
     },
     {
       "x": 28,
-      "y": 33,
-      "block_type": "StoneLeftDown"
+      "y": 31,
+      "block_type": "StoneSlabLeft"
     },
     {
-      "x": 37,
-      "y": 34,
+      "x": 49,
+      "y": 33,
       "block_type": "Blank"
     },
     {
-      "x": 55,
+      "x": 31,
+      "y": 33,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 43,
+      "y": 21,
+      "block_type": "Blank"
+    },
+    {
+      "x": 52,
+      "y": 35,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 39,
+      "y": 35,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 36,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 54,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 53,
+      "y": 44,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 52,
+      "y": 32,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 47,
       "y": 17,
       "block_type": "Blank"
+    },
+    {
+      "x": 56,
+      "y": 29,
+      "block_type": "StoneLeftUp"
+    },
+    {
+      "x": 43,
+      "y": 22,
+      "block_type": "Blank"
+    },
+    {
+      "x": 35,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 29,
+      "y": 22,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 40,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 56,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 50,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 30,
+      "y": 29,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 59,
+      "y": 25,
+      "block_type": "StoneRightUp"
+    },
+    {
+      "x": 56,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 54,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 52,
+      "y": 31,
+      "block_type": "StoneSlabRight"
     },
     {
       "x": 55,
@@ -2856,13 +2006,13 @@
       "block_type": "StoneSlabLeft"
     },
     {
-      "x": 44,
-      "y": 31,
-      "block_type": "StoneSlabDown"
+      "x": 41,
+      "y": 34,
+      "block_type": "StoneSlabLeft"
     },
     {
-      "x": 53,
-      "y": 16,
+      "x": 51,
+      "y": 30,
       "block_type": "Blank"
     },
     {
@@ -2871,13 +2021,653 @@
       "block_type": "Blank"
     },
     {
+      "x": 57,
+      "y": 25,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 28,
+      "y": 22,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 30,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 39,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 53,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 61,
+      "y": 16,
+      "block_type": "Blank"
+    },
+    {
+      "x": 42,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 41,
+      "y": 23,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 32,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 62,
+      "y": 11,
+      "block_type": "StoneLeftUp"
+    },
+    {
+      "x": 29,
+      "y": 33,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 32,
+      "y": 28,
+      "block_type": "StoneLeftDown"
+    },
+    {
+      "x": 44,
+      "y": 20,
+      "block_type": "Blank"
+    },
+    {
+      "x": 65,
+      "y": 14,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 45,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 49,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 50,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 47,
+      "y": 28,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 52,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 36,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 48,
+      "y": 16,
+      "block_type": "Blank"
+    },
+    {
+      "x": 53,
+      "y": 45,
+      "block_type": "StoneLeftDown"
+    },
+    {
+      "x": 58,
+      "y": 33,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 28,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 28,
+      "y": 33,
+      "block_type": "StoneLeftDown"
+    },
+    {
+      "x": 45,
+      "y": 17,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 65,
+      "y": 11,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 47,
+      "y": 20,
+      "block_type": "Blank"
+    },
+    {
+      "x": 29,
+      "y": 28,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 30,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 44,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 50,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 68,
+      "y": 14,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 54,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 58,
+      "y": 25,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 43,
+      "y": 23,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 46,
+      "y": 22,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 45,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 30,
+      "y": 22,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 37,
+      "y": 31,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 41,
+      "y": 33,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 69,
+      "y": 11,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 56,
+      "y": 44,
+      "block_type": "Blank"
+    },
+    {
+      "x": 29,
+      "y": 26,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 31,
+      "y": 23,
+      "block_type": "Blank"
+    },
+    {
+      "x": 34,
+      "y": 24,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 69,
+      "y": 10,
+      "block_type": "StoneRightUp"
+    },
+    {
+      "x": 35,
+      "y": 31,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 34,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 43,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 53,
+      "y": 15,
+      "block_type": "Blank"
+    },
+    {
+      "x": 32,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
       "x": 42,
       "y": 28,
       "block_type": "Blank"
     },
     {
+      "x": 32,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 39,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 58,
+      "y": 39,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 31,
+      "y": 22,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 27,
+      "y": 27,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 43,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
       "x": 34,
-      "y": 33,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 56,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 52,
+      "y": 30,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 44,
+      "y": 17,
+      "block_type": "StoneLeftUp"
+    },
+    {
+      "x": 31,
+      "y": 27,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 51,
+      "y": 18,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 35,
+      "y": 24,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 55,
+      "y": 41,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 60,
+      "y": 18,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 66,
+      "y": 11,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 34,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 41,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 53,
+      "y": 23,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 52,
+      "y": 27,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 66,
+      "y": 10,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 36,
+      "y": 32,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 40,
+      "y": 23,
+      "block_type": "Blank"
+    },
+    {
+      "x": 62,
+      "y": 14,
+      "block_type": "Blank"
+    },
+    {
+      "x": 53,
+      "y": 41,
+      "block_type": "StoneLeftUp"
+    },
+    {
+      "x": 46,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 42,
+      "y": 30,
+      "block_type": "Blank"
+    },
+    {
+      "x": 50,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 42,
+      "y": 20,
+      "block_type": "StoneRightUp"
+    },
+    {
+      "x": 60,
+      "y": 42,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 55,
+      "y": 23,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 63,
+      "y": 11,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 29,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 49,
+      "y": 23,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 58,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 63,
+      "y": 16,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 59,
+      "y": 40,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 29,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 36,
+      "y": 31,
+      "block_type": "StoneLeftUp"
+    },
+    {
+      "x": 52,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 57,
+      "y": 40,
+      "block_type": "Blank"
+    },
+    {
+      "x": 63,
+      "y": 13,
+      "block_type": "Blank"
+    },
+    {
+      "x": 53,
+      "y": 14,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 59,
+      "y": 14,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 38,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 38,
+      "y": 35,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 28,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 45,
+      "y": 32,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 35,
+      "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 35,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 31,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 57,
+      "y": 18,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 43,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 34,
+      "y": 28,
+      "block_type": "Blank"
+    },
+    {
+      "x": 50,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 51,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 56,
+      "y": 16,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 35,
+      "y": 32,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 41,
+      "y": 27,
+      "block_type": "Blank"
+    },
+    {
+      "x": 45,
+      "y": 25,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 34,
+      "y": 23,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 54,
+      "y": 23,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 43,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 45,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 54,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 51,
+      "y": 23,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 39,
+      "y": 20,
+      "block_type": "StoneLeftUp"
+    },
+    {
+      "x": 30,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 32,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 53,
+      "y": 18,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 53,
+      "y": 28,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 47,
+      "y": 26,
+      "block_type": "Blank"
+    },
+    {
+      "x": 41,
+      "y": 22,
+      "block_type": "Blank"
+    },
+    {
+      "x": 56,
+      "y": 31,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 55,
+      "y": 15,
       "block_type": "Blank"
     },
     {
@@ -2891,89 +2681,139 @@
       "block_type": "Blank"
     },
     {
-      "x": 41,
-      "y": 25,
-      "block_type": "StoneSlabUp"
+      "x": 49,
+      "y": 24,
+      "block_type": "Blank"
     },
     {
-      "x": 31,
-      "y": 29,
-      "block_type": "StoneSlabUp"
+      "x": 34,
+      "y": 22,
+      "block_type": "StoneRightUp"
     },
     {
-      "x": 57,
+      "x": 60,
       "y": 14,
       "block_type": "StoneSlabUp"
     },
     {
       "x": 59,
-      "y": 41,
-      "block_type": "StoneSlabUp"
-    },
-    {
-      "x": 30,
-      "y": 26,
+      "y": 16,
       "block_type": "Blank"
     },
     {
-      "x": 50,
-      "y": 16,
-      "block_type": "StoneSlabRight"
+      "x": 54,
+      "y": 29,
+      "block_type": "StoneSlabDown"
     },
     {
-      "x": 51,
+      "x": 49,
       "y": 16,
       "block_type": "Blank"
     },
     {
       "x": 39,
-      "y": 32,
+      "y": 34,
       "block_type": "Blank"
     },
     {
-      "x": 47,
-      "y": 20,
-      "block_type": "Blank"
-    },
-    {
-      "x": 49,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 27,
+      "x": 39,
       "y": 22,
-      "block_type": "StoneLeftUp"
+      "block_type": "StoneSlabUp"
     },
     {
-      "x": 40,
-      "y": 35,
-      "block_type": "StoneRightDown"
-    },
-    {
-      "x": 48,
-      "y": 25,
+      "x": 43,
+      "y": 30,
       "block_type": "Blank"
     },
     {
-      "x": 44,
-      "y": 26,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
+      "x": 58,
       "y": 18,
       "block_type": "StoneSlabDown"
     },
     {
       "x": 51,
+      "y": 16,
+      "block_type": "Blank"
+    },
+    {
+      "x": 36,
+      "y": 34,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 63,
+      "y": 15,
+      "block_type": "Blank"
+    },
+    {
+      "x": 37,
+      "y": 34,
+      "block_type": "Blank"
+    },
+    {
+      "x": 42,
+      "y": 24,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 67,
+      "y": 14,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 50,
+      "y": 14,
+      "block_type": "StoneLeftUp"
+    },
+    {
+      "x": 44,
+      "y": 23,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 58,
       "y": 26,
       "block_type": "Blank"
     },
     {
-      "x": 61,
-      "y": 12,
+      "x": 28,
+      "y": 28,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 39,
+      "y": 29,
+      "block_type": "Blank"
+    },
+    {
+      "x": 45,
+      "y": 20,
+      "block_type": "Blank"
+    },
+    {
+      "x": 48,
+      "y": 15,
       "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 51,
+      "y": 14,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 57,
+      "y": 32,
+      "block_type": "Blank"
+    },
+    {
+      "x": 32,
+      "y": 34,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 55,
+      "y": 28,
+      "block_type": "Blank"
     },
     {
       "x": 58,
@@ -2981,33 +2821,188 @@
       "block_type": "Blank"
     },
     {
+      "x": 41,
+      "y": 25,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 55,
+      "y": 29,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 57,
+      "y": 43,
+      "block_type": "Blank"
+    },
+    {
+      "x": 40,
+      "y": 22,
+      "block_type": "Blank"
+    },
+    {
+      "x": 54,
+      "y": 41,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 67,
+      "y": 13,
+      "block_type": "Blank"
+    },
+    {
+      "x": 32,
+      "y": 27,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 57,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 68,
+      "y": 10,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 58,
+      "y": 17,
+      "block_type": "Blank"
+    },
+    {
       "x": 61,
       "y": 17,
       "block_type": "Blank"
     },
     {
-      "x": 59,
-      "y": 17,
+      "x": 62,
+      "y": 15,
       "block_type": "Blank"
     },
     {
-      "x": 43,
-      "y": 29,
-      "block_type": "Blank"
-    },
-    {
-      "x": 59,
-      "y": 44,
-      "block_type": "Blank"
-    },
-    {
-      "x": 66,
+      "x": 63,
       "y": 12,
       "block_type": "Blank"
     },
     {
-      "x": 31,
+      "x": 47,
+      "y": 16,
+      "block_type": "Blank"
+    },
+    {
+      "x": 56,
+      "y": 17,
+      "block_type": "Blank"
+    },
+    {
+      "x": 32,
       "y": 25,
+      "block_type": "Blank"
+    },
+    {
+      "x": 30,
+      "y": 33,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 55,
+      "y": 24,
+      "block_type": "Blank"
+    },
+    {
+      "x": 42,
+      "y": 33,
+      "block_type": "Blank"
+    },
+    {
+      "x": 60,
+      "y": 13,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 65,
+      "y": 15,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 60,
+      "y": 31,
+      "block_type": "StoneSlabRight"
+    },
+    {
+      "x": 53,
+      "y": 43,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 58,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 59,
+      "y": 42,
+      "block_type": "Blank"
+    },
+    {
+      "x": 43,
+      "y": 20,
+      "block_type": "Blank"
+    },
+    {
+      "x": 43,
+      "y": 24,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 56,
+      "y": 39,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 60,
+      "y": 33,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 44,
+      "y": 18,
+      "block_type": "StoneSlabLeft"
+    },
+    {
+      "x": 43,
+      "y": 25,
+      "block_type": "StoneSlabUp"
+    },
+    {
+      "x": 35,
+      "y": 34,
+      "block_type": "StoneRightDown"
+    },
+    {
+      "x": 48,
+      "y": 35,
+      "block_type": "StoneLeftDown"
+    },
+    {
+      "x": 41,
+      "y": 31,
+      "block_type": "Blank"
+    },
+    {
+      "x": 66,
+      "y": 14,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 56,
+      "y": 45,
+      "block_type": "StoneSlabDown"
+    },
+    {
+      "x": 46,
+      "y": 19,
       "block_type": "Blank"
     }
   ]

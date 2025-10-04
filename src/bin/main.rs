@@ -11,6 +11,14 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     rl.set_target_fps(TARGET_FPS);
 
+    let audio = RaylibAudio::init_audio_device()?;
+
+    // Now you can load music
+    let music = audio.new_music("src/assets/music.wav")?;
+
+    // Use audio functions
+    Music::play_stream(&music);
+
     // Load the lighting shader
     let mut shader = rl.load_shader_from_memory(&thread, None, Some(TORCH_FRAGMENT_SHADER));
 
@@ -41,6 +49,9 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     // Main game loop
     while !rl.window_should_close() {
+        // Use audio functions
+        Music::update_stream(&music);
+
         // Update game logic
         world.player.after_move(&mut rl, &mut world.map);
         world.update_cam();

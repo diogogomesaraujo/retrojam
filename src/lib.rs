@@ -34,7 +34,7 @@ pub const PLAYER_SCALE: f32 = 1.;
 
 pub const PLAYER_SPEED: f32 = 1.;
 pub const JUMP_SPEED: f32 = 2.5;
-pub const GRAVITY: f32 = 0.2;
+pub const GRAVITY: f32 = 0.15;
 
 pub const PLAYER_SPRITE_PATH: &str = "src/assets/player.png";
 pub const TILESET_PATH: &str = "src/assets/tileset.png";
