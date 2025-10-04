@@ -67,14 +67,14 @@ impl BlockType {
         match self {
             Self::Blank => (2., 2.),
             Self::Start => (2., 2.),
-            Self::StoneLeftDown => (0., 4.),
+            Self::StoneLeftDown => (0., 5.),
             Self::StoneLeftUp => (0., 0.),
-            Self::StoneRightDown => (4., 4.),
-            Self::StoneRightUp => (4., 0.),
-            Self::StoneSlabDown => (1., 4.),
+            Self::StoneRightDown => (5., 5.),
+            Self::StoneRightUp => (5., 0.),
+            Self::StoneSlabDown => (1., 5.),
             Self::StoneSlabLeft => (0., 1.),
-            Self::StoneSlabRight => (4., 1.),
-            Self::StoneSlabUp => (0., 1.),
+            Self::StoneSlabRight => (5., 1.),
+            Self::StoneSlabUp => (4., 0.),
         }
     }
 }
@@ -174,12 +174,10 @@ pub fn recompute_stone_borders(map: &mut WorldMap) {
         for x in 0..GRID_WIDTH {
             let pos = (x, y);
 
-            // skip occupied
             if map.contains_key(&pos) {
                 continue;
             }
 
-            // check blank all dirs
             let has_blank_up = y > 0 && map.get(&(x, y - 1)) == Some(&BlockType::Blank);
             let has_blank_down =
                 y < GRID_HEIGHT - 1 && map.get(&(x, y + 1)) == Some(&BlockType::Blank);
@@ -197,53 +195,25 @@ pub fn recompute_stone_borders(map: &mut WorldMap) {
                 && y < GRID_HEIGHT - 1
                 && map.get(&(x + 1, y + 1)) == Some(&BlockType::Blank);
 
-            // match tuple
-            let border_type = match (
-                has_blank_up,
-                has_blank_down,
-                has_blank_left,
-                has_blank_right,
-                has_blank_up_left,
-                has_blank_up_right,
-                has_blank_down_left,
-                has_blank_down_right,
-            ) {
-                // exact
-                (true, false, false, false, false, false, false, false) => {
-                    Some(BlockType::StoneSlabUp)
-                }
-                (false, true, false, false, false, false, false, false) => {
-                    Some(BlockType::StoneSlabDown)
-                }
-                (false, false, true, false, false, false, false, false) => {
-                    Some(BlockType::StoneSlabLeft)
-                }
-                (false, false, false, true, false, false, false, false) => {
-                    Some(BlockType::StoneSlabRight)
-                }
-                (false, false, false, false, true, false, false, false) => {
-                    Some(BlockType::StoneLeftUp)
-                }
-                (false, false, false, false, false, true, false, false) => {
-                    Some(BlockType::StoneRightUp)
-                }
-                (false, false, false, false, false, false, true, false) => {
-                    Some(BlockType::StoneLeftDown)
-                }
-                (false, false, false, false, false, false, false, true) => {
-                    Some(BlockType::StoneRightDown)
-                }
-
-                // wildcard -> where the magic happens
-                (true, _, _, _, _, _, _, _) => Some(BlockType::StoneSlabUp),
-                (_, true, _, _, _, _, _, _) => Some(BlockType::StoneSlabDown),
-                (_, _, true, _, _, _, _, _) => Some(BlockType::StoneSlabLeft),
-                (_, _, _, true, _, _, _, _) => Some(BlockType::StoneSlabRight),
-                (_, _, _, _, true, _, _, _) => Some(BlockType::StoneLeftUp),
-                (_, _, _, _, _, true, _, _) => Some(BlockType::StoneRightUp),
-                (_, _, _, _, _, _, true, _) => Some(BlockType::StoneLeftDown),
-                // No blanks adjacent
-                _ => None,
+            // corners over edges
+            let border_type = if has_blank_up_left && !has_blank_up && !has_blank_left {
+                Some(BlockType::StoneRightDown)
+            } else if has_blank_up_right && !has_blank_up && !has_blank_right {
+                Some(BlockType::StoneLeftDown)
+            } else if has_blank_down_left && !has_blank_down && !has_blank_left {
+                Some(BlockType::StoneRightUp)
+            } else if has_blank_down_right && !has_blank_down && !has_blank_right {
+                Some(BlockType::StoneLeftUp)
+            } else if has_blank_up {
+                Some(BlockType::StoneSlabDown)
+            } else if has_blank_down {
+                Some(BlockType::StoneSlabUp)
+            } else if has_blank_left {
+                Some(BlockType::StoneSlabRight)
+            } else if has_blank_right {
+                Some(BlockType::StoneSlabLeft)
+            } else {
+                None
             };
 
             if let Some(bt) = border_type {

@@ -9,7 +9,12 @@ fn main() {
         .size(SCREEN_WIDTH, SCREEN_HEIGHT)
         .title("Map Builder - Click to toggle blocks, X to set start")
         .build();
+
     rl.set_target_fps(60);
+
+    let tileset = rl
+        .load_texture(&thread, TILESET_PATH)
+        .expect("Failed to load tileset");
 
     let mut map = load_map();
 
@@ -59,25 +64,55 @@ fn main() {
                 let pos_x = (x as i32) * BLOCK_SIZE;
                 let pos_y = (y as i32) * BLOCK_SIZE;
 
-                let color = match map.get(&(x, y)) {
-                    Some(BlockType::Blank) => Color::WHITE,
-                    Some(BlockType::Start) => Color::GREEN,
+                match map.get(&(x, y)) {
+                    Some(block_type) => {
+                        let (sprite_x, sprite_y) = block_type.to_sprite_position();
 
-                    Some(BlockType::StoneSlabUp) => Color::RED,
-                    Some(BlockType::StoneSlabDown) => Color::MAROON,
-                    Some(BlockType::StoneSlabLeft) => Color::BLUE,
-                    Some(BlockType::StoneSlabRight) => Color::DARKBLUE,
+                        let source = Rectangle::new(
+                            sprite_x * SPRITE_SIZE,
+                            sprite_y * SPRITE_SIZE,
+                            SPRITE_SIZE,
+                            SPRITE_SIZE,
+                        );
 
-                    Some(BlockType::StoneRightUp) => Color::PURPLE,
-                    Some(BlockType::StoneRightDown) => Color::VIOLET,
-                    Some(BlockType::StoneLeftUp) => Color::ORANGE,
-                    Some(BlockType::StoneLeftDown) => Color::GOLD,
+                        let dest = Rectangle::new(
+                            pos_x as f32,
+                            pos_y as f32,
+                            BLOCK_SIZE as f32,
+                            BLOCK_SIZE as f32,
+                        );
 
-                    None => Color::BLACK,
-                };
+                        d.draw_texture_pro(
+                            &tileset,
+                            source,
+                            dest,
+                            Vector2::zero(),
+                            0.0,
+                            Color::WHITE,
+                        );
 
-                d.draw_rectangle(pos_x, pos_y, BLOCK_SIZE, BLOCK_SIZE, color);
-                d.draw_rectangle_lines(pos_x, pos_y, BLOCK_SIZE, BLOCK_SIZE, Color::DARKGRAY);
+                        if *block_type == BlockType::Start {
+                            d.draw_rectangle_lines(
+                                pos_x,
+                                pos_y,
+                                BLOCK_SIZE,
+                                BLOCK_SIZE,
+                                Color::GREEN,
+                            );
+                        }
+                    }
+                    None => {
+                        d.draw_rectangle(pos_x, pos_y, BLOCK_SIZE, BLOCK_SIZE, Color::BLACK);
+                    }
+                }
+
+                d.draw_rectangle_lines(
+                    pos_x,
+                    pos_y,
+                    BLOCK_SIZE,
+                    BLOCK_SIZE,
+                    Color::new(50, 50, 50, 255),
+                );
             }
         }
 
