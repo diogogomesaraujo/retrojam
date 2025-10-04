@@ -55,14 +55,14 @@ impl BlockType {
         match self {
             Self::Blank => (2., 2.),
             Self::Start => (2., 2.),
-            Self::StoneLeftDown => (0., 4.),
+            Self::StoneLeftDown => (0., 5.),
             Self::StoneLeftUp => (0., 0.),
-            Self::StoneRightDown => (4., 4.),
-            Self::StoneRightUp => (4., 0.),
-            Self::StoneSlabDown => (1., 4.),
+            Self::StoneRightDown => (5., 5.),
+            Self::StoneRightUp => (5., 0.),
+            Self::StoneSlabDown => (1., 5.),
             Self::StoneSlabLeft => (0., 1.),
-            Self::StoneSlabRight => (4., 1.),
-            Self::StoneSlabUp => (0., 1.),
+            Self::StoneSlabRight => (5., 1.),
+            Self::StoneSlabUp => (4., 0.),
         }
     }
 }
