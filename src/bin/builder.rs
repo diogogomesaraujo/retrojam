@@ -6,7 +6,7 @@ type WorldMap = HashMap<(usize, usize), BlockType>;
 
 fn main() {
     let (mut rl, thread) = raylib::init()
-        .size(SCREEN_WIDTH, SCREEN_HEIGHT)
+        .size(BASE_WIDTH, BASE_HEIGHT)
         .title("Map Builder - Click to toggle blocks, X to set start")
         .build();
 
@@ -128,7 +128,7 @@ fn main() {
                 DEL_SIZE, DEL_SIZE
             ),
             10,
-            SCREEN_HEIGHT - 20,
+            BASE_HEIGHT - 20,
             10,
             Color::WHITE,
         );

@@ -15,8 +15,8 @@ impl World {
         game_thread: &RaylibThread,
     ) -> Result<Self, Box<dyn Error>> {
         let map = load_map();
-        let mut spawn_x = (game_handle.get_screen_width() / 2) as f32;
-        let mut spawn_y = (game_handle.get_screen_height() / 2) as f32;
+        let mut spawn_x = BASE_WIDTH as f32 / 2.0;
+        let mut spawn_y = BASE_HEIGHT as f32 / 2.0;
 
         for ((x, y), b) in &map {
             match b {
@@ -36,8 +36,8 @@ impl World {
             player,
             camera: Camera2D {
                 offset: Vector2 {
-                    x: SCREEN_WIDTH as f32 / 2.0,
-                    y: SCREEN_HEIGHT as f32 / 2.0,
+                    x: BASE_WIDTH as f32 / 2.0,
+                    y: BASE_HEIGHT as f32 / 2.0,
                 },
                 target: Vector2 {
                     x: spawn_x + SPRITE_SIZE,
@@ -50,11 +50,10 @@ impl World {
         })
     }
 
-    /// Generic draw method that accepts any RaylibDraw context
     pub fn draw<D: RaylibDraw>(&mut self, d: &mut D) {
-        // Apply camera transformation
         let mut d = d.begin_mode2D(self.camera);
         d.clear_background(BG_COLOR);
+
         for ((x, y), b) in &self.map {
             let nx = (*x as i32) * BLOCK_SIZE;
             let ny = (*y as i32) * BLOCK_SIZE;
@@ -64,7 +63,6 @@ impl World {
             }
 
             let (sprite_x, sprite_y) = b.to_sprite_position();
-
             d.draw_texture_rec(
                 &self.tileset_texture,
                 Rectangle {
@@ -81,11 +79,9 @@ impl World {
             );
         }
 
-        // Draw player
         self.player.draw(&mut d);
     }
 
-    /// Update camera to smoothly follow player
     pub fn update_cam(&mut self) {
         self.camera.target = Vector2 {
             x: smoothing(
