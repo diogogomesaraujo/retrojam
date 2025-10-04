@@ -11,16 +11,24 @@ fn main() -> Result<(), Box<dyn Error>> {
         .build();
     rl.set_target_fps(TARGET_FPS);
 
+    // === AUDIO ===
     let audio = RaylibAudio::init_audio_device()?;
     let music = audio.new_music("src/assets/music.mp3")?;
+    let ambience = audio.new_music("src/assets/ambience.mp3")?;
     let walk_sound = audio.new_sound("src/assets/walk.mp3")?;
     let jump_sound = audio.new_sound("src/assets/jump.mp3")?;
     let fall_sound = audio.new_sound("src/assets/fall.mp3")?;
+
     Sound::set_volume(&walk_sound, 0.1);
     Sound::set_volume(&jump_sound, 0.1);
     Sound::set_volume(&fall_sound, 0.02);
-    Music::play_stream(&music);
+    Music::set_volume(&music, 0.0);
+    Music::set_volume(&ambience, 0.15);
 
+    Music::play_stream(&music);
+    Music::play_stream(&ambience);
+
+    // === SHADER ===
     let mut shader = rl.load_shader_from_memory(&thread, None, Some(TORCH_FRAGMENT_SHADER));
     let player_pos_loc = shader.get_shader_location("playerPos");
     let resolution_loc = shader.get_shader_location("resolution");
@@ -41,7 +49,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mut step_counter = 0;
 
     while !rl.window_should_close() {
+        // === AUDIO UPDATE ===
         Music::update_stream(&music);
+        Music::update_stream(&ambience);
+
         let delta_time = rl.get_frame_time();
 
         let jump_input =
