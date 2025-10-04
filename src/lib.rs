@@ -56,9 +56,14 @@ pub const PLAYER_TEEN_COLLISION_BOX_HEIGHT: f32 = SPRITE_SIZE / 4. * 3.;
 pub const PLAYER_CHILD_COLLISION_BOX_HEIGHT: f32 = SPRITE_SIZE / 6. * 3.8;
 pub const PLAYER_BABY_COLLISION_BOX_HEIGHT: f32 = SPRITE_SIZE / 2.;
 
-pub const PLAYER_INITIAL_AGE: Age = Age::Adult;
+pub const PLAYER_INITIAL_AGE: Age = Age::Baby;
 
-pub const AGE_LOG_BASE: f32 = 10.;
+pub const LIFETIME: f64 = 90.;
+pub const BABY_TIME_TO_CHANGE: f64 = 5. * 2.;
+pub const CHILD_TIME_TO_CHANGE: f64 = 14. * 2.;
+pub const TEENAGER_TIME_TO_CHANGE: f64 = 25. * 2.;
+pub const ADULT_TIME_TO_CHANGE: f64 = 70. * 2.;
+pub const ELDER_TIME_TO_CHANGE: f64 = 0. * 2.;
 
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash, Debug)]
 pub enum BlockType {

@@ -146,9 +146,32 @@ impl Player {
         );
     }
 
+    fn increment_age(&mut self, game_handle: &mut RaylibHandle) {
+        let time_to_change = match &self.age {
+            Age::Baby => BABY_TIME_TO_CHANGE,
+            Age::Child => CHILD_TIME_TO_CHANGE,
+            Age::Teenager => TEENAGER_TIME_TO_CHANGE,
+            Age::Adult => ADULT_TIME_TO_CHANGE,
+            Age::Elder => ELDER_TIME_TO_CHANGE,
+        };
+
+        let time_in_life = game_handle.get_time() as u32 % LIFETIME as u32;
+
+        if time_to_change as u32 == time_in_life {
+            self.age = match &self.age {
+                Age::Baby => Age::Child,
+                Age::Child => Age::Teenager,
+                Age::Teenager => Age::Adult,
+                Age::Adult => Age::Elder,
+                Age::Elder => Age::Baby,
+            }
+        }
+    }
+
     pub fn after_move(&mut self, game_handle: &mut RaylibHandle, map: &mut WorldMap) {
         let mut moved = false;
         self.state.increment_count(game_handle);
+        self.increment_age(game_handle);
 
         // Horizontal movement
         if game_handle.is_key_down(KeyboardKey::KEY_RIGHT) {
