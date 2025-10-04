@@ -9,16 +9,29 @@ pub use player::Player;
 
 pub const GRID_WIDTH: usize = 100;
 pub const GRID_HEIGHT: usize = 52;
+
 pub const SCREEN_WIDTH: i32 = 800;
 pub const SCREEN_HEIGHT: i32 = 416;
+
 pub const BLOCK_SIZE: i32 = SCREEN_WIDTH / GRID_WIDTH as i32;
+
 pub const DEL_SIZE: i32 = 3;
 pub const TARGET_FPS: u32 = 60;
+
 pub const PLAYER_SPEED: f32 = 1.5;
-pub const JUMP_SPEED: f32 = 7.0;
+pub const JUMP_SPEED: f32 = 3.5;
+pub const GRAVITY: f32 = 0.2;
+
+pub const PLAYER_SPRITE_PATH: &str = "src/assets/player.png";
+
+pub const PLAYER_SPRITE_WALK_INIT: u32 = 1;
+pub const PLAYER_SPRITE_WALK_END: u32 = 5;
+pub const PLAYER_SPRITE_SPEED: f64 = 0.075;
+
 pub const SPRITE_SIZE: f32 = 8.;
-pub const GRAVITY: f32 = 1.;
+
 pub const CAMERA_ZOOM: f32 = 6.;
+pub const CAMERA_SPEED: f32 = 0.1;
 
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash, Debug)]
 pub enum BlockType {
@@ -146,4 +159,8 @@ pub fn save_map(map: &WorldMap) {
         }
         Err(e) => eprintln!("Failed to serialize map: {}", e),
     }
+}
+
+pub fn smoothing(a: f32, b: f32, s: f32) -> f32 {
+    a + (b - a) * s
 }

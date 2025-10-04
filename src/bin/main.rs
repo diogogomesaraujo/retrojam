@@ -1,10 +1,7 @@
 use std::error::Error;
 
 use raylib::prelude::*;
-use retrojam::{
-    BLOCK_SIZE, BlockType, DEL_SIZE, GRID_HEIGHT, GRID_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH,
-    TARGET_FPS, load_map, player::Player, world::World,
-};
+use retrojam::*;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let (mut rl, thread) = raylib::init()

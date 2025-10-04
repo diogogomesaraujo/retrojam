@@ -1,9 +1,6 @@
 use std::error::Error;
 
-use crate::{
-    BLOCK_SIZE, BlockType, CAMERA_ZOOM, SCREEN_HEIGHT, SCREEN_WIDTH, SPRITE_SIZE, WorldMap,
-    load_map, player::Player,
-};
+use crate::*;
 use raylib::prelude::*;
 
 pub struct World {
@@ -75,8 +72,16 @@ impl World {
                 y: SCREEN_HEIGHT as f32 / 2.,
             },
             target: Vector2 {
-                x: self.player.body.x + SPRITE_SIZE,
-                y: self.player.body.y + SPRITE_SIZE,
+                x: smoothing(
+                    self.camera.target.x,
+                    self.player.body.x + SPRITE_SIZE,
+                    CAMERA_SPEED,
+                ),
+                y: smoothing(
+                    self.camera.target.y,
+                    self.player.body.y + SPRITE_SIZE,
+                    CAMERA_SPEED,
+                ),
             },
             rotation: 0.,
             zoom: CAMERA_ZOOM,
