@@ -15,7 +15,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mut world = World::new(&mut rl, &thread)?;
 
     while !rl.window_should_close() {
-        world.player.after_move(&mut rl);
+        world.player.after_move(&mut rl, &mut world.map);
 
         let mut d = rl.begin_drawing(&thread);
         d.clear_background(Color::BLACK);

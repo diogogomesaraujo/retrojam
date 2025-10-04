@@ -101,40 +101,57 @@ impl Player {
         );
     }
 
-    pub fn after_move(&mut self, game_handle: &mut RaylibHandle) {
+    pub fn after_move(&mut self, game_handle: &mut RaylibHandle, map: &mut WorldMap) {
         let mut moved = false;
 
         self.state.increment_count(game_handle);
 
-        println!("Player: {:?}", self.state);
-
         if game_handle.is_key_down(KeyboardKey::KEY_RIGHT) {
+            let old_x = self.body.x;
             self.body.x += PLAYER_SPEED;
-            self.update_state(game_handle);
-            moved = true;
+            if self.collides(map) {
+                self.body.x = old_x;
+            } else {
+                moved = true;
+            }
         }
 
         if game_handle.is_key_down(KeyboardKey::KEY_LEFT) {
+            let old_x = self.body.x;
             self.body.x -= PLAYER_SPEED;
-            self.update_state(game_handle);
-            moved = true;
+            if self.collides(map) {
+                self.body.x = old_x;
+            } else {
+                moved = true;
+            }
         }
 
-        if game_handle.is_key_down(KeyboardKey::KEY_UP)
-            || game_handle.is_key_down(KeyboardKey::KEY_SPACE)
+        if (game_handle.is_key_down(KeyboardKey::KEY_UP)
+            || game_handle.is_key_down(KeyboardKey::KEY_SPACE))
+            && self.grounded
         {
+            let old_y = self.body.y;
             self.body.y -= JUMP_SPEED;
-            self.update_state(game_handle);
-            moved = true;
+            if self.collides(map) {
+                self.body.y = old_y;
+            } else {
+                self.grounded = false;
+                moved = true;
+            }
         }
 
-        if self.body.y < 200. {
-            self.body.y += PLAYER_SPEED;
-            self.update_state(game_handle);
-            moved = true;
+        let old_y = self.body.y;
+        self.body.y += PLAYER_SPEED;
+        if self.collides(map) {
+            self.body.y = old_y; // landed
+            self.grounded = true;
+        } else {
+            self.grounded = false;
         }
 
-        if !moved {
+        if moved {
+            self.update_state(game_handle);
+        } else {
             self.state = PlayerState::Idle;
         }
     }
