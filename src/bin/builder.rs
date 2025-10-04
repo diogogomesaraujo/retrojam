@@ -77,13 +77,9 @@ fn main() {
             recompute_stone_borders(&mut map);
         }
 
-        // Handle X key - set single starting position
         if rl.is_key_pressed(KeyboardKey::KEY_X) {
             if grid_x < GRID_WIDTH && grid_y < GRID_HEIGHT {
-                // Remove any existing Start blocks
                 map.retain(|_, bt| *bt != BlockType::Start);
-
-                // Place new Start block at cursor position
                 let pos = (grid_x, grid_y);
                 map.insert(pos, BlockType::Start);
             }

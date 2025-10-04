@@ -15,12 +15,17 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mut world = World::new(&mut rl, &thread)?;
 
     while !rl.window_should_close() {
-        world.player = world.player.after_move(&mut rl);
-        let mut d = rl.begin_drawing(&thread);
+        world.player.after_move(&mut rl);
 
+        let mut d = rl.begin_drawing(&thread);
         d.clear_background(Color::BLACK);
+
         world.draw(&mut d);
         d.draw_text("Hello, world!", 12, 12, 20, Color::BLACK);
+
+        if world.player.collides(&mut world.map) {
+            d.draw_text("Collision!", 12, 36, 20, Color::WHITE);
+        }
     }
 
     Ok(())
