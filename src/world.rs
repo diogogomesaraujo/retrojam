@@ -7,6 +7,7 @@ pub struct World {
     pub map: WorldMap,
     pub player: Player,
     pub camera: Camera2D,
+    pub tileset_texture: Texture2D,
 }
 
 impl World {
@@ -46,6 +47,7 @@ impl World {
                 rotation: 0.,
                 zoom: CAMERA_ZOOM,
             },
+            tileset_texture: game_handle.load_texture(&game_thread, TILESET_PATH)?,
         })
     }
 
@@ -54,22 +56,23 @@ impl World {
         for ((x, y), b) in &self.map {
             let nx = (*x as i32) * BLOCK_SIZE;
             let ny = (*y as i32) * BLOCK_SIZE;
-            let color = match b {
-                BlockType::Blank => Color::LIGHTGRAY,
-                BlockType::Start => Color::YELLOW,
-
-                BlockType::StoneLeftUp => Color::RED,
-                BlockType::StoneLeftDown => Color::ORANGE,
-                BlockType::StoneRightUp => Color::BLUE,
-                BlockType::StoneRightDown => Color::PURPLE,
-
-                BlockType::StoneSlabLeft => Color::DARKBLUE,
-                BlockType::StoneSlabRight => Color::DARKPURPLE,
-                BlockType::StoneSlabUp => Color::DARKGREEN,
-                BlockType::StoneSlabDown => Color::BROWN,
-            };
-            d.draw_rectangle(nx, ny, BLOCK_SIZE, BLOCK_SIZE, color);
+            let (sprite_x, sprite_y) = b.to_sprite_position();
+            d.draw_texture_rec(
+                &self.tileset_texture,
+                Rectangle {
+                    x: (sprite_x * SPRITE_SIZE as f32),
+                    y: (sprite_y * SPRITE_SIZE as f32),
+                    width: SPRITE_SIZE as f32,
+                    height: SPRITE_SIZE as f32,
+                },
+                Vector2 {
+                    x: nx as f32,
+                    y: ny as f32,
+                },
+                Color::WHITE,
+            );
         }
+        d.draw_rectangle_rec(self.player.collision_box, Color::RED);
         self.player.draw(&mut d);
     }
 

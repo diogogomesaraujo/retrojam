@@ -65,6 +65,7 @@ impl PlayerState {
 
 pub struct Player {
     pub body: Rectangle,
+    pub collision_box: Rectangle,
     pub vel: (f32, f32),
     pub state: PlayerState,
     pub sprite: Texture2D,
@@ -85,6 +86,12 @@ impl Player {
                 x,
                 y,
                 width: PLAYER_SCALE * SPRITE_SIZE,
+                height: PLAYER_SCALE * SPRITE_SIZE,
+            },
+            collision_box: Rectangle {
+                x: x + SPRITE_SIZE / 4.,
+                y: y + SPRITE_SIZE / 4.,
+                width: PLAYER_SCALE * SPRITE_SIZE / 2.,
                 height: PLAYER_SCALE * SPRITE_SIZE,
             },
             state: PlayerState::Idle,
@@ -163,22 +170,28 @@ impl Player {
         self.vel.1 += GRAVITY;
 
         self.body.x += self.vel.0;
+        self.collision_box.x += self.vel.0;
         if let Some(block) = self.collides(map) {
             if self.vel.0 > 0.0 {
-                self.body.x = block.x - self.body.width;
+                self.body.x = block.x - self.collision_box.width - SPRITE_SIZE / 4.;
+                self.collision_box.x = block.x - self.collision_box.width;
             } else if self.vel.0 < 0.0 {
                 self.body.x = block.x + block.width;
+                self.collision_box.x = block.x + block.width;
             }
             self.vel.0 = 0.0;
         }
 
         self.body.y += self.vel.1;
+        self.collision_box.y += self.vel.1;
         if let Some(block) = self.collides(map) {
             if self.vel.1 > 0.0 {
                 self.body.y = block.y - self.body.height;
+                self.collision_box.y = block.y - self.collision_box.height;
                 self.grounded = true;
             } else if self.vel.1 < 0.0 {
                 self.body.y = block.y + block.height;
+                self.collision_box.y = block.y + block.height;
             }
             self.vel.1 = 0.0;
         } else {
@@ -206,7 +219,7 @@ impl Player {
                     height: BLOCK_SIZE as f32,
                 };
 
-                if block_rect.check_collision_recs(&self.body) {
+                if block_rect.check_collision_recs(&self.collision_box) {
                     return Some(block_rect);
                 }
             }
