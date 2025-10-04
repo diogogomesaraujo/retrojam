@@ -58,6 +58,11 @@ impl World {
         for ((x, y), b) in &self.map {
             let nx = (*x as i32) * BLOCK_SIZE;
             let ny = (*y as i32) * BLOCK_SIZE;
+
+            if matches!(b, BlockType::Start | BlockType::Blank) {
+                continue;
+            }
+
             let (sprite_x, sprite_y) = b.to_sprite_position();
 
             d.draw_texture_rec(

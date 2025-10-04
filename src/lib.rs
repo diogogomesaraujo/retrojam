@@ -46,7 +46,7 @@ pub const PLAYER_SPRITE_SPEED: f64 = 0.15;
 pub const SPRITE_SIZE: f32 = 8.;
 
 pub const CAMERA_ZOOM: f32 = 6.;
-pub const CAMERA_SPEED: f32 = 0.1;
+pub const CAMERA_SPEED: f32 = 0.08;
 
 pub const PLAYER_COLLISION_BOX_WIDTH: f32 = SPRITE_SIZE / 2.;
 
@@ -57,6 +57,8 @@ pub const PLAYER_CHILD_COLLISION_BOX_HEIGHT: f32 = SPRITE_SIZE / 6. * 3.8;
 pub const PLAYER_BABY_COLLISION_BOX_HEIGHT: f32 = SPRITE_SIZE / 2.;
 
 pub const PLAYER_INITIAL_AGE: Age = Age::Adult;
+
+pub const AGE_LOG_BASE: f32 = 10.;
 
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash, Debug)]
 pub enum BlockType {
@@ -82,9 +84,9 @@ impl BlockType {
             Self::StoneRightDown => (2., 2.),
             Self::StoneRightUp => (2., 0.),
             Self::StoneSlabDown => (1., 2.),
-            Self::StoneSlabLeft => (0., 1.),
+            Self::StoneSlabLeft => (2., 1.),
             Self::StoneSlabRight => (2., 1.),
-            Self::StoneSlabUp => (1., 0.),
+            Self::StoneSlabUp => (1., 2.),
         }
     }
 }
