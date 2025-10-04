@@ -22,8 +22,8 @@ pub const BG_COLOR: Color = Color {
 pub const GRID_WIDTH: usize = 100;
 pub const GRID_HEIGHT: usize = 52;
 
-pub const SCREEN_WIDTH: i32 = 800;
-pub const SCREEN_HEIGHT: i32 = 416;
+pub const BASE_WIDTH: i32 = 800;
+pub const BASE_HEIGHT: i32 = 416;
 
 pub const BLOCK_SIZE: i32 = 8;
 
@@ -166,7 +166,6 @@ pub fn load_map() -> WorldMap {
     }
 }
 
-/// Save world to map.json
 pub fn save_map(map: &WorldMap) {
     let serializable_map = SerializableMap {
         blocks: map.clone(),
@@ -185,20 +184,16 @@ pub fn save_map(map: &WorldMap) {
 }
 
 pub fn recompute_stone_borders(map: &mut WorldMap) {
-    // Keep only blanks and start positions
     map.retain(|_, bt| *bt == BlockType::Blank || *bt == BlockType::Start);
 
-    // Iterate over every possible tile
     for y in 0..GRID_HEIGHT {
         for x in 0..GRID_WIDTH {
             let pos = (x, y);
 
-            // If tile is already something (Blank or Start), skip
             if map.contains_key(&pos) {
                 continue;
             }
 
-            // Get neighbor states (true = blank)
             let up = y > 0 && matches!(map.get(&(x, y - 1)), Some(BlockType::Blank));
             let down =
                 y < GRID_HEIGHT - 1 && matches!(map.get(&(x, y + 1)), Some(BlockType::Blank));
@@ -218,7 +213,6 @@ pub fn recompute_stone_borders(map: &mut WorldMap) {
                 && y < GRID_HEIGHT - 1
                 && matches!(map.get(&(x + 1, y + 1)), Some(BlockType::Blank));
 
-            // Determine border type, giving priority to corners
             let border_type = if up_left && !up && !left {
                 Some(BlockType::StoneRightDown)
             } else if up_right && !up && !right {
@@ -239,7 +233,6 @@ pub fn recompute_stone_borders(map: &mut WorldMap) {
                 None
             };
 
-            // Insert border if needed
             if let Some(bt) = border_type {
                 map.insert(pos, bt);
             }
