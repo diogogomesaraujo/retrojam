@@ -56,6 +56,14 @@ fn main() {
             }
         }
 
+        if rl.is_key_pressed(KeyboardKey::KEY_Z) {
+            if grid_x < GRID_WIDTH && grid_y < GRID_HEIGHT {
+                map.retain(|_, bt| *bt != BlockType::End);
+                let pos = (grid_x, grid_y);
+                map.insert(pos, BlockType::End);
+            }
+        }
+
         let mut d = rl.begin_drawing(&thread);
         d.clear_background(Color::DARKGRAY);
 

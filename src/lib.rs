@@ -38,6 +38,7 @@ pub const GRAVITY: f32 = 0.15;
 
 pub const PLAYER_SPRITE_PATH: &str = "src/assets/player.png";
 pub const TILESET_PATH: &str = "src/assets/tileset.png";
+pub const DEVIL_PATH: &str = "src/assets/devil.png";
 pub const BG_PATH: &str = "src/assets/background.png";
 
 pub const PLAYER_SPRITE_WALK_INIT: u32 = 1;
@@ -45,6 +46,7 @@ pub const PLAYER_SPRITE_WALK_END: u32 = 5;
 pub const PLAYER_SPRITE_SPEED: f64 = 0.15;
 
 pub const SPRITE_SIZE: f32 = 8.;
+pub const DEVIL_HEIGHT: f32 = SPRITE_SIZE as f32 * 3.;
 
 pub const CAMERA_ZOOM: f32 = 6.;
 pub const CAMERA_SPEED: f32 = 0.08;
@@ -79,13 +81,13 @@ pub enum BlockType {
     StoneSlabUp,
     StoneSlabDown,
     Start,
+    End,
 }
 
 impl BlockType {
     pub fn to_sprite_position(&self) -> (f32, f32) {
         match self {
-            Self::Blank => (1., 1.),
-            Self::Start => (1., 1.),
+            Self::Blank | Self::Start | Self::End => (1., 1.),
             Self::StoneLeftDown => (0., 2.),
             Self::StoneLeftUp => (0., 0.),
             Self::StoneRightDown => (2., 2.),

@@ -7,6 +7,7 @@ pub struct World {
     pub player: Player,
     pub camera: Camera2D,
     pub tileset_texture: Texture2D,
+    pub devil_texture: Texture2D,
 }
 
 impl World {
@@ -47,6 +48,7 @@ impl World {
                 zoom: CAMERA_ZOOM,
             },
             tileset_texture: game_handle.load_texture(&game_thread, TILESET_PATH)?,
+            devil_texture: game_handle.load_texture(&game_thread, DEVIL_PATH)?,
         })
     }
 
@@ -59,6 +61,24 @@ impl World {
             let ny = (*y as i32) * BLOCK_SIZE;
 
             if matches!(b, BlockType::Start | BlockType::Blank) {
+                continue;
+            }
+
+            if matches!(b, BlockType::End) {
+                d.draw_texture_rec(
+                    &self.devil_texture,
+                    Rectangle {
+                        x: 0.,
+                        y: 0.,
+                        width: SPRITE_SIZE as f32,
+                        height: DEVIL_HEIGHT,
+                    },
+                    Vector2 {
+                        x: nx as f32,
+                        y: ny as f32 - DEVIL_HEIGHT + SPRITE_SIZE,
+                    },
+                    Color::WHITE,
+                );
                 continue;
             }
 
