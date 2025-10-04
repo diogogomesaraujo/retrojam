@@ -370,11 +370,19 @@ impl Player {
                 let nx = (*x as f32) * BLOCK_SIZE as f32;
                 let ny = (*y as f32) * BLOCK_SIZE as f32;
 
-                let block_rect = Rectangle {
-                    x: nx,
-                    y: ny,
-                    width: BLOCK_SIZE as f32,
-                    height: BLOCK_SIZE as f32,
+                let block_rect = match b {
+                    BlockType::End => Rectangle {
+                        x: nx,
+                        y: ny - DEVIL_HEIGHT + SPRITE_SIZE,
+                        width: BLOCK_SIZE as f32,
+                        height: DEVIL_HEIGHT,
+                    },
+                    _ => Rectangle {
+                        x: nx,
+                        y: ny,
+                        width: BLOCK_SIZE as f32,
+                        height: BLOCK_SIZE as f32,
+                    },
                 };
 
                 if block_rect.check_collision_recs(&self.collision_box) {
