@@ -7,6 +7,8 @@ pub mod world;
 pub use world::World;
 pub mod player;
 pub use player::Player;
+pub mod dialogue;
+pub use dialogue::DialogueSystem;
 
 pub mod shaders;
 
@@ -86,6 +88,7 @@ pub const SIGHT_TRANSITION_SPEED_NORMAL: f32 = 2.0;
 pub const SIGHT_TRANSITION_SPEED_END: f32 = 0.5;
 pub const END_SCENE_CAMERA_OFFSET_Y: f32 = -25.0;
 pub const END_SCENE_CAMERA_TRANSITION_SPEED: f32 = 0.02;
+pub const END_BEFORE_DIALOGUE: f64 = 10.;
 
 // Proximity detection
 pub const END_BLOCK_PROXIMITY_THRESHOLD: f32 = 4.0;

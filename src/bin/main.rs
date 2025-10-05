@@ -101,6 +101,7 @@ struct GameState {
     has_played_die_sound: bool,
     laugh_time: Option<f64>,
     show_ending: bool,
+    dialogue_started: bool,
 }
 
 impl GameState {
@@ -111,6 +112,7 @@ impl GameState {
             has_played_die_sound: false,
             laugh_time: None,
             show_ending: false,
+            dialogue_started: false,
         }
     }
 
@@ -157,6 +159,14 @@ impl GameState {
 
     fn should_show_ending(&self) -> bool {
         self.show_ending
+    }
+
+    fn should_start_dialogue(&mut self) -> bool {
+        if self.show_ending && !self.dialogue_started {
+            self.dialogue_started = true;
+            return true;
+        }
+        false
     }
 }
 
@@ -258,6 +268,9 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let mut step_counter = 0;
 
+    // Add dialogue system after other initializations
+    let mut dialogue = DialogueSystem::new(&mut rl, &thread)?;
+
     while !rl.window_should_close() {
         audio.update();
 
@@ -266,6 +279,19 @@ fn main() -> Result<(), Box<dyn Error>> {
 
         // Update ending state
         game_state.update_ending(time);
+
+        // Start dialogue when ending begins
+        if game_state.should_start_dialogue() {
+            dialogue.start(time);
+        }
+
+        // Update dialogue and play sound effects
+        if let Some(sound_name) = dialogue.update(time) {
+            match sound_name.as_str() {
+                "laugh" => Sound::play(&audio.laugh_sound),
+                "drip" | _ => {} // Add drip sound if you have it
+            }
+        }
 
         // Only update game logic if not showing ending
         if !game_state.should_show_ending() {
@@ -312,17 +338,8 @@ fn main() -> Result<(), Box<dyn Error>> {
             d.clear_background(Color::BLACK);
 
             if game_state.should_show_ending() {
-                // Draw ending scene
-                let text = "THE END";
-                let font_size = 60;
-                let text_width = d.measure_text(text, font_size);
-                d.draw_text(
-                    text,
-                    (screen_width as i32 - text_width) / 2,
-                    (screen_height as i32) / 2 - font_size / 2,
-                    font_size,
-                    Color::WHITE,
-                );
+                // Draw ending scene with dialogue
+                dialogue.draw(&mut d, screen_width as i32, screen_height as i32);
             } else {
                 // Normal game rendering
                 let scale = calculate_scale(screen_width, screen_height);
