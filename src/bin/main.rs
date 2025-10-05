@@ -18,10 +18,12 @@ fn main() -> Result<(), Box<dyn Error>> {
     let walk_sound = audio.new_sound("src/assets/walk.mp3")?;
     let jump_sound = audio.new_sound("src/assets/jump.mp3")?;
     let fall_sound = audio.new_sound("src/assets/fall.mp3")?;
+    let laugh_sound = audio.new_sound("src/assets/laugh.mp3")?;
 
     Sound::set_volume(&walk_sound, 0.1);
     Sound::set_volume(&jump_sound, 0.1);
     Sound::set_volume(&fall_sound, 0.02);
+    Sound::set_volume(&laugh_sound, 0.2);
     Music::set_volume(&music, 0.8);
     Music::set_volume(&ambience, 0.15);
 
@@ -46,6 +48,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     shader.set_shader_value(player_pos_loc, [player_screen_x, player_screen_y]);
 
     let mut was_grounded = true;
+    let mut has_laughed = false;
     let mut step_counter = 0;
 
     world.dust.spawn(&mut rl, &world.camera);
@@ -65,6 +68,12 @@ fn main() -> Result<(), Box<dyn Error>> {
         if !was_grounded && world.player.grounded {
             Sound::play(&fall_sound);
         }
+
+        if !has_laughed && world.player.end_scene_active {
+            Sound::play(&laugh_sound);
+            has_laughed = true;
+        }
+
         was_grounded = world.player.grounded;
 
         let footstep_frame = world.player.after_move(&mut rl, &mut world.map);
