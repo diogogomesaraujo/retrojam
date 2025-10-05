@@ -60,11 +60,17 @@ impl World {
     pub fn draw<D: RaylibDraw>(&mut self, d: &mut D, width: &i32, height: &i32) {
         let mut d = d.begin_mode2D(self.camera);
         d.clear_background(BG_COLOR);
-        d.draw_texture(
+        let bg_width = self.bg_texture.width() as f32 / 2.0;
+        let bg_height = self.bg_texture.height() as f32 / 2.0;
+        d.draw_texture_ex(
             &self.bg_texture,
-            self.camera.target.x as i32 - width / 2,
-            self.camera.target.x as i32 - height / 2,
-            Color::new(255, 255, 255, 128),
+            Vector2 {
+                x: self.camera.target.x - bg_width / 2.0,
+                y: self.camera.target.y - bg_height / 2.0,
+            },
+            0.0,
+            0.5,
+            Color::new(255, 255, 255, 50),
         );
         for ((x, y), b) in &self.map {
             let nx = (*x as i32) * BLOCK_SIZE;

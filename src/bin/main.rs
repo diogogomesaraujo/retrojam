@@ -101,8 +101,8 @@ fn main() -> Result<(), Box<dyn Error>> {
             texture_mode.clear_background(Color::BLACK);
             world.draw(
                 &mut texture_mode,
-                (screen_width as i32),
-                (screen_height as i32),
+                &(screen_width as i32),
+                &(screen_height as i32),
             );
         }
 
