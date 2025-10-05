@@ -13,7 +13,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     // === AUDIO ===
     let audio = RaylibAudio::init_audio_device()?;
-    let music = audio.new_music("src/assets/music.mp3")?;
+    let music = audio.new_music("src/assets/music2.mp3")?;
     let ambience = audio.new_music("src/assets/ambience.mp3")?;
     let walk_sound = audio.new_sound("src/assets/walk.mp3")?;
     let jump_sound = audio.new_sound("src/assets/jump.mp3")?;
@@ -22,7 +22,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     Sound::set_volume(&walk_sound, 0.1);
     Sound::set_volume(&jump_sound, 0.1);
     Sound::set_volume(&fall_sound, 0.02);
-    Music::set_volume(&music, 0.0);
+    Music::set_volume(&music, 0.8);
     Music::set_volume(&ambience, 0.15);
 
     Music::play_stream(&music);
