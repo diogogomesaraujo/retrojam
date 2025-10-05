@@ -200,9 +200,13 @@ impl Player {
     }
 
     pub fn draw<D: RaylibDraw>(&mut self, d: &mut D) {
-        let sprite_position = match self.state {
-            PlayerState::Idle => 0,
-            PlayerState::Walk { count, .. } | PlayerState::Jump { count, .. } => count,
+        let sprite_position = if self.is_dying {
+            1
+        } else {
+            match self.state {
+                PlayerState::Idle => 0,
+                PlayerState::Walk { count, .. } | PlayerState::Jump { count, .. } => count,
+            }
         } as f32
             * SPRITE_SIZE;
 
