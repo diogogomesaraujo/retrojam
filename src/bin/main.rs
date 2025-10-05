@@ -1,4 +1,5 @@
 use raylib::prelude::*;
+use retrojam::dialogue::DialogueSystem;
 use retrojam::shaders::TORCH_FRAGMENT_SHADER;
 use retrojam::*;
 use std::error::Error;
@@ -30,6 +31,9 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     Music::play_stream(&music);
     Music::play_stream(&ambience);
+
+    // === DIALOGUE ===
+    let mut dialogue = DialogueSystem::new();
 
     // === SHADER ===
     let mut shader = rl.load_shader_from_memory(&thread, None, Some(TORCH_FRAGMENT_SHADER));
@@ -77,6 +81,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         if !has_laughed && world.player.end_scene_active {
             Sound::play(&laugh_sound);
             has_laughed = true;
+            dialogue.start();
         }
 
         was_grounded = world.player.grounded;
@@ -96,6 +101,15 @@ fn main() -> Result<(), Box<dyn Error>> {
 
         if !world.player.is_dying {
             has_played_die_sound = false;
+        }
+
+        // === DIALOGUE UPDATE ===
+        if let Some(sound_effect) = dialogue.update(delta_time, &rl) {
+            match sound_effect.as_str() {
+                "laugh" => Sound::play(&laugh_sound),
+                "drip" => {} // Add drip sound if you have one
+                _ => {}
+            }
         }
 
         world.player.update_sight(delta_time);
@@ -174,6 +188,9 @@ fn main() -> Result<(), Box<dyn Error>> {
                     Color::WHITE,
                 );
             }
+
+            // === DIALOGUE DRAW ===
+            dialogue.draw(&mut d);
 
             if fade_alpha > 0 {
                 d.draw_rectangle(

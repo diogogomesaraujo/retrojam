@@ -7,6 +7,8 @@ pub mod world;
 pub use world::World;
 pub mod player;
 pub use player::Player;
+pub mod dialogue;
+use dialogue::DialogueSystem;
 
 pub mod shaders;
 
@@ -82,6 +84,153 @@ pub const END_SCENE_SIGHT_MULTIPLIER: f32 = 1.5;
 pub const END_SCENE_SIGHT_TRANSITION_SPEED: f32 = 0.5;
 pub const END_SCENE_CAMERA_OFFSET_Y: f32 = -25.0;
 pub const END_SCENE_CAMERA_TRANSITION_SPEED: f32 = 0.02;
+
+pub const DIALOG_FONT_SIZE: i32 = 8;
+pub const DIALOG_PADDING: f32 = 4.0;
+pub const DIALOG_LINE_SPACING: f32 = 10.0;
+pub const DIALOG_Y_POSITION: f32 = 30.0;
+pub const DIALOG_DEVIL_X: f32 = 20.0;
+pub const DIALOG_PLAYER_X: f32 = 500.0;
+pub const DIALOG_MAX_WIDTH: f32 = 250.0;
+
+#[derive(Clone)]
+pub struct DialogLine {
+    pub speaker: DialogSpeaker,
+    pub text: String,
+    pub duration: f64,
+}
+
+#[derive(Clone, PartialEq)]
+pub enum DialogSpeaker {
+    Devil,
+    Player,
+    Narrator,
+}
+
+pub fn get_end_dialog() -> Vec<DialogLine> {
+    vec![
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "Again… so soon?".to_string(),
+            duration: 3.0,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "You claw your way back through\nthe dark, lifetime after lifetime…".to_string(),
+            duration: 4.0,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "Tell me — don't you ever tire\nof this?".to_string(),
+            duration: 3.5,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Player,
+            text: "You've put me through hell!".to_string(),
+            duration: 3.0,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Player,
+            text: "Don't you ever get tired of\nwatching me suffer?!".to_string(),
+            duration: 3.5,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "Hell?".to_string(),
+            duration: 2.0,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "You speak as though it wasn't\nyou who begged for this.".to_string(),
+            duration: 4.0,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "Immortality… the gift you\nwanted most.".to_string(),
+            duration: 3.5,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "And this is how you thank me?".to_string(),
+            duration: 3.0,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Player,
+            text: "Give me my life back!".to_string(),
+            duration: 2.5,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "Your life?".to_string(),
+            duration: 2.0,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "You threw it away long ago.".to_string(),
+            duration: 3.0,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "What you live now is eternity.".to_string(),
+            duration: 3.5,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Player,
+            text: "Immortality is meaningless\nwithout purpose.".to_string(),
+            duration: 3.5,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Player,
+            text: "Without an end, it's just\nanother prison…".to_string(),
+            duration: 4.0,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "Ah… purpose.".to_string(),
+            duration: 2.5,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "Such a fragile word.".to_string(),
+            duration: 2.5,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "Very well, old friend…".to_string(),
+            duration: 3.0,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "Shall I take back my gift?".to_string(),
+            duration: 3.0,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "Shall I let you crumble into\ndust at last?".to_string(),
+            duration: 4.0,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "Or will you stay…".to_string(),
+            duration: 2.5,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "…crawling through the dark for\nanother thousand years…".to_string(),
+            duration: 4.0,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "…chasing my shadow?".to_string(),
+            duration: 3.5,
+        },
+        DialogLine {
+            speaker: DialogSpeaker::Devil,
+            text: "What will it be, old friend?".to_string(),
+            duration: 5.0,
+        },
+    ]
+}
 
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash, Debug)]
 pub enum BlockType {
