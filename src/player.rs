@@ -9,7 +9,7 @@ pub struct AgeAttributes {
     pub jump_cooldown: f32,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum Age {
     Baby,
     Child,
@@ -135,7 +135,8 @@ pub struct Player {
     pub death_start_time: f64,
     pub spawn_position: (f32, f32),
     pub can_age: bool,
-    pub end_scene_active: bool,
+    pub end_scene_active: bool, // For StopAging
+    pub end_triggered: bool,    // For End block proximity
 }
 
 impl Player {
@@ -173,6 +174,7 @@ impl Player {
             spawn_position: (x, y),
             can_age: true,
             end_scene_active: false,
+            end_triggered: false,
         })
     }
 
@@ -190,7 +192,10 @@ impl Player {
         if self.is_dying {
             return;
         }
-        let transition_speed = if self.end_scene_active { 0.5 } else { 2.0 };
+
+        // Faster sight expansion during End scene
+        let transition_speed = if self.end_triggered { 0.5 } else { 2.0 };
+
         let diff = self.target_sight - self.current_sight;
         if diff.abs() > 0.01 {
             self.current_sight += diff * transition_speed * delta_time;
@@ -231,6 +236,10 @@ impl Player {
     }
 
     fn increment_age(&mut self, game_handle: &mut RaylibHandle) {
+        if !self.can_age {
+            return;
+        }
+
         let time_to_change = match &self.age {
             Age::Baby => BABY_TIME_TO_CHANGE,
             Age::Child => CHILD_TIME_TO_CHANGE,
@@ -273,15 +282,44 @@ impl Player {
         self.is_dying = false;
         self.current_sight = Age::Baby.attributes().sight;
         self.target_sight = Age::Baby.attributes().sight;
+        self.can_age = true;
+        self.end_scene_active = false;
+        self.end_triggered = false;
     }
 
     pub fn stop_aging(&mut self) {
         if self.can_age {
             self.can_age = false;
-            self.end_scene_active = true;
-            self.target_sight = END_SCENE_SIGHT_MULTIPLIER;
+            self.end_scene_active = true; // Only stops aging
             println!("=== AGING STOPPED ===");
-            println!("Current age: {:?}", self.age);
+        }
+    }
+
+    fn trigger_end_scene(&mut self) {
+        if !self.end_triggered {
+            self.end_triggered = true;
+            self.target_sight = END_SCENE_SIGHT_MULTIPLIER;
+            println!("=== END SCENE TRIGGERED ===");
+        }
+    }
+
+    fn check_end_proximity(&mut self, map: &WorldMap) {
+        if self.end_triggered {
+            return;
+        }
+
+        for ((x, y), b) in map {
+            if *b == BlockType::End {
+                let nx = (*x as f32) * BLOCK_SIZE as f32;
+                let ny = (*y as f32) * BLOCK_SIZE as f32;
+                let dx = (self.collision_box.x - nx).abs() / BLOCK_SIZE as f32;
+                let dy = (self.collision_box.y - ny).abs() / BLOCK_SIZE as f32;
+
+                if dx <= 4.0 && dy <= 4.0 {
+                    self.trigger_end_scene();
+                    return;
+                }
+            }
         }
     }
 
@@ -297,10 +335,7 @@ impl Player {
         let mut frame_advanced = false;
         let mut moved = false;
 
-        // Only increment age if can_age is true
-        if self.can_age {
-            self.increment_age(game_handle);
-        }
+        self.increment_age(game_handle);
 
         let attrs = self.age.attributes();
 
@@ -368,8 +403,9 @@ impl Player {
             self.grounded = false;
         }
 
-        // Check if player is touching a StopAging block
+        // Handle special zones
         self.check_stop_aging(map);
+        self.check_end_proximity(map);
 
         if moved {
             match self.state {
@@ -439,19 +475,5 @@ impl Player {
             }
         }
         None
-    }
-
-    pub fn update_state(&mut self, game_handle: &mut RaylibHandle) {
-        match self.state {
-            PlayerState::Jump { count, last_update } | PlayerState::Walk { count, last_update } => {
-                self.state = PlayerState::Walk { count, last_update }
-            }
-            _ => {
-                self.state = PlayerState::Walk {
-                    count: 0,
-                    last_update: game_handle.get_time(),
-                }
-            }
-        }
     }
 }

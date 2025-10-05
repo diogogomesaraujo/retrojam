@@ -119,13 +119,16 @@ impl World {
     }
 
     pub fn update_cam(&mut self) {
-        if self.player.end_scene_active {
+        if self.player.end_triggered {
             self.target_camera_offset_y = END_SCENE_CAMERA_OFFSET_Y;
+        } else {
+            self.target_camera_offset_y = 0.0;
         }
 
         let diff = self.target_camera_offset_y - self.camera_offset_y;
-        if diff.abs() > 0.1 {
-            self.camera_offset_y += diff * END_SCENE_CAMERA_TRANSITION_SPEED;
+        if diff.abs() > 0.05 {
+            let easing = 1.0 - (-diff.abs() * 0.03).exp();
+            self.camera_offset_y += diff * END_SCENE_CAMERA_TRANSITION_SPEED * easing;
         } else {
             self.camera_offset_y = self.target_camera_offset_y;
         }
