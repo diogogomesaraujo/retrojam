@@ -8,6 +8,7 @@ pub struct World {
     pub camera: Camera2D,
     pub tileset_texture: Texture2D,
     pub devil_texture: Texture2D,
+    pub bg_texture: Texture2D,
     pub dust: Dust,
     pub camera_offset_y: f32,
     pub target_camera_offset_y: f32,
@@ -48,6 +49,7 @@ impl World {
                 zoom: CAMERA_ZOOM,
             },
             tileset_texture: game_handle.load_texture(&game_thread, TILESET_PATH)?,
+            bg_texture: game_handle.load_texture(&game_thread, BG_PATH)?,
             devil_texture: game_handle.load_texture(&game_thread, DEVIL_PATH)?,
             dust: Dust::new(game_handle, &game_thread)?,
             camera_offset_y: 0.0,
@@ -55,9 +57,15 @@ impl World {
         })
     }
 
-    pub fn draw<D: RaylibDraw>(&mut self, d: &mut D) {
+    pub fn draw<D: RaylibDraw>(&mut self, d: &mut D, width: &i32, height: &i32) {
         let mut d = d.begin_mode2D(self.camera);
         d.clear_background(BG_COLOR);
+        d.draw_texture(
+            &self.bg_texture,
+            self.camera.target.x as i32 - width / 2,
+            self.camera.target.x as i32 - height / 2,
+            Color::new(255, 255, 255, 128),
+        );
         for ((x, y), b) in &self.map {
             let nx = (*x as i32) * BLOCK_SIZE;
             let ny = (*y as i32) * BLOCK_SIZE;

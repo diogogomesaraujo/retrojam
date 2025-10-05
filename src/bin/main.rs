@@ -93,18 +93,23 @@ fn main() -> Result<(), Box<dyn Error>> {
 
         world.dust.update(&mut rl);
 
+        let screen_width = rl.get_screen_width() as f32;
+        let screen_height = rl.get_screen_height() as f32;
+
         {
             let mut texture_mode = rl.begin_texture_mode(&thread, &mut render_target);
             texture_mode.clear_background(Color::BLACK);
-            world.draw(&mut texture_mode);
+            world.draw(
+                &mut texture_mode,
+                (screen_width as i32),
+                (screen_height as i32),
+            );
         }
 
         {
             let mut d = rl.begin_drawing(&thread);
             d.clear_background(Color::BLACK);
 
-            let screen_width = d.get_screen_width() as f32;
-            let screen_height = d.get_screen_height() as f32;
             let scale_x = screen_width / BASE_WIDTH as f32;
             let scale_y = screen_height / BASE_HEIGHT as f32;
             let scale = scale_x.min(scale_y);
