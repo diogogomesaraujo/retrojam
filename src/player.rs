@@ -135,6 +135,7 @@ pub struct Player {
     pub death_start_time: f64,
     pub spawn_position: (f32, f32),
     pub can_age: bool,
+    pub end_scene_active: bool,
 }
 
 impl Player {
@@ -171,6 +172,7 @@ impl Player {
             death_start_time: 0.0,
             spawn_position: (x, y),
             can_age: true,
+            end_scene_active: false,
         })
     }
 
@@ -188,7 +190,7 @@ impl Player {
         if self.is_dying {
             return;
         }
-        let transition_speed = 2.0;
+        let transition_speed = if self.end_scene_active { 0.5 } else { 2.0 };
         let diff = self.target_sight - self.current_sight;
         if diff.abs() > 0.01 {
             self.current_sight += diff * transition_speed * delta_time;
@@ -272,6 +274,8 @@ impl Player {
     pub fn stop_aging(&mut self) {
         if self.can_age {
             self.can_age = false;
+            self.end_scene_active = true;
+            self.target_sight = END_SCENE_SIGHT_MULTIPLIER;
             println!("=== AGING STOPPED ===");
             println!("Current age: {:?}", self.age);
         }

@@ -69,6 +69,11 @@ pub const ADULT_TIME_TO_CHANGE: f64 = 20. * 1.;
 pub const ELDER_TIME_TO_CHANGE: f64 = 25. * 1.;
 pub const DEATH_ANIMATION_DURATION: f64 = 3.0;
 
+pub const END_SCENE_SIGHT_MULTIPLIER: f32 = 1.5;
+pub const END_SCENE_SIGHT_TRANSITION_SPEED: f32 = 0.5;
+pub const END_SCENE_CAMERA_OFFSET_Y: f32 = -25.0;
+pub const END_SCENE_CAMERA_TRANSITION_SPEED: f32 = 0.02;
+
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash, Debug)]
 pub enum BlockType {
     Blank,
