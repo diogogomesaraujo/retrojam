@@ -122,8 +122,8 @@ fn main() -> Result<(), Box<dyn Error>> {
         let time = rl.get_time();
 
         {
-            let current_width = rl.get_screen_width() as u32;
-            let current_height = rl.get_screen_height() as u32;
+            let current_width = rl.get_screen_width() as u32 * 4;
+            let current_height = rl.get_screen_height() as u32 * 4;
 
             if current_width != last_rt_width || current_height != last_rt_height {
                 render_target =
@@ -134,12 +134,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
             let mut texture_mode = rl.begin_texture_mode(&thread, &mut render_target);
             texture_mode.clear_background(Color::BLACK);
-            world.draw(
-                &mut texture_mode,
-                &(screen_width as i32),
-                &(screen_height as i32),
-                &time,
-            );
+            world.draw(&mut texture_mode, &time);
         }
 
         {
@@ -175,6 +170,72 @@ fn main() -> Result<(), Box<dyn Error>> {
                     Color::WHITE,
                 );
             }
+
+            if world.end_triggered_world == true {
+                match time - world.end_scene_start {
+                    x if x < DIALOGUE_1_TIME => {
+                        world
+                            .player
+                            .draw_text(&mut d, DIALOGUE_1_TEXT, &world.tiny_font);
+                    }
+                    x if x < DIALOGUE_2_TIME => {
+                        world
+                            .player
+                            .draw_text(&mut d, DIALOGUE_2_TEXT, &world.tiny_font);
+                    }
+                    x if x < DIALOGUE_3_TIME => {
+                        world
+                            .player
+                            .draw_text(&mut d, DIALOGUE_3_TEXT, &world.tiny_font);
+                    }
+                    x if x < DIALOGUE_4_TIME => {
+                        world
+                            .player
+                            .draw_text(&mut d, DIALOGUE_4_TEXT, &world.tiny_font);
+                    }
+                    x if x < DIALOGUE_5_TIME => {
+                        world
+                            .player
+                            .draw_text(&mut d, DIALOGUE_5_TEXT, &world.tiny_font);
+                    }
+                    x if x < DIALOGUE_6_TIME => {
+                        world
+                            .player
+                            .draw_text(&mut d, DIALOGUE_6_TEXT, &world.tiny_font);
+                    }
+                    x if x < DIALOGUE_7_TIME => {
+                        world
+                            .player
+                            .draw_text(&mut d, DIALOGUE_7_TEXT, &world.tiny_font);
+                    }
+                    x if x < DIALOGUE_8_TIME => {
+                        world
+                            .player
+                            .draw_text(&mut d, DIALOGUE_8_TEXT, &world.tiny_font);
+                    }
+                    x if x < DIALOGUE_9_TIME => {
+                        world
+                            .player
+                            .draw_text(&mut d, DIALOGUE_9_TEXT, &world.tiny_font);
+                    }
+                    x if x < DIALOGUE_10_TIME => {
+                        world
+                            .player
+                            .draw_text(&mut d, DIALOGUE_10_TEXT, &world.tiny_font);
+                    }
+                    x if x < DIALOGUE_11_TIME => {
+                        world
+                            .player
+                            .draw_text(&mut d, DIALOGUE_11_TEXT, &world.tiny_font);
+                    }
+                    x if x < DIALOGUE_12_TIME => {
+                        world
+                            .player
+                            .draw_text(&mut d, DIALOGUE_12_TEXT, &world.tiny_font);
+                    }
+                    _ => {}
+                }
+            };
 
             if fade_alpha > 0 {
                 d.draw_rectangle(

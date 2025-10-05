@@ -9,6 +9,7 @@ pub struct World {
     pub tileset_texture: Texture2D,
     pub devil_texture: Texture2D,
     pub bg_texture: Texture2D,
+    pub tiny_font: Font,
     pub dust: Dust,
     pub camera_offset_y: f32,
     pub target_camera_offset_y: f32,
@@ -58,10 +59,11 @@ impl World {
             target_camera_offset_y: 0.0,
             end_scene_start: 0.,
             end_triggered_world: false,
+            tiny_font: game_handle.load_font(&game_thread, FONT_PATH)?,
         })
     }
 
-    pub fn draw<D: RaylibDraw>(&mut self, d: &mut D, width: &i32, height: &i32, time: &f64) {
+    pub fn draw<D: RaylibDraw>(&mut self, d: &mut D, time: &f64) {
         let mut d = d.begin_mode2D(self.camera);
         d.clear_background(BG_COLOR);
         let bg_width = self.bg_texture.width() as f32 / 1.;
@@ -122,7 +124,6 @@ impl World {
         if self.player.end_triggered == true && self.end_triggered_world != true {
             self.end_triggered_world = true;
             self.end_scene_start = *time;
-            println!("END SCENE STARTED AT: {}", self.end_scene_start);
         };
         self.dust.draw(&mut d);
     }
@@ -149,7 +150,7 @@ impl World {
         self.camera.target = Vector2 {
             x: smoothing(
                 self.camera.target.x,
-                self.player.body.x + SPRITE_SIZE,
+                self.player.body.x + SPRITE_SIZE / 2.,
                 CAMERA_SPEED,
             ),
             y: smoothing(

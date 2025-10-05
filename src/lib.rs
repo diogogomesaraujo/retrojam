@@ -79,6 +79,50 @@ pub const END_SCENE_SIGHT_TRANSITION_SPEED: f32 = 0.5;
 pub const END_SCENE_CAMERA_OFFSET_Y: f32 = -25.0;
 pub const END_SCENE_CAMERA_TRANSITION_SPEED: f32 = 0.02;
 
+pub const FONT_PATH: &str = "src/assets/tiny.ttf";
+
+pub const DIALOGUE_1_TEXT: &str = "Again… so soon";
+pub const DIALOGUE_1_TIME: f64 = 5.;
+
+pub const DIALOGUE_2_TEXT: &str =
+    "You claw your way back through the dark,\nlifetime after lifetime…";
+pub const DIALOGUE_2_TIME: f64 = 10.;
+
+pub const DIALOGUE_3_TEXT: &str = "Tell me — don't you ever tire of this?";
+pub const DIALOGUE_3_TIME: f64 = 15.;
+
+pub const DIALOGUE_4_TEXT: &str =
+    "You've put me through hell\nDon't you ever get tired of watching me suffer?!";
+pub const DIALOGUE_4_TIME: f64 = 20.;
+
+pub const DIALOGUE_5_TEXT: &str = "Hell?\nYou speak as though it wasn't you\nwho begged for this";
+pub const DIALOGUE_5_TIME: f64 = 25.;
+
+pub const DIALOGUE_6_TEXT: &str = "Immortality… the gift you wanted most.\n
+[Low chuckle]\n
+And this is how you thank me?";
+pub const DIALOGUE_6_TIME: f64 = 30.;
+
+pub const DIALOGUE_7_TEXT: &str = "Give me my life back!";
+pub const DIALOGUE_7_TIME: f64 = 35.;
+
+pub const DIALOGUE_8_TEXT: &str = "You threw it away long ago.\n What you live now is eternity.";
+pub const DIALOGUE_8_TIME: f64 = 40.;
+
+pub const DIALOGUE_9_TEXT: &str =
+    "Immortality is meaningless without purpose.\nWithout an end, it's just another prison…";
+pub const DIALOGUE_9_TIME: f64 = 45.;
+
+pub const DIALOGUE_10_TEXT: &str = "Ah… purpose.\n Such a fragile word.\nVery well, old friend…";
+pub const DIALOGUE_10_TIME: f64 = 50.;
+
+pub const DIALOGUE_11_TEXT: &str =
+    "Shall I take back my gift?\nShall I let you crumble into dust at last?";
+pub const DIALOGUE_11_TIME: f64 = 55.;
+
+pub const DIALOGUE_12_TEXT: &str = "Or will you stay… crawling\n through the dark\nfor another thousand years…\n…chasing my shadow?";
+pub const DIALOGUE_12_TIME: f64 = 60.;
+
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash, Debug)]
 pub enum BlockType {
     Blank,

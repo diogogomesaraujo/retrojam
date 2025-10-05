@@ -204,6 +204,17 @@ impl Player {
         }
     }
 
+    pub fn draw_text<D: RaylibDraw>(&mut self, d: &mut D, text: &str, font: &Font) {
+        d.draw_text_ex(
+            &font,
+            text,
+            Vector2::new(self.body.x, self.body.y),
+            20.,
+            1.,
+            Color::WHITE,
+        );
+    }
+
     pub fn draw<D: RaylibDraw>(&mut self, d: &mut D) {
         let sprite_position = if self.is_dying {
             1
