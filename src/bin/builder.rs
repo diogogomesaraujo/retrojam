@@ -63,6 +63,7 @@ fn main() {
                 map.insert(pos, BlockType::End);
             }
         }
+
         if rl.is_key_pressed(KeyboardKey::KEY_P) {
             if grid_x < GRID_WIDTH && grid_y < GRID_HEIGHT {
                 let pos = (grid_x, grid_y);
@@ -74,6 +75,13 @@ fn main() {
             if grid_x < GRID_WIDTH && grid_y < GRID_HEIGHT {
                 let pos = (grid_x, grid_y);
                 map.insert(pos, BlockType::Blank);
+            }
+        }
+
+        if rl.is_key_pressed(KeyboardKey::KEY_T) {
+            if grid_x < GRID_WIDTH && grid_y < GRID_HEIGHT {
+                let pos = (grid_x, grid_y);
+                map.insert(pos, BlockType::StopAging);
             }
         }
 
@@ -149,7 +157,7 @@ fn main() {
 
         d.draw_text(
             &format!(
-                "Left Click: toggle brush ({}x{}) | P: pencil (1x1) | E: eraser (1x1) | X: set start position | Z: set devil postion | S: to save | ESC: to leave",
+                "Left Click: toggle brush ({}x{}) | P: pencil (1x1) | E: eraser (1x1) | X: set start position | Z: set devil postion | T: stop aging zone | S: to save | ESC: to leave",
                 DEL_SIZE, DEL_SIZE
             ),
             10,
