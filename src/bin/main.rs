@@ -99,6 +99,8 @@ struct GameState {
     was_grounded: bool,
     has_laughed: bool,
     has_played_die_sound: bool,
+    laugh_time: Option<f64>,
+    show_ending: bool,
 }
 
 impl GameState {
@@ -107,6 +109,8 @@ impl GameState {
             was_grounded: true,
             has_laughed: false,
             has_played_die_sound: false,
+            laugh_time: None,
+            show_ending: false,
         }
     }
 
@@ -131,6 +135,7 @@ impl GameState {
         if !self.has_laughed && world.player.end_triggered {
             Sound::play(&audio.laugh_sound);
             self.has_laughed = true;
+            self.laugh_time = Some(rl.get_time());
         }
         if world.player.is_dying && !self.has_played_die_sound {
             Sound::play(&audio.die_sound);
@@ -140,6 +145,18 @@ impl GameState {
             self.has_played_die_sound = false;
         }
         self.was_grounded = world.player.grounded;
+    }
+
+    fn update_ending(&mut self, current_time: f64) {
+        if let Some(laugh_time) = self.laugh_time {
+            if current_time - laugh_time >= 6.0 {
+                self.show_ending = true;
+            }
+        }
+    }
+
+    fn should_show_ending(&self) -> bool {
+        self.show_ending
     }
 }
 
@@ -245,67 +262,94 @@ fn main() -> Result<(), Box<dyn Error>> {
         audio.update();
 
         let delta_time = rl.get_frame_time();
-
-        let footstep = world.player.after_move(&mut rl, &mut world.map);
-        if footstep {
-            step_counter += 1;
-        }
-        let should_play_footstep = footstep && step_counter % 2 == 0;
-
-        game_state.handle_audio(&world, &audio, &rl, should_play_footstep);
-
-        world.player.update_sight(delta_time);
-        let sight = world.player.get_sight_multiplier(&rl);
-        shader_system.update_light(sight);
-
-        world.update_cam();
-        world.dust.update(&mut rl);
-
-        let fade_alpha = calculate_fade_alpha(&world, &rl);
-        let screen_width = rl.get_screen_width() as f32;
-        let screen_height = rl.get_screen_height() as f32;
         let time = rl.get_time();
 
-        render_target.check_resize(&mut rl, &thread)?;
-        {
-            let mut texture_mode = rl.begin_texture_mode(&thread, render_target.get_mut());
-            texture_mode.clear_background(Color::BLACK);
-            world.draw(
-                &mut texture_mode,
-                &(screen_width as i32),
-                &(screen_height as i32),
-                &time,
-            );
+        // Update ending state
+        game_state.update_ending(time);
+
+        // Only update game logic if not showing ending
+        if !game_state.should_show_ending() {
+            let footstep = world.player.after_move(&mut rl, &mut world.map);
+            if footstep {
+                step_counter += 1;
+            }
+            let should_play_footstep = footstep && step_counter % 2 == 0;
+
+            game_state.handle_audio(&world, &audio, &rl, should_play_footstep);
+
+            world.player.update_sight(delta_time);
+            let sight = world.player.get_sight_multiplier(&rl);
+            shader_system.update_light(sight);
+
+            world.update_cam();
+            world.dust.update(&mut rl);
         }
 
+        let screen_width = rl.get_screen_width() as f32;
+        let screen_height = rl.get_screen_height() as f32;
+
+        // Calculate fade_alpha before any drawing
+        let fade_alpha = calculate_fade_alpha(&world, &rl);
+
+        // Prepare render target before drawing (if not showing ending)
+        if !game_state.should_show_ending() {
+            render_target.check_resize(&mut rl, &thread)?;
+            {
+                let mut texture_mode = rl.begin_texture_mode(&thread, render_target.get_mut());
+                texture_mode.clear_background(Color::BLACK);
+                world.draw(
+                    &mut texture_mode,
+                    &(screen_width as i32),
+                    &(screen_height as i32),
+                    &time,
+                );
+            }
+        }
+
+        // Render to screen
         {
             let mut d = rl.begin_drawing(&thread);
             d.clear_background(Color::BLACK);
 
-            let scale = calculate_scale(screen_width, screen_height);
-            let (scaled_width, scaled_height) = calculate_scaled_dimensions(scale);
-            let (offset_x, offset_y) =
-                calculate_offsets(screen_width, screen_height, scaled_width, scaled_height);
-
-            {
-                render_target.draw_to_screen(
-                    &mut d,
-                    shader_system.get_shader_mut(),
-                    offset_x,
-                    offset_y,
-                    scaled_width,
-                    scaled_height,
+            if game_state.should_show_ending() {
+                // Draw ending scene
+                let text = "THE END";
+                let font_size = 60;
+                let text_width = d.measure_text(text, font_size);
+                d.draw_text(
+                    text,
+                    (screen_width as i32 - text_width) / 2,
+                    (screen_height as i32) / 2 - font_size / 2,
+                    font_size,
+                    Color::WHITE,
                 );
-            }
+            } else {
+                // Normal game rendering
+                let scale = calculate_scale(screen_width, screen_height);
+                let (scaled_width, scaled_height) = calculate_scaled_dimensions(scale);
+                let (offset_x, offset_y) =
+                    calculate_offsets(screen_width, screen_height, scaled_width, scaled_height);
 
-            if fade_alpha > 0 {
-                d.draw_rectangle(
-                    0,
-                    0,
-                    d.get_screen_width(),
-                    d.get_screen_height(),
-                    Color::new(0, 0, 0, fade_alpha),
-                );
+                {
+                    render_target.draw_to_screen(
+                        &mut d,
+                        shader_system.get_shader_mut(),
+                        offset_x,
+                        offset_y,
+                        scaled_width,
+                        scaled_height,
+                    );
+                }
+
+                if fade_alpha > 0 {
+                    d.draw_rectangle(
+                        0,
+                        0,
+                        d.get_screen_width(),
+                        d.get_screen_height(),
+                        Color::new(0, 0, 0, fade_alpha),
+                    );
+                }
             }
         }
     }
