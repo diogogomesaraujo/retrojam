@@ -95,6 +95,7 @@ pub enum PlayerState {
     Idle,
     Walk { count: u32, last_update: f64 },
     Jump { count: u32, last_update: f64 },
+    Death { count: u32, last_update: f64 },
 }
 
 impl PlayerState {
@@ -102,18 +103,26 @@ impl PlayerState {
         let current_time = game_handle.get_time();
         let mut frame_advanced = false;
 
-        if let PlayerState::Walk { count, last_update } | PlayerState::Jump { count, last_update } =
-            self
-        {
-            if current_time - *last_update > PLAYER_SPRITE_SPEED {
-                *count = if *count < PLAYER_SPRITE_WALK_END {
-                    *count + 1
-                } else {
-                    PLAYER_SPRITE_WALK_INIT
-                };
-                *last_update = current_time;
-                frame_advanced = true;
+        match self {
+            PlayerState::Walk { count, last_update } | PlayerState::Jump { count, last_update } => {
+                if current_time - *last_update > PLAYER_SPRITE_SPEED {
+                    *count = if *count < PLAYER_SPRITE_WALK_END {
+                        *count + 1
+                    } else {
+                        PLAYER_SPRITE_WALK_INIT
+                    };
+                    *last_update = current_time;
+                    frame_advanced = true;
+                }
             }
+            PlayerState::Death { count, last_update } => {
+                if current_time - *last_update > PLAYER_SPRITE_SPEED && *count < 4 {
+                    *count += 1;
+                    *last_update = current_time;
+                    frame_advanced = true;
+                }
+            }
+            _ => {}
         }
         frame_advanced
     }
@@ -216,21 +225,20 @@ impl Player {
     }
 
     pub fn draw<D: RaylibDraw>(&mut self, d: &mut D) {
-        let sprite_position = if self.is_dying {
-            1
-        } else {
-            match self.state {
-                PlayerState::Idle => 0,
-                PlayerState::Walk { count, .. } | PlayerState::Jump { count, .. } => count,
-            }
-        } as f32
-            * SPRITE_SIZE;
+        let (sprite_position, sprite_y) = match &self.state {
+            PlayerState::Death { count, .. } => (*count as f32 * SPRITE_SIZE, 5.0 * SPRITE_SIZE),
+            PlayerState::Idle => (0.0, self.age.to_value() * SPRITE_SIZE),
+            PlayerState::Walk { count, .. } | PlayerState::Jump { count, .. } => (
+                *count as f32 * SPRITE_SIZE,
+                self.age.to_value() * SPRITE_SIZE,
+            ),
+        };
 
         d.draw_texture_pro(
             &self.sprite,
             Rectangle {
                 x: sprite_position,
-                y: self.age.to_value() * SPRITE_SIZE,
+                y: sprite_y,
                 width: SPRITE_SIZE * self.facing.to_value(),
                 height: SPRITE_SIZE,
             },
@@ -271,6 +279,10 @@ impl Player {
                     self.is_dying = true;
                     self.death_start_time = game_handle.get_time();
                     self.vel = (0.0, 0.0);
+                    self.state = PlayerState::Death {
+                        count: 0,
+                        last_update: game_handle.get_time(),
+                    };
                     Age::Elder
                 }
             };
@@ -336,6 +348,7 @@ impl Player {
 
     pub fn after_move(&mut self, game_handle: &mut RaylibHandle, map: &mut WorldMap) -> bool {
         if self.is_dying {
+            self.state.increment_count(game_handle);
             let elapsed = game_handle.get_time() - self.death_start_time;
             if elapsed >= DEATH_ANIMATION_DURATION {
                 self.respawn();
@@ -430,6 +443,7 @@ impl Player {
                 PlayerState::Walk { .. } | PlayerState::Jump { .. } => {
                     frame_advanced = self.state.increment_count(game_handle);
                 }
+                _ => {}
             }
         } else if self.grounded {
             self.state = PlayerState::Idle;

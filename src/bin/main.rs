@@ -11,7 +11,6 @@ fn main() -> Result<(), Box<dyn Error>> {
         .build();
     rl.set_target_fps(TARGET_FPS);
 
-    // === AUDIO ===
     let audio = RaylibAudio::init_audio_device()?;
     let music = audio.new_music("src/assets/music2.mp3")?;
     let ambience = audio.new_music("src/assets/ambience.mp3")?;
