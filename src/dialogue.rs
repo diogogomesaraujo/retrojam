@@ -14,6 +14,7 @@ pub struct DialogueSystem {
     line_start_time: f64,
     dialogue_started: bool,
     font: Font,
+    showing_choice: bool,
 }
 
 impl DialogueSystem {
@@ -172,6 +173,7 @@ impl DialogueSystem {
             line_start_time: 0.0,
             dialogue_started: false,
             font,
+            showing_choice: false,
         })
     }
 
@@ -182,7 +184,12 @@ impl DialogueSystem {
     }
 
     pub fn update(&mut self, current_time: f64) -> Option<String> {
-        if !self.dialogue_started || self.current_line >= self.lines.len() {
+        if !self.dialogue_started {
+            return None;
+        }
+
+        if self.current_line >= self.lines.len() {
+            self.showing_choice = true;
             return None;
         }
 
@@ -199,16 +206,60 @@ impl DialogueSystem {
         None
     }
 
-    pub fn draw(&mut self, d: &mut RaylibDrawHandle, screen_width: i32, screen_height: i32) {
-        if !self.dialogue_started || self.current_line >= self.lines.len() {
+    pub fn handle_choice(&self, rl: &RaylibHandle) -> Option<bool> {
+        if !self.showing_choice {
+            return None;
+        }
+
+        if rl.is_key_pressed(KeyboardKey::KEY_L) {
+            return Some(true); // Live
+        } else if rl.is_key_pressed(KeyboardKey::KEY_D) {
+            return Some(false); // Die
+        }
+
+        None
+    }
+
+    pub fn draw<D: RaylibDraw>(&mut self, d: &mut D, screen_width: i32, screen_height: i32) {
+        if !self.dialogue_started {
+            return;
+        }
+
+        if self.showing_choice {
+            // Draw choice prompt
+            let base_dim = screen_width.min(screen_height) as f32;
+            let font_size = (base_dim * 0.045).clamp(16.0, 32.0);
+            let spacing = font_size * 0.1;
+            let padding_x = screen_width as f32 * 0.04;
+            let padding_y = screen_height as f32 * 0.05;
+            let line_spacing = font_size * 0.25;
+
+            let red_color = Color::new(251, 73, 52, 255);
+
+            let choice_text = "[L] to live    [D] to die";
+            let total_text_height = font_size;
+            let y_pos = screen_height as f32 - padding_y - total_text_height;
+
+            d.draw_text_ex(
+                &self.font,
+                choice_text,
+                Vector2::new(padding_x, y_pos),
+                font_size,
+                spacing,
+                red_color,
+            );
+            return;
+        }
+
+        if self.current_line >= self.lines.len() {
             return;
         }
 
         let current = &self.lines[self.current_line];
 
-        // Font sizing and spacing
+        // Font sizing relative to base resolution
         let base_dim = screen_width.min(screen_height) as f32;
-        let font_size = ((base_dim * 0.035) * 1.5).clamp(24.0, 64.0);
+        let font_size = (base_dim * 0.045).clamp(16.0, 32.0);
         let spacing = font_size * 0.1;
         let padding_x = screen_width as f32 * 0.04;
         let padding_y = screen_height as f32 * 0.05;
@@ -230,11 +281,8 @@ impl DialogueSystem {
 
         // Draw each line left-aligned
         for (i, line) in lines.iter().enumerate() {
-            let width = d.measure_text(line, font_size as i32) as f32
-                + spacing * (line.chars().count().saturating_sub(1)) as f32;
-
             let height = font_size + line_spacing;
-            let x_pos = padding_x; // always left aligned
+            let x_pos = padding_x;
             let y_pos = y_start + (i as f32 * height);
 
             d.draw_text_ex(

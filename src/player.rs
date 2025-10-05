@@ -281,7 +281,7 @@ impl Player {
         }
     }
 
-    fn respawn(&mut self) {
+    pub fn respawn(&mut self) {
         self.age = Age::Baby;
         self.body.x = self.spawn_position.0;
         self.body.y = self.spawn_position.1;

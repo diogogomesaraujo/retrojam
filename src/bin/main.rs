@@ -99,7 +99,7 @@ struct GameState {
     was_grounded: bool,
     has_laughed: bool,
     has_played_die_sound: bool,
-    laugh_time: Option<f64>,
+    end_time: Option<f64>,
     show_ending: bool,
     dialogue_started: bool,
 }
@@ -110,7 +110,7 @@ impl GameState {
             was_grounded: true,
             has_laughed: false,
             has_played_die_sound: false,
-            laugh_time: None,
+            end_time: None,
             show_ending: false,
             dialogue_started: false,
         }
@@ -134,10 +134,9 @@ impl GameState {
         if footstep {
             Sound::play(&audio.walk_sound);
         }
-        if !self.has_laughed && world.player.end_triggered {
+        if !self.has_laughed && world.player.end_scene_active {
             Sound::play(&audio.laugh_sound);
             self.has_laughed = true;
-            self.laugh_time = Some(rl.get_time());
         }
         if world.player.is_dying && !self.has_played_die_sound {
             Sound::play(&audio.die_sound);
@@ -149,9 +148,13 @@ impl GameState {
         self.was_grounded = world.player.grounded;
     }
 
-    fn update_ending(&mut self, current_time: f64) {
-        if let Some(laugh_time) = self.laugh_time {
-            if current_time - laugh_time >= 6.0 {
+    fn update_ending(&mut self, current_time: f64, world: &World) {
+        if world.player.end_triggered && self.end_time.is_none() {
+            self.end_time = Some(current_time);
+        }
+
+        if let Some(end_time) = self.end_time {
+            if current_time - end_time >= 6.0 {
                 self.show_ending = true;
             }
         }
@@ -278,7 +281,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         let time = rl.get_time();
 
         // Update ending state
-        game_state.update_ending(time);
+        game_state.update_ending(time, &world);
 
         // Start dialogue when ending begins
         if game_state.should_start_dialogue() {
@@ -290,6 +293,19 @@ fn main() -> Result<(), Box<dyn Error>> {
             match sound_name.as_str() {
                 "laugh" => Sound::play(&audio.laugh_sound),
                 "drip" | _ => {} // Add drip sound if you have it
+            }
+        }
+
+        // Handle dialogue choice
+        if let Some(choice) = dialogue.handle_choice(&rl) {
+            if choice {
+                // Live - respawn player
+                world.player.respawn();
+                game_state = GameState::new();
+                dialogue = DialogueSystem::new(&mut rl, &thread)?;
+            } else {
+                // Die - close program
+                break;
             }
         }
 
@@ -332,7 +348,17 @@ fn main() -> Result<(), Box<dyn Error>> {
             }
         }
 
-        world.player.collision_box.height = world.player.age.collision_box_height();
+        // Prepare render target before drawing
+        render_target.check_resize(&mut rl, &thread)?;
+
+        if game_state.should_show_ending() {
+            // Draw ending scene with dialogue at base resolution
+            {
+                let mut texture_mode = rl.begin_texture_mode(&thread, render_target.get_mut());
+                texture_mode.clear_background(Color::BLACK);
+                dialogue.draw(&mut texture_mode, BASE_WIDTH, BASE_HEIGHT);
+            }
+        }
 
         // Render to screen
         {
@@ -340,8 +366,29 @@ fn main() -> Result<(), Box<dyn Error>> {
             d.clear_background(Color::BLACK);
 
             if game_state.should_show_ending() {
-                // Draw ending scene with dialogue
-                dialogue.draw(&mut d, screen_width as i32, screen_height as i32);
+                let scale = calculate_scale(screen_width, screen_height);
+                let (scaled_width, scaled_height) = calculate_scaled_dimensions(scale);
+                let (offset_x, offset_y) =
+                    calculate_offsets(screen_width, screen_height, scaled_width, scaled_height);
+
+                d.draw_texture_pro(
+                    render_target.get_mut().texture(),
+                    Rectangle {
+                        x: 0.0,
+                        y: 0.0,
+                        width: BASE_WIDTH as f32,
+                        height: -BASE_HEIGHT as f32,
+                    },
+                    Rectangle {
+                        x: offset_x,
+                        y: offset_y,
+                        width: scaled_width,
+                        height: scaled_height,
+                    },
+                    Vector2::zero(),
+                    0.0,
+                    Color::WHITE,
+                );
             } else {
                 // Normal game rendering
                 let scale = calculate_scale(screen_width, screen_height);
