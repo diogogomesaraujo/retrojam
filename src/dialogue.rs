@@ -160,7 +160,7 @@ impl DialogueSystem {
                 sound_effect: None,
             },
             DialogueLine {
-                speaker: "".to_string(),
+                speaker: "Devil".to_string(),
                 text: "What will it be, old friend?".to_string(),
                 wait_after: 8.0,
                 sound_effect: None,
@@ -234,7 +234,7 @@ impl DialogueSystem {
             let padding_y = screen_height as f32 * 0.05;
             let line_spacing = font_size * 0.25;
 
-            let red_color = Color::new(251, 73, 52, 255);
+            let red_color = Color::new(235, 219, 178, 255);
 
             let choice_text = "[L] to live    [D] to die";
             let total_text_height = font_size;

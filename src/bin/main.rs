@@ -271,7 +271,6 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let mut step_counter = 0;
 
-    // Add dialogue system after other initializations
     let mut dialogue = DialogueSystem::new(&mut rl, &thread)?;
 
     while !rl.window_should_close() {
@@ -292,7 +291,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         if let Some(sound_name) = dialogue.update(time) {
             match sound_name.as_str() {
                 "laugh" => Sound::play(&audio.laugh_sound),
-                "drip" | _ => {} // Add drip sound if you have it
+                "drip" | _ => {}
             }
         }
 
@@ -301,7 +300,13 @@ fn main() -> Result<(), Box<dyn Error>> {
             if choice {
                 // Live - respawn player
                 world.player.respawn();
+
+                // ✅ Preserve has_laughed flag to prevent replay
+                let laughed = game_state.has_laughed;
+
                 game_state = GameState::new();
+                game_state.has_laughed = laughed;
+
                 dialogue = DialogueSystem::new(&mut rl, &thread)?;
             } else {
                 // Die - close program
@@ -330,10 +335,8 @@ fn main() -> Result<(), Box<dyn Error>> {
         let screen_width = rl.get_screen_width() as f32;
         let screen_height = rl.get_screen_height() as f32;
 
-        // Calculate fade_alpha before any drawing
         let fade_alpha = calculate_fade_alpha(&world, &rl);
 
-        // Prepare render target before drawing (if not showing ending)
         if !game_state.should_show_ending() {
             render_target.check_resize(&mut rl, &thread)?;
             {
@@ -348,19 +351,14 @@ fn main() -> Result<(), Box<dyn Error>> {
             }
         }
 
-        // Prepare render target before drawing
         render_target.check_resize(&mut rl, &thread)?;
 
         if game_state.should_show_ending() {
-            // Draw ending scene with dialogue at base resolution
-            {
-                let mut texture_mode = rl.begin_texture_mode(&thread, render_target.get_mut());
-                texture_mode.clear_background(Color::BLACK);
-                dialogue.draw(&mut texture_mode, BASE_WIDTH, BASE_HEIGHT);
-            }
+            let mut texture_mode = rl.begin_texture_mode(&thread, render_target.get_mut());
+            texture_mode.clear_background(Color::BLACK);
+            dialogue.draw(&mut texture_mode, BASE_WIDTH, BASE_HEIGHT);
         }
 
-        // Render to screen
         {
             let mut d = rl.begin_drawing(&thread);
             d.clear_background(Color::BLACK);
@@ -390,22 +388,19 @@ fn main() -> Result<(), Box<dyn Error>> {
                     Color::WHITE,
                 );
             } else {
-                // Normal game rendering
                 let scale = calculate_scale(screen_width, screen_height);
                 let (scaled_width, scaled_height) = calculate_scaled_dimensions(scale);
                 let (offset_x, offset_y) =
                     calculate_offsets(screen_width, screen_height, scaled_width, scaled_height);
 
-                {
-                    render_target.draw_to_screen(
-                        &mut d,
-                        shader_system.get_shader_mut(),
-                        offset_x,
-                        offset_y,
-                        scaled_width,
-                        scaled_height,
-                    );
-                }
+                render_target.draw_to_screen(
+                    &mut d,
+                    shader_system.get_shader_mut(),
+                    offset_x,
+                    offset_y,
+                    scaled_width,
+                    scaled_height,
+                );
 
                 if fade_alpha > 0 {
                     d.draw_rectangle(
