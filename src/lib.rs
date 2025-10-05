@@ -10,6 +10,8 @@ pub use player::Player;
 
 pub mod shaders;
 
+pub mod dust;
+
 use crate::player::Age;
 
 pub const BG_COLOR: Color = Color {
@@ -40,6 +42,7 @@ pub const PLAYER_SPRITE_PATH: &str = "src/assets/player.png";
 pub const TILESET_PATH: &str = "src/assets/tileset.png";
 pub const DEVIL_PATH: &str = "src/assets/devil.png";
 pub const BG_PATH: &str = "src/assets/background.png";
+pub const PARTICLE_PATH: &str = "src/assets/particle.png";
 
 pub const PLAYER_SPRITE_WALK_INIT: u32 = 1;
 pub const PLAYER_SPRITE_WALK_END: u32 = 5;
@@ -68,6 +71,9 @@ pub const TEENAGER_TIME_TO_CHANGE: f64 = 15. * 1.;
 pub const ADULT_TIME_TO_CHANGE: f64 = 20. * 1.;
 pub const ELDER_TIME_TO_CHANGE: f64 = 25. * 1.;
 pub const DEATH_ANIMATION_DURATION: f64 = 3.0;
+
+pub const NUMBER_OF_PARTICLES: u32 = 400;
+pub const PARTICLE_VELOCITY: f32 = 0.2f32;
 
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash, Debug)]
 pub enum BlockType {

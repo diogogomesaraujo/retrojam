@@ -48,6 +48,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mut was_grounded = true;
     let mut step_counter = 0;
 
+    world.dust.spawn(&mut rl, &world.camera);
+
     while !rl.window_should_close() {
         // === AUDIO UPDATE ===
         Music::update_stream(&music);
@@ -88,6 +90,8 @@ fn main() -> Result<(), Box<dyn Error>> {
         } else {
             0
         };
+
+        world.dust.update(&mut rl);
 
         {
             let mut texture_mode = rl.begin_texture_mode(&thread, &mut render_target);

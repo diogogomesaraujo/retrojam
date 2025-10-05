@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{dust::Dust, *};
 use raylib::prelude::*;
 use std::error::Error;
 
@@ -8,6 +8,7 @@ pub struct World {
     pub camera: Camera2D,
     pub tileset_texture: Texture2D,
     pub devil_texture: Texture2D,
+    pub dust: Dust,
 }
 
 impl World {
@@ -49,6 +50,7 @@ impl World {
             },
             tileset_texture: game_handle.load_texture(&game_thread, TILESET_PATH)?,
             devil_texture: game_handle.load_texture(&game_thread, DEVIL_PATH)?,
+            dust: Dust::new(game_handle, &game_thread)?,
         })
     }
 
@@ -103,6 +105,7 @@ impl World {
         }
 
         self.player.draw(&mut d);
+        self.dust.draw(&mut d);
     }
 
     pub fn update_cam(&mut self) {
