@@ -128,7 +128,7 @@ impl GameState {
         if footstep {
             Sound::play(&audio.walk_sound);
         }
-        if !self.has_laughed && world.player.is_end_triggered() {
+        if !self.has_laughed && world.player.end_triggered {
             Sound::play(&audio.laugh_sound);
             self.has_laughed = true;
         }
@@ -246,7 +246,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
         let delta_time = rl.get_frame_time();
 
-        let footstep = world.player.update(&mut rl, &world.map);
+        let footstep = world.player.after_move(&mut rl, &mut world.map);
         if footstep {
             step_counter += 1;
         }

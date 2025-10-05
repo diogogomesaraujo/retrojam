@@ -144,7 +144,7 @@ impl World {
     }
 
     fn update_camera_offset(&mut self) {
-        self.target_camera_offset_y = if self.player.is_end_triggered() {
+        self.target_camera_offset_y = if self.player.end_triggered {
             END_SCENE_CAMERA_OFFSET_Y
         } else {
             0.0
