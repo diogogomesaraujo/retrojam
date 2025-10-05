@@ -306,8 +306,6 @@ fn main() -> Result<(), Box<dyn Error>> {
             }
         }
 
-        world.player.collision_box.height = world.player.age.collision_box_height();
-
         // Render to screen
         {
             let mut d = rl.begin_drawing(&thread);

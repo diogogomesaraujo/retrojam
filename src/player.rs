@@ -223,6 +223,8 @@ impl Player {
             ),
         };
 
+        d.draw_rectangle_rec(self.collision_box, Color::PURPLE);
+
         d.draw_texture_pro(
             &self.sprite,
             Rectangle {
