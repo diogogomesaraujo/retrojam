@@ -135,9 +135,13 @@ impl World {
         }
 
         let diff = self.target_camera_offset_y - self.camera_offset_y;
+
+        // Use a smootherstep curve for natural motion without slowdown lag
         if diff.abs() > 0.05 {
-            let easing = 1.0 - (-diff.abs() * 0.03).exp();
-            self.camera_offset_y += diff * END_SCENE_CAMERA_TRANSITION_SPEED * easing;
+            let t = (diff.abs() / END_SCENE_CAMERA_OFFSET_Y.abs()).clamp(0.0, 1.0);
+            let smoothstep = t * t * (3.0 - 2.0 * t); // smoother ease without exponential decay
+            self.camera_offset_y +=
+                diff * (END_SCENE_CAMERA_TRANSITION_SPEED * 2.0 + smoothstep * 0.05);
         } else {
             self.camera_offset_y = self.target_camera_offset_y;
         }
