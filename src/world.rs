@@ -9,6 +9,8 @@ pub struct World {
     pub tileset_texture: Texture2D,
     pub devil_texture: Texture2D,
     pub dust: Dust,
+    pub camera_offset_y: f32,
+    pub target_camera_offset_y: f32,
 }
 
 impl World {
@@ -19,7 +21,6 @@ impl World {
         let map = load_map();
         let mut spawn_x = BASE_WIDTH as f32 / 2.0;
         let mut spawn_y = BASE_HEIGHT as f32 / 2.0;
-
         for ((x, y), b) in &map {
             match b {
                 BlockType::Start => {
@@ -30,9 +31,7 @@ impl World {
                 _ => continue,
             }
         }
-
         let player = Player::new(game_handle, game_thread, spawn_x, spawn_y)?;
-
         Ok(Self {
             map,
             player,
@@ -51,24 +50,23 @@ impl World {
             tileset_texture: game_handle.load_texture(&game_thread, TILESET_PATH)?,
             devil_texture: game_handle.load_texture(&game_thread, DEVIL_PATH)?,
             dust: Dust::new(game_handle, &game_thread)?,
+            camera_offset_y: 0.0,
+            target_camera_offset_y: 0.0,
         })
     }
 
     pub fn draw<D: RaylibDraw>(&mut self, d: &mut D) {
         let mut d = d.begin_mode2D(self.camera);
         d.clear_background(BG_COLOR);
-
         for ((x, y), b) in &self.map {
             let nx = (*x as i32) * BLOCK_SIZE;
             let ny = (*y as i32) * BLOCK_SIZE;
-
             if matches!(
                 b,
                 BlockType::Start | BlockType::Blank | BlockType::StopAging
             ) {
                 continue;
             }
-
             if matches!(b, BlockType::End) {
                 d.draw_texture_rec(
                     &self.devil_texture,
@@ -86,7 +84,6 @@ impl World {
                 );
                 continue;
             }
-
             let (sprite_x, sprite_y) = b.to_sprite_position();
             d.draw_texture_rec(
                 &self.tileset_texture,
@@ -103,12 +100,22 @@ impl World {
                 Color::WHITE,
             );
         }
-
         self.player.draw(&mut d);
         self.dust.draw(&mut d);
     }
 
     pub fn update_cam(&mut self) {
+        if self.player.end_scene_active {
+            self.target_camera_offset_y = END_SCENE_CAMERA_OFFSET_Y;
+        }
+
+        let diff = self.target_camera_offset_y - self.camera_offset_y;
+        if diff.abs() > 0.1 {
+            self.camera_offset_y += diff * END_SCENE_CAMERA_TRANSITION_SPEED;
+        } else {
+            self.camera_offset_y = self.target_camera_offset_y;
+        }
+
         self.camera.target = Vector2 {
             x: smoothing(
                 self.camera.target.x,
@@ -117,7 +124,7 @@ impl World {
             ),
             y: smoothing(
                 self.camera.target.y,
-                self.player.body.y + SPRITE_SIZE,
+                self.player.body.y + SPRITE_SIZE + self.camera_offset_y,
                 CAMERA_SPEED,
             ),
         };

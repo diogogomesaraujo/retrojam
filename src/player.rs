@@ -9,6 +9,7 @@ pub struct AgeAttributes {
     pub jump_cooldown: f32,
 }
 
+#[derive(Debug)]
 pub enum Age {
     Baby,
     Child,
@@ -133,6 +134,8 @@ pub struct Player {
     pub is_dying: bool,
     pub death_start_time: f64,
     pub spawn_position: (f32, f32),
+    pub can_age: bool,
+    pub end_scene_active: bool,
 }
 
 impl Player {
@@ -168,6 +171,8 @@ impl Player {
             is_dying: false,
             death_start_time: 0.0,
             spawn_position: (x, y),
+            can_age: true,
+            end_scene_active: false,
         })
     }
 
@@ -185,7 +190,7 @@ impl Player {
         if self.is_dying {
             return;
         }
-        let transition_speed = 2.0;
+        let transition_speed = if self.end_scene_active { 0.5 } else { 2.0 };
         let diff = self.target_sight - self.current_sight;
         if diff.abs() > 0.01 {
             self.current_sight += diff * transition_speed * delta_time;
@@ -266,6 +271,16 @@ impl Player {
         self.target_sight = Age::Baby.attributes().sight;
     }
 
+    pub fn stop_aging(&mut self) {
+        if self.can_age {
+            self.can_age = false;
+            self.end_scene_active = true;
+            self.target_sight = END_SCENE_SIGHT_MULTIPLIER;
+            println!("=== AGING STOPPED ===");
+            println!("Current age: {:?}", self.age);
+        }
+    }
+
     pub fn after_move(&mut self, game_handle: &mut RaylibHandle, map: &mut WorldMap) -> bool {
         if self.is_dying {
             let elapsed = game_handle.get_time() - self.death_start_time;
@@ -277,7 +292,12 @@ impl Player {
 
         let mut frame_advanced = false;
         let mut moved = false;
-        self.increment_age(game_handle);
+
+        // Only increment age if can_age is true
+        if self.can_age {
+            self.increment_age(game_handle);
+        }
+
         let attrs = self.age.attributes();
 
         let speed_multiplier = attrs.speed;
@@ -344,6 +364,9 @@ impl Player {
             self.grounded = false;
         }
 
+        // Check if player is touching a StopAging block
+        self.check_stop_aging(map);
+
         if moved {
             match self.state {
                 PlayerState::Idle => {
@@ -364,9 +387,30 @@ impl Player {
         frame_advanced && self.grounded && moved
     }
 
+    fn check_stop_aging(&mut self, map: &WorldMap) {
+        for ((x, y), b) in map {
+            if *b == BlockType::StopAging {
+                let nx = (*x as f32) * BLOCK_SIZE as f32;
+                let ny = (*y as f32) * BLOCK_SIZE as f32;
+
+                let block_rect = Rectangle {
+                    x: nx,
+                    y: ny,
+                    width: BLOCK_SIZE as f32,
+                    height: BLOCK_SIZE as f32,
+                };
+
+                if block_rect.check_collision_recs(&self.collision_box) {
+                    self.stop_aging();
+                    return;
+                }
+            }
+        }
+    }
+
     pub fn collides(&self, map: &WorldMap) -> Option<Rectangle> {
         for ((x, y), b) in map {
-            if *b != BlockType::Blank && *b != BlockType::Start {
+            if *b != BlockType::Blank && *b != BlockType::Start && *b != BlockType::StopAging {
                 let nx = (*x as f32) * BLOCK_SIZE as f32;
                 let ny = (*y as f32) * BLOCK_SIZE as f32;
 

@@ -85,6 +85,20 @@ fn main() {
             }
         }
 
+        if rl.is_key_pressed(KeyboardKey::KEY_B) {
+            if grid_x < GRID_WIDTH && grid_y < GRID_HEIGHT {
+                let pos = (grid_x, grid_y);
+                map.insert(pos, BlockType::StoneSlabUp);
+            }
+        }
+
+        if rl.is_key_pressed(KeyboardKey::KEY_O) {
+            if grid_x < GRID_WIDTH && grid_y < GRID_HEIGHT {
+                let pos = (grid_x, grid_y);
+                map.insert(pos, BlockType::Blank);
+            }
+        }
+
         if rl.is_key_pressed(KeyboardKey::KEY_S) {
             save_map(&map);
         }
@@ -115,15 +129,25 @@ fn main() {
                             BLOCK_SIZE as f32,
                         );
 
+                        // Determine tint color based on block type
+                        let tint_color = match block_type {
+                            BlockType::Start => Color::new(100, 255, 100, 255), // Bright green
+                            BlockType::End => Color::new(255, 100, 100, 255),   // Bright red
+                            BlockType::StopAging => Color::new(100, 100, 255, 255), // Bright blue
+                            BlockType::Slab => Color::new(255, 255, 100, 255),  // Yellow
+                            _ => Color::WHITE, // Normal rendering for other blocks
+                        };
+
                         d.draw_texture_pro(
                             &tileset,
                             source,
                             dest,
                             Vector2::zero(),
                             0.0,
-                            Color::WHITE,
+                            tint_color,
                         );
 
+                        // Additional highlight for Start block
                         if *block_type == BlockType::Start {
                             d.draw_rectangle_lines(
                                 pos_x,
@@ -157,7 +181,7 @@ fn main() {
 
         d.draw_text(
             &format!(
-                "Left Click: toggle brush ({}x{}) | P: pencil (1x1) | E: eraser (1x1) | X: set start position | Z: set devil postion | T: stop aging zone | S: to save | ESC: to leave",
+                "Left Click: toggle brush ({}x{}) | P: pencil (1x1) | E: eraser (1x1) | O: single blank | B: single stone | X: set start position | Z: set devil postion | T: stop aging zone | S: to save | ESC: to leave",
                 DEL_SIZE, DEL_SIZE
             ),
             10,
