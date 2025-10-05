@@ -36,7 +36,7 @@ impl DialogueSystem {
                 sound_effect: None,
             },
             DialogueLine {
-                speaker: "???".to_string(),
+                speaker: "Devil".to_string(),
                 text: "Tell me - don't you ever tire of this?".to_string(),
                 wait_after: 2.5,
                 sound_effect: None,

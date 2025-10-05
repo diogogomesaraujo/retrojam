@@ -78,10 +78,14 @@ fn main() -> Result<(), Box<dyn Error>> {
             Sound::play(&fall_sound);
         }
 
-        if !has_laughed && world.player.end_scene_active {
+        if !has_laughed && world.player.end_triggered {
             Sound::play(&laugh_sound);
             has_laughed = true;
             dialogue.start();
+        }
+
+        if world.end_triggered_world {
+            has_laughed = true;
         }
 
         was_grounded = world.player.grounded;
