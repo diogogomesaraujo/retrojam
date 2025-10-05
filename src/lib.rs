@@ -49,11 +49,14 @@ pub const PLAYER_SPRITE_WALK_END: u32 = 5;
 pub const PLAYER_SPRITE_SPEED: f64 = 0.15;
 
 pub const SPRITE_SIZE: f32 = 8.;
-pub const DEVIL_HEIGHT: f32 = SPRITE_SIZE as f32 * 3.;
+pub const DEVIL_HEIGHT: f32 = SPRITE_SIZE * 3.;
 
 pub const CAMERA_ZOOM: f32 = 6.;
 pub const CAMERA_SPEED: f32 = 0.08;
 
+// Collision box constants
+pub const COLLISION_BOX_OFFSET_X: f32 = SPRITE_SIZE / 4.0;
+pub const COLLISION_BOX_OFFSET_Y: f32 = SPRITE_SIZE / 4.0;
 pub const PLAYER_COLLISION_BOX_WIDTH: f32 = SPRITE_SIZE / 2.;
 
 pub const PLAYER_ELDER_COLLISION_BOX_HEIGHT: f32 = SPRITE_SIZE / 4. * 3.;
@@ -69,19 +72,26 @@ pub const IDLE_DYING_TRIGGER_TIME: f64 = 1.0;
 pub const PLAYER_INITIAL_AGE: Age = Age::Baby;
 
 pub const LIFETIME: f64 = ELDER_TIME_TO_CHANGE + 5.;
-pub const BABY_TIME_TO_CHANGE: f64 = 5. * 1.;
-pub const CHILD_TIME_TO_CHANGE: f64 = 10. * 1.;
-pub const TEENAGER_TIME_TO_CHANGE: f64 = 15. * 1.;
-pub const ADULT_TIME_TO_CHANGE: f64 = 20. * 1.;
-pub const ELDER_TIME_TO_CHANGE: f64 = 25. * 1.;
+pub const BABY_TIME_TO_CHANGE: f64 = 5.;
+pub const CHILD_TIME_TO_CHANGE: f64 = 10.;
+pub const TEENAGER_TIME_TO_CHANGE: f64 = 15.;
+pub const ADULT_TIME_TO_CHANGE: f64 = 20.;
+pub const ELDER_TIME_TO_CHANGE: f64 = 25.;
 pub const DEATH_ANIMATION_DURATION: f64 = 3.0;
 
 pub const NUMBER_OF_PARTICLES: u32 = 400;
-pub const PARTICLE_VELOCITY: f32 = 0.2f32;
+pub const PARTICLE_VELOCITY: f32 = 0.2;
 pub const END_SCENE_SIGHT_MULTIPLIER: f32 = 1.5;
-pub const END_SCENE_SIGHT_TRANSITION_SPEED: f32 = 0.5;
+pub const SIGHT_TRANSITION_SPEED_NORMAL: f32 = 2.0;
+pub const SIGHT_TRANSITION_SPEED_END: f32 = 0.5;
 pub const END_SCENE_CAMERA_OFFSET_Y: f32 = -25.0;
 pub const END_SCENE_CAMERA_TRANSITION_SPEED: f32 = 0.02;
+
+// Proximity detection
+pub const END_BLOCK_PROXIMITY_THRESHOLD: f32 = 4.0;
+
+// Death sprite row
+pub const DEATH_SPRITE_ROW: f32 = 5.0;
 
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash, Debug)]
 pub enum BlockType {
@@ -113,6 +123,14 @@ impl BlockType {
             Self::StoneSlabRight => (2., 1.),
             Self::StoneSlabUp | Self::Slab => (1., 2.),
         }
+    }
+
+    pub fn is_collidable(&self) -> bool {
+        !matches!(self, Self::Blank | Self::Start | Self::StopAging)
+    }
+
+    pub fn is_special_zone(&self) -> bool {
+        matches!(self, Self::StopAging | Self::End)
     }
 }
 
