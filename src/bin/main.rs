@@ -301,7 +301,6 @@ fn main() -> Result<(), Box<dyn Error>> {
                 // Live - respawn player
                 world.player.respawn();
 
-                // ✅ Preserve has_laughed flag to prevent replay
                 let laughed = game_state.has_laughed;
 
                 game_state = GameState::new();
