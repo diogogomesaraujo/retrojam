@@ -87,7 +87,7 @@ impl World {
                     Rectangle {
                         x: 0.,
                         y: 0.,
-                        width: SPRITE_SIZE as f32,
+                        width: -SPRITE_SIZE as f32,
                         height: DEVIL_HEIGHT,
                     },
                     Vector2 {
