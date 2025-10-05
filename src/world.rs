@@ -70,7 +70,7 @@ impl World {
             },
             0.0,
             1.,
-            Color::new(255, 255, 255, 50),
+            Color::new(255, 255, 255, 25),
         );
         for ((x, y), b) in &self.map {
             let nx = (*x as i32) * BLOCK_SIZE;
