@@ -56,6 +56,9 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     world.dust.spawn(&mut rl, &world.camera);
 
+    let mut last_rt_width = BASE_WIDTH as u32;
+    let mut last_rt_height = BASE_HEIGHT as u32;
+
     while !rl.window_should_close() {
         // === AUDIO UPDATE ===
         Music::update_stream(&music);
@@ -119,6 +122,16 @@ fn main() -> Result<(), Box<dyn Error>> {
         let time = rl.get_time();
 
         {
+            let current_width = rl.get_screen_width() as u32;
+            let current_height = rl.get_screen_height() as u32;
+
+            if current_width != last_rt_width || current_height != last_rt_height {
+                render_target =
+                    rl.load_render_texture(&thread, BASE_WIDTH as u32, BASE_HEIGHT as u32)?;
+                last_rt_width = current_width;
+                last_rt_height = current_height;
+            }
+
             let mut texture_mode = rl.begin_texture_mode(&thread, &mut render_target);
             texture_mode.clear_background(Color::BLACK);
             world.draw(
