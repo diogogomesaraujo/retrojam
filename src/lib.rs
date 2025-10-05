@@ -284,3 +284,17 @@ pub fn recompute_stone_borders(map: &mut WorldMap) {
 pub fn smoothing(a: f32, b: f32, s: f32) -> f32 {
     a + (b - a) * s
 }
+
+pub fn measure_text_safe(
+    d: &RaylibDrawHandle,
+    text: &str,
+    font_size: f32,
+    spacing: f32,
+) -> Vector2 {
+    let width = d.measure_text(text, font_size as i32) as f32;
+    let height = font_size + spacing;
+    Vector2 {
+        x: width,
+        y: height,
+    }
+}
