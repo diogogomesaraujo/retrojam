@@ -12,6 +12,8 @@ pub struct World {
     pub dust: Dust,
     pub camera_offset_y: f32,
     pub target_camera_offset_y: f32,
+    pub end_scene_start: f64,
+    pub end_triggered_world: bool,
 }
 
 impl World {
@@ -54,10 +56,12 @@ impl World {
             dust: Dust::new(game_handle, &game_thread)?,
             camera_offset_y: 0.0,
             target_camera_offset_y: 0.0,
+            end_scene_start: 0.,
+            end_triggered_world: false,
         })
     }
 
-    pub fn draw<D: RaylibDraw>(&mut self, d: &mut D, width: &i32, height: &i32) {
+    pub fn draw<D: RaylibDraw>(&mut self, d: &mut D, width: &i32, height: &i32, time: &f64) {
         let mut d = d.begin_mode2D(self.camera);
         d.clear_background(BG_COLOR);
         let bg_width = self.bg_texture.width() as f32 / 1.;
@@ -115,6 +119,11 @@ impl World {
             );
         }
         self.player.draw(&mut d);
+        if self.player.end_triggered == true && self.end_triggered_world != true {
+            self.end_triggered_world = true;
+            self.end_scene_start = *time;
+            println!("END SCENE STARTED AT: {}", self.end_scene_start);
+        };
         self.dust.draw(&mut d);
     }
 

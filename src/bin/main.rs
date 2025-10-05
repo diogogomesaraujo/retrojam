@@ -116,6 +116,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
         let screen_width = rl.get_screen_width() as f32;
         let screen_height = rl.get_screen_height() as f32;
+        let time = rl.get_time();
 
         {
             let mut texture_mode = rl.begin_texture_mode(&thread, &mut render_target);
@@ -124,6 +125,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                 &mut texture_mode,
                 &(screen_width as i32),
                 &(screen_height as i32),
+                &time,
             );
         }
 
