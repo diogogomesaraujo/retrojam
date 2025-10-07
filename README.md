@@ -10,6 +10,8 @@ A game developed for IEEE RetroJam 2025 using Raylib and Rust about Rebirth.
  <img src="./src/assets/demo.gif" alt="Demo">
 </div>
 
+## About
+
 Sisyphus is a game developed for **IEEE RetroJam 2025** with the theme "Rebirth", achieving **2nd place overall**. The game traps players in a haunting cycle of their own creation, telling the tale of a man consumed by his terror of mortality. In his desperation, he makes a fateful pact with the Devil, trading his soul for eternal life—only to discover that immortality comes with a price far darker than death itself.
 
 However, the Devil, with his wicked sense of irony, granted the wish by condemning the man to an infinite loop—a seemingly endless, monotonous repetition of his last days. There is no death, but also no progress, no change, and no end.
