@@ -23,6 +23,15 @@ The objective is simple, yet monumental: break the cycle. You must navigate this
 
 To run this game you have to build it from source since we do not provide an executable.
 
+**Clone the Repository:**
+   ```bash
+   # Clone the project
+   git clone https://github.com/diogogomesaraujo/sisyphus-retrojam-2025.git
+
+   # Go to the directory of the project
+   cd sisyphus-retrojam-2025
+   ```
+
 **Run the program**:
    ```bash
    # Run the map builder
