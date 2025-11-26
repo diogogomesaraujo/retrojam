@@ -73,7 +73,7 @@ pub const IDLE_DYING_TRIGGER_TIME: f64 = 1.0;
 
 pub const PLAYER_INITIAL_AGE: Age = Age::Baby;
 
-pub const LIFETIME: f64 = ELDER_TIME_TO_CHANGE + 5.;
+pub const LIFETIME: f64 = ELDER_TIME_TO_CHANGE + 6.;
 pub const BABY_TIME_TO_CHANGE: f64 = 5.;
 pub const CHILD_TIME_TO_CHANGE: f64 = 10.;
 pub const TEENAGER_TIME_TO_CHANGE: f64 = 15.;
